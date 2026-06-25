@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hire Finance & Accounting Contractors Atlanta | Blinded Temp Profiles | Staff Financial Group</title>
+  <meta name="description" content="Browse blinded finance & accounting contractor profiles available in Atlanta. Search CFO, Controller, CPA & Accountant temp talent. Submit a request and our EOR handles payroll, taxes & compliance.">
+  <link rel="canonical" href="https://www.stafffinancial.com/temps.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Staff Financial Group">
+  <meta property="og:title" content="Hire Finance & Accounting Contractors | Blinded Temp Profiles | Staff Financial Group">
+  <meta property="og:description" content="Browse blinded finance & accounting contractor profiles in Atlanta. CFO, Controller, CPA & Accountant temp talent. EOR handles payroll & compliance.">
+  <meta property="og:url" content="https://www.stafffinancial.com/temps.html">
+  <meta property="og:image" content="https://www.stafffinancial.com/img/logo-badge.png">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hire Finance & Accounting Contractors Atlanta | Staff Financial Group">
+  <meta name="twitter:description" content="Browse blinded contractor profiles for CFO, Controller, CPA, Accountant & more. EOR back-office included. Staff Financial Group, Atlanta.">
+  <meta name="twitter:image" content="https://www.stafffinancial.com/img/logo-badge.png">
+  <meta name="theme-color" content="#0c1f47">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.stafffinancial.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Find Talent", "item": "https://www.stafffinancial.com/temps.html" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Contract and Temporary Finance Staffing",
+        "provider": { "@type": "Organization", "@id": "https://www.stafffinancial.com/#organization" },
+        "name": "Contract & Temp Finance Staffing with EOR Back-Office",
+        "description": "Browse available finance and accounting contractors in Atlanta through Staff Financial Group. All profiles are blinded. We act as Employer of Record — handling payroll, taxes, workers compensation, and W-2 compliance. Roles include Interim CFO, Interim Controller, Contract Accountant, temp-to-hire Financial Analyst, ERP implementation support, and month-end close support.",
+        "areaServed": { "@type": "State", "name": "Georgia" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ── Talent search page extras ─── */
+    .search-bar-wrap {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 28px;
+    }
+    .search-field { display: flex; flex-direction: column; gap: 5px; flex: 1 1 200px; }
+    .search-field label { font-size: .75rem; font-weight: 700; color: var(--text-muted); letter-spacing: .06em; text-transform: uppercase; }
+    .search-field input, .search-field select {
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: .93rem;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-field input:focus, .search-field select:focus { border-color: var(--gold); }
+
+    /* Candidate cards grid */
+    .cand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .cand-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: all .22s;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cand-card:hover { border-color: var(--gold); box-shadow: var(--shadow); transform: translateY(-2px); }
+
+    .cand-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .cand-avatar {
+      width: 44px; height: 44px; min-width: 44px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .cand-badges { display: flex; flex-wrap: wrap; gap: 5px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 3px 9px; border-radius: 12px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .03em;
+    }
+    .badge-video { background: rgba(200,162,67,.12); color: var(--gold-dark); border: 1px solid rgba(200,162,67,.3); }
+    .badge-temp  { background: rgba(12,31,71,.08); color: var(--navy-mid); border: 1px solid rgba(12,31,71,.15); }
+    .badge-new   { background: rgba(34,197,94,.1); color: #166534; border: 1px solid rgba(34,197,94,.25); }
+
+    .cand-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .cand-meta { font-size: .82rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 10px; }
+    .cand-meta span { display: flex; align-items: center; gap: 4px; }
+
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-chip {
+      background: var(--light);
+      border: 1px solid var(--border);
+      color: var(--navy-mid);
+      font-size: .75rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .cand-footer { display: flex; gap: 8px; margin-top: auto; padding-top: 4px; }
+    .cand-footer .btn { flex: 1; justify-content: center; font-size: .82rem; padding: 9px 12px; }
+
+    /* Loading / empty states */
+    .state-box {
+      text-align: center;
+      padding: 56px 24px;
+      color: var(--text-muted);
+    }
+    .state-box .state-icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .state-box p { font-size: .95rem; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Pagination */
+    .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 32px; flex-wrap: wrap; }
+    .page-btn {
+      padding: 7px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--text-muted);
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .18s;
+    }
+    .page-btn:hover, .page-btn.active { border-color: var(--gold); color: var(--gold-dark); background: rgba(200,162,67,.06); }
+    .page-btn:disabled { opacity: .35; pointer-events: none; }
+
+    /* Request modal */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(12,31,71,.55);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 18px;
+      background: none; border: none; cursor: pointer;
+      font-size: 1.3rem; color: var(--text-muted);
+      transition: color .2s;
+    }
+    .modal-close:hover { color: var(--navy); }
+    .modal-candidate-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .modal-sub { font-size: .85rem; color: var(--text-muted); margin-bottom: 24px; }
+
+    /* Tab strip */
+    .tab-strip {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .tab-btn {
+      padding: 12px 22px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all .2s;
+    }
+    .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Count badge */
+    .result-count {
+      font-size: .82rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .result-count strong { color: var(--navy); }
+
+    /* EOR card */
+    .eor-card {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      color: rgba(255,255,255,.8);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 64px;
+    }
+    .eor-card h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 14px; }
+    .eor-card p { line-height: 1.75; margin-bottom: 24px; }
+    .eor-features { display: flex; flex-direction: column; gap: 14px; }
+    .eor-feature { display: flex; gap: 14px; align-items: flex-start; }
+    .eor-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+    .eor-feature h4 { color: var(--white); font-size: .95rem; margin-bottom: 3px; }
+    .eor-feature p { font-size: .85rem; margin: 0; color: rgba(255,255,255,.65); }
+
+    @media (max-width: 700px) {
+      .eor-card { grid-template-columns: 1fr; padding: 28px 20px; }
+      .search-bar-wrap { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="img/logo-badge.png" alt="" class="nav-logo-badge" onerror="this.style.display='none'">
+      <div class="nav-logo-text">
+        <span class="nav-logo-main">Staff Financial Group</span>
+        <span class="nav-logo-sub">Finance &amp; Accounting Recruiters</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="services.html" >Services</a></li>
+      <li class="has-mega"><a href="services.html">Recruiting Areas <span class="chevron">▾</span></a>
+        <div class="mega-menu">
+          <div class="mega-sidebar">
+            <button class="mega-tab-btn active" onclick="switchMegaTab('direct',this)">Direct Hire</button>
+            <button class="mega-tab-btn" onclick="switchMegaTab('staffing',this)">Staffing &amp; Contract</button>
+          </div>
+          <div class="mega-panel active" id="mega-direct">
+            <a href="services.html">Controller &amp; Accounting Manager</a><a href="services.html">CFO &amp; VP Finance</a>
+            <a href="services.html">Senior &amp; Staff Accountant</a><a href="services.html">Financial Analyst &amp; FP&amp;A</a>
+            <a href="services.html">Tax Manager &amp; Tax Analyst</a><a href="services.html">Internal Audit &amp; Compliance</a>
+            <a href="services.html">Cost Accountant</a><a href="services.html">Treasury &amp; Cash Management</a>
+            <a href="services.html">Accounts Payable &amp; Receivable</a><a href="services.html">Payroll Manager</a>
+            <a class="mega-all" href="services.html">All Direct Hire Specialties →</a>
+          </div>
+          <div class="mega-panel" id="mega-staffing">
+            <a href="temps.html">Interim Controller</a><a href="temps.html">Interim CFO</a>
+            <a href="temps.html">Contract Accountant</a><a href="temps.html">Temp-to-Hire Analyst</a>
+            <a href="temps.html">ERP Implementation Support</a><a href="temps.html">Month-End Close Support</a>
+            <a href="temps.html">Audit Preparation</a><a href="temps.html">Employer of Record (EOR)</a>
+            <a class="mega-all" href="temps.html">Browse Available Temps →</a>
+          </div>
+          <div class="mega-featured">
+            <div class="mega-featured-placeholder">💼</div>
+            <h4>EOR Back-Office for Temp &amp; Contract Workers</h4>
+            <a href="temps.html" class="learn">Learn More →</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="temps.html" class="active">Find Talent</a></li>
+      <li><a href="about.html" >About</a></li>
+    </ul>
+    <div class="nav-ctas">
+      <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-outline-dark">Job Board</a>
+      <a href="opt-in.html" class="btn btn-primary">Hire Top Talent</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>10),{passive:true});
+document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('open');});
+function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.mega-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('mega-'+t).classList.add('active');}
+</script>
+
+<!-- ── Page Hero ──────────────────────────────── -->
+<section class="page-hero" style="padding-bottom:80px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span>Find Talent</div>
+    <h1>Available Finance &amp; Accounting Talent</h1>
+    <p>Real-time, blinded profiles from our active candidate pool. Search by title, skills, or location — then request a resume or a temp in one click.</p>
+  </div>
+</section>
+
+<!-- ── Main content ───────────────────────────── -->
+<section class="section" style="padding-top:40px;">
+  <div class="container">
+
+    <!-- Tab strip -->
+    <div class="tab-strip">
+      <button class="tab-btn active" onclick="switchTab('hotlist', this)">🔥 Available for Temp / Contract <span id="hotlist-count" style="color:var(--gold);margin-left:6px;"></span></button>
+      <button class="tab-btn" onclick="switchTab('search', this)">🔍 Search All Candidates</button>
+    </div>
+
+    <!-- ── Temp Hotlist Tab ─────────────────────── -->
+    <div id="tab-hotlist" class="tab-panel active">
+      <p style="color:var(--text-muted);margin-bottom:24px;font-size:.93rem;">These professionals have flagged themselves as actively available for temp or contract assignments. All profiles are blinded — no names or contact details are shown. Click <strong>Request</strong> to connect through our team.</p>
+
+      <!-- Hotlist search bar -->
+      <div class="search-bar-wrap">
+        <div class="search-field">
+          <label>Search by title or skill</label>
+          <input type="text" id="hl-q" placeholder="e.g. Controller, FP&A, QuickBooks…" oninput="filterHotlist()">
+        </div>
+        <div class="search-field" style="flex:0 1 180px;">
+          <label>Location</label>
+          <input type="text" id="hl-loc" placeholder="e.g. Atlanta, TX…" oninput="filterHotlist()">
+        </div>
+        <div class="search-field" style="flex:0 1 160px;">
+          <label>Has video résumé</label>
+          <select id="hl-video" onchange="filterHotlist()">
+            <option value="">Any</option>
+            <option value="yes">Yes</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="hl-count" class="result-count"></div>
+      <div id="hotlist-grid" class="cand-grid">
+        <div class="state-box" style="grid-column:1/-1;">
+          <div class="spinner"></div>
+          <p>Loading available candidates…</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Search All Tab ─────────────────────── -->
+    <div id="tab-search" class="tab-panel">
+      <p style="color:var(--text-muted);margin-bottom:24px;font-size:.93rem;">Search our full database of finance and accounting professionals. All profiles are blinded. Request a résumé and our team will reach out within one business day.</p>
+
+      <!-- Search bar -->
+      <div class="search-bar-wrap">
+        <div class="search-field">
+          <label>Job title or skills</label>
+          <input type="text" id="db-q" placeholder="e.g. Senior Accountant, Tax Manager…" onkeydown="if(event.key==='Enter')runSearch()">
+        </div>
+        <div class="search-field" style="flex:0 1 180px;">
+          <label>Location</label>
+          <input type="text" id="db-loc" placeholder="e.g. Atlanta, GA…" onkeydown="if(event.key==='Enter')runSearch()">
+        </div>
+        <div class="search-field" style="flex:0 0 auto;">
+          <label style="visibility:hidden;">Go</label>
+          <button class="btn btn-gold" onclick="runSearch()">Search</button>
+        </div>
+      </div>
+
+      <div id="db-count" class="result-count"></div>
+      <div id="search-grid" class="cand-grid">
+        <div class="state-box" style="grid-column:1/-1;">
+          <div class="state-icon">🔍</div>
+          <p>Enter a title or skill above to search our candidate database.</p>
+        </div>
+      </div>
+      <div id="search-pagination" class="pagination"></div>
+    </div>
+
+    <!-- ── EOR / Services band ────────────────── -->
+    <div class="eor-card">
+      <div>
+        <div class="section-label" style="color:var(--gold);">Employer of Record</div>
+        <h2>You Get the Talent.<br>We Handle the Rest.</h2>
+        <p>Staff Financial Group — powered by NorthPoint — acts as the Employer of Record for every temp and contract placement. Your team gets the finance professional they need; we cover payroll, taxes, benefits, and compliance.</p>
+        <a href="opt-in.html" class="btn btn-gold">Request Talent Now</a>
+      </div>
+      <div class="eor-features">
+        <div class="eor-feature">
+          <div class="eor-icon">🧾</div>
+          <div>
+            <h4>We Handle Payroll</h4>
+            <p>We payroll your temps every week. You receive one simple bill rate invoice.</p>
+          </div>
+        </div>
+        <div class="eor-feature">
+          <div class="eor-icon">🛡️</div>
+          <div>
+            <h4>Workers Comp &amp; Insurance</h4>
+            <p>Fully covered under our policy. No exposure on your end.</p>
+          </div>
+        </div>
+        <div class="eor-feature">
+          <div class="eor-icon">📋</div>
+          <div>
+            <h4>Taxes &amp; Compliance</h4>
+            <p>We handle all federal, state, and FICA withholdings — W-2 at year-end.</p>
+          </div>
+        </div>
+        <div class="eor-feature">
+          <div class="eor-icon">🔄</div>
+          <div>
+            <h4>Easy Conversion</h4>
+            <p>Love the candidate? Convert them to full-time with a straightforward conversion agreement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Request Modal ──────────────────────────── -->
+<div class="modal-overlay" id="request-modal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <div id="modal-candidate-info">
+      <div class="modal-candidate-title" id="modal-cand-title"></div>
+      <div class="modal-sub" id="modal-cand-meta"></div>
+    </div>
+    <form id="request-form" novalidate>
+      <input type="hidden" id="req-cid" name="candidate_id">
+      <input type="hidden" id="req-type" name="inquiry_type">
+
+      <div class="form-group">
+        <label for="req-name">Your Name *</label>
+        <input type="text" id="req-name" name="employer_name" class="form-control" placeholder="Jane Smith" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="req-email">Work Email *</label>
+          <input type="email" id="req-email" name="employer_email" class="form-control" placeholder="jane@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="req-company">Company</label>
+          <input type="text" id="req-company" name="employer_company" class="form-control" placeholder="Acme Corp">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="req-notes">Message (optional)</label>
+        <textarea id="req-notes" name="notes" class="form-control" placeholder="Timeline, role details, or any questions…" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;" id="req-submit-btn">Submit Request</button>
+      <div class="alert alert-success" id="req-success" style="display:none;margin-top:12px;">
+        ✓ Request sent! Our team will be in touch within one business day.
+      </div>
+      <div class="alert" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.2);color:#991b1b;display:none;margin-top:12px;" id="req-error"></div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;">
+          <span class="footer-logo-main">Staff Financial Group</span>
+          <span class="footer-logo-sub">Finance &amp; Accounting · Powered by NorthPoint</span>
+        </a>
+        <p>Specialized finance and accounting recruitment across Atlanta and the Southeast. Over 20 years connecting top talent with leading companies — since 2005.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="temps.html">Find Talent</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="opt-in.html">Request Talent</a></li>
+          <li><a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener">Job Board ↗</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:gus@stafffinancial.com">gus@stafffinancial.com</a></li>
+          <li><a href="contact.html">Send a Message</a></li>
+          <li><span style="color:rgba(255,255,255,.45);font-size:.85rem;">Atlanta, GA · Since 2005</span></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Staff Financial Group. Powered by NorthPoint. All rights reserved.</span>
+      <a href="contact.html">Privacy &amp; Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* ── Talent page logic ──────────────────────── */
+const API = 'https://100xrecruiting.com';
+let hotlistData = [];
+let searchPage = 1;
+let searchTotal = 0;
+let searchPages = 1;
+
+/* ─── Tab switching ─────────── */
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
+
+/* ─── Render a single card ──── */
+function renderCard(c, isTemp) {
+  const skills = [...(c.skills || []), ...(c.systems || [])].slice(0, 8);
+  const chips = skills.map(s => `<span class="skill-chip">${escHtml(s)}</span>`).join('');
+  const videoB = c.has_video ? `<span class="badge badge-video">▶ Video résumé</span>` : '';
+  const tempB  = isTemp ? `<span class="badge badge-temp">⚡ Available now</span>` : '';
+  const meta = [c.location && `📍 ${escHtml(c.location)}`, c.years && `${escHtml(c.years)} exp`,
+                c.industry && escHtml(c.industry)].filter(Boolean).map(m => `<span>${m}</span>`).join('');
+  const reqLabel = isTemp ? 'Request This Temp' : 'Request Résumé';
+  const reqType  = isTemp ? 'temp_request' : 'resume_request';
+  const startDate = isTemp && c.start_date ? `<div style="font-size:.78rem;color:var(--gold-dark);font-weight:600;margin-top:2px;">Available: ${escHtml(c.start_date)}</div>` : '';
+  return `
+    <div class="cand-card">
+      <div class="cand-header">
+        <div class="cand-avatar">💼</div>
+        <div class="cand-badges">${videoB}${tempB}</div>
+      </div>
+      <div class="cand-title">${escHtml(c.title || 'Finance Professional')}</div>
+      ${startDate}
+      <div class="cand-meta">${meta}</div>
+      ${chips ? `<div class="skill-chips">${chips}</div>` : ''}
+      <div class="cand-footer">
+        <button class="btn btn-gold" onclick='openModal(${JSON.stringify(c)}, "${reqType}")' style="font-size:.82rem;">${reqLabel}</button>
+      </div>
+    </div>`;
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ─── Load Temp Hotlist ─────── */
+async function loadHotlist() {
+  try {
+    const res = await fetch(`${API}/api/public/temp-hotlist`);
+    const json = await res.json();
+    hotlistData = json.candidates || [];
+    document.getElementById('hotlist-count').textContent = `(${hotlistData.length})`;
+    filterHotlist();
+  } catch (e) {
+    document.getElementById('hotlist-grid').innerHTML =
+      `<div class="state-box" style="grid-column:1/-1;"><div class="state-icon">⚠️</div><p>Could not load the hotlist right now. <a href="contact.html">Contact us directly</a>.</p></div>`;
+  }
+}
+
+function filterHotlist() {
+  const q   = (document.getElementById('hl-q').value || '').toLowerCase().trim();
+  const loc = (document.getElementById('hl-loc').value || '').toLowerCase().trim();
+  const vid = document.getElementById('hl-video').value;
+  let filtered = hotlistData;
+  if (q)   filtered = filtered.filter(c => {
+    const hay = [(c.title||''), ...(c.skills||[]), ...(c.systems||[]), (c.industry||'')].join(' ').toLowerCase();
+    return hay.includes(q);
+  });
+  if (loc) filtered = filtered.filter(c => (c.location||'').toLowerCase().includes(loc));
+  if (vid === 'yes') filtered = filtered.filter(c => c.has_video);
+
+  const grid = document.getElementById('hotlist-grid');
+  const cnt  = document.getElementById('hl-count');
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="state-box" style="grid-column:1/-1;"><div class="state-icon">🔍</div><p>No candidates match your filters. <a href="opt-in.html">Submit a request</a> and we'll do a custom search.</p></div>`;
+    cnt.innerHTML  = '';
+    return;
+  }
+  cnt.innerHTML = `Showing <strong>${filtered.length}</strong> available candidate${filtered.length === 1 ? '' : 's'}`;
+  grid.innerHTML = filtered.map(c => renderCard(c, true)).join('');
+}
+
+/* ─── Candidate DB search ───── */
+let searchDebounce = null;
+async function runSearch(page) {
+  page = page || 1;
+  const q   = (document.getElementById('db-q').value || '').trim();
+  const loc = (document.getElementById('db-loc').value || '').trim();
+  if (!q && !loc) {
+    document.getElementById('search-grid').innerHTML =
+      `<div class="state-box" style="grid-column:1/-1;"><div class="state-icon">🔍</div><p>Enter a title or skill above to search our candidate database.</p></div>`;
+    document.getElementById('db-count').innerHTML = '';
+    document.getElementById('search-pagination').innerHTML = '';
+    return;
+  }
+  document.getElementById('search-grid').innerHTML =
+    `<div class="state-box" style="grid-column:1/-1;"><div class="spinner"></div><p>Searching…</p></div>`;
+  document.getElementById('db-count').innerHTML = '';
+  document.getElementById('search-pagination').innerHTML = '';
+  try {
+    const params = new URLSearchParams({ q, location: loc, page });
+    const res  = await fetch(`${API}/api/public/candidates?${params}`);
+    const json = await res.json();
+    const cands = json.candidates || [];
+    searchPage  = json.page  || 1;
+    searchTotal = json.total || 0;
+    searchPages = json.pages || 1;
+
+    const grid = document.getElementById('search-grid');
+    const cnt  = document.getElementById('db-count');
+    if (!cands.length) {
+      grid.innerHTML = `<div class="state-box" style="grid-column:1/-1;"><div class="state-icon">🔍</div><p>No results for that search. Try broader terms or <a href="opt-in.html">submit a talent request</a>.</p></div>`;
+      cnt.innerHTML  = '';
+    } else {
+      const start = (searchPage - 1) * 24 + 1;
+      const end   = Math.min(searchPage * 24, searchTotal);
+      cnt.innerHTML = `Showing <strong>${start}–${end}</strong> of <strong>${searchTotal}</strong> candidates`;
+      grid.innerHTML = cands.map(c => renderCard(c, false)).join('');
+      renderPagination();
+    }
+  } catch (e) {
+    document.getElementById('search-grid').innerHTML =
+      `<div class="state-box" style="grid-column:1/-1;"><div class="state-icon">⚠️</div><p>Search unavailable right now. <a href="contact.html">Contact us directly</a>.</p></div>`;
+  }
+}
+
+function renderPagination() {
+  if (searchPages <= 1) { document.getElementById('search-pagination').innerHTML = ''; return; }
+  const pg = document.getElementById('search-pagination');
+  let html = `<button class="page-btn" onclick="runSearch(${searchPage-1})" ${searchPage<=1?'disabled':''}>← Prev</button>`;
+  for (let i = 1; i <= Math.min(searchPages, 7); i++) {
+    html += `<button class="page-btn ${i===searchPage?'active':''}" onclick="runSearch(${i})">${i}</button>`;
+  }
+  if (searchPages > 7) html += `<span style="color:var(--text-muted);padding:0 4px;">…</span><button class="page-btn" onclick="runSearch(${searchPages})">${searchPages}</button>`;
+  html += `<button class="page-btn" onclick="runSearch(${searchPage+1})" ${searchPage>=searchPages?'disabled':''}>Next →</button>`;
+  pg.innerHTML = html;
+}
+
+/* ─── Modal ──────────────────── */
+function openModal(cand, reqType) {
+  document.getElementById('modal-cand-title').textContent = cand.title || 'Finance Professional';
+  const meta = [cand.location && `📍 ${cand.location}`, cand.years && `${cand.years} exp`].filter(Boolean).join(' · ');
+  document.getElementById('modal-cand-meta').textContent = (reqType === 'temp_request' ? 'Request this temp — ' : 'Request résumé — ') + (meta || 'Blinded candidate');
+  document.getElementById('req-cid').value  = cand.id || '';
+  document.getElementById('req-type').value = reqType;
+  document.getElementById('req-success').style.display = 'none';
+  document.getElementById('req-error').style.display   = 'none';
+  document.getElementById('request-form').reset();
+  document.getElementById('req-cid').value  = cand.id || '';
+  document.getElementById('req-type').value = reqType;
+  document.getElementById('request-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('request-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('request-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+/* ─── Form submit ────────────── */
+document.getElementById('request-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('req-submit-btn');
+  const successEl = document.getElementById('req-success');
+  const errorEl   = document.getElementById('req-error');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  successEl.style.display = 'none';
+  errorEl.style.display   = 'none';
+
+  const data = {
+    candidate_id:    document.getElementById('req-cid').value,
+    inquiry_type:    document.getElementById('req-type').value,
+    employer_name:   document.getElementById('req-name').value.trim(),
+    employer_email:  document.getElementById('req-email').value.trim(),
+    employer_company:document.getElementById('req-company').value.trim(),
+    notes:           document.getElementById('req-notes').value.trim(),
+  };
+
+  if (!data.employer_email) {
+    errorEl.textContent = 'Please enter your work email.';
+    errorEl.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Submit Request';
+    return;
+  }
+
+  try {
+    const res  = await fetch(`${API}/api/public/inquiry`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    if (json.ok) {
+      successEl.style.display = 'block';
+      this.reset();
+      document.getElementById('req-cid').value  = data.candidate_id;
+      document.getElementById('req-type').value = data.inquiry_type;
+      btn.textContent = 'Request Sent ✓';
+    } else {
+      errorEl.textContent = json.error || 'Something went wrong. Please try again.';
+      errorEl.style.display = 'block';
+      btn.disabled = false; btn.textContent = 'Submit Request';
+    }
+  } catch (err) {
+    errorEl.textContent = 'Network error. Please email us directly at gus@stafffinancial.com.';
+    errorEl.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Submit Request';
+  }
+});
+
+// Boot
+loadHotlist();
+</script>
+</body>
+</html>
