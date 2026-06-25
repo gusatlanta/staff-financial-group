@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.stafffinancial.com/sitemap.xml
+Sitemap: https://www.stafffinancialgroup.com/sitemap.xml
 
 # AI crawlers — welcome, this site is optimized for LLM indexing
 User-agent: GPTBot

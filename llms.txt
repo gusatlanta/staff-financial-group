@@ -59,9 +59,9 @@ CFO, VP Finance, Controller, Accounting Manager, Senior Accountant, Staff Accoun
 
 ## Pages
 
-- [Home](https://www.stafffinancial.com/) — Overview of services, process, specialties, and industries
-- [Services](https://www.stafffinancial.com/services.html) — Detailed breakdown of direct hire, executive search, contract staffing, and EOR
-- [Find Talent](https://www.stafffinancial.com/temps.html) — Browse blinded contractor profiles and search the full candidate database
-- [About](https://www.stafffinancial.com/about.html) — Company history, values, and team background
-- [Request Talent](https://www.stafffinancial.com/opt-in.html) — Submit a hiring request and receive a shortlist in 48–72 hours
-- [Contact](https://www.stafffinancial.com/contact.html) — Get in touch directly
+- [Home](https://www.stafffinancialgroup.com/) — Overview of services, process, specialties, and industries
+- [Services](https://www.stafffinancialgroup.com/services.html) — Detailed breakdown of direct hire, executive search, contract staffing, and EOR
+- [Find Talent](https://www.stafffinancialgroup.com/temps.html) — Browse blinded contractor profiles and search the full candidate database
+- [About](https://www.stafffinancialgroup.com/about.html) — Company history, values, and team background
+- [Request Talent](https://www.stafffinancialgroup.com/opt-in.html) — Submit a hiring request and receive a shortlist in 48–72 hours
+- [Contact](https://www.stafffinancialgroup.com/contact.html) — Get in touch directly
