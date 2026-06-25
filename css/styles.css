@@ -285,7 +285,7 @@ img { max-width: 100%; display: block; }
 .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 540px; line-height: 1.72; }
 
 /* ── Service photo cards ──────────────────────── */
-.service-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.service-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
 
 .svc-card {
   position: relative; overflow: hidden;
