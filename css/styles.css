@@ -285,7 +285,7 @@ img { max-width: 100%; display: block; }
 .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 540px; line-height: 1.72; }
 
 /* ── Service photo cards ──────────────────────── */
-.service-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.service-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
 
 .svc-card {
   position: relative; overflow: hidden;
@@ -548,7 +548,7 @@ footer { background: var(--navy); padding: 60px 0 32px; }
 
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 1000px) {
-  .service-cards { grid-template-columns: 1fr; }
+  .service-cards { grid-template-columns: repeat(2, 1fr); }
   .svc-card { aspect-ratio: 16/7; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat-item:nth-child(2) { border-right: none; }
