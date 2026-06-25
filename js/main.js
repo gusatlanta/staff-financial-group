@@ -35,21 +35,54 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   }
 });
 
-// Form submit (opt-in / contact)
-document.querySelectorAll('form[data-form]').forEach(form => {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn  = this.querySelector('button[type="submit"]');
-    const alert = this.querySelector('.alert');
-    const orig = btn ? btn.textContent : '';
+// Form submit — posts to hundredx public inquiry API
+const HUNDREDX_API = 'https://100xrecruiting.com';
 
+document.querySelectorAll('form[data-form]').forEach(form => {
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const successEl = this.querySelector('.alert-success');
+    const orig = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
-    // Simulate async — replace with Formspree/Netlify/mailto action as needed
-    setTimeout(() => {
-      if (alert) { alert.style.display = 'block'; }
-      form.reset();
+    const d = Object.fromEntries(new FormData(form));
+    const name = ((d.first_name || '') + ' ' + (d.last_name || '')).trim();
+    const notes = [
+      d.role_title   ? 'Role: '             + d.role_title   : '',
+      d.hire_type    ? 'Type: '             + d.hire_type    : '',
+      d.location     ? 'Location: '         + d.location     : '',
+      d.timeline     ? 'Timeline: '         + d.timeline     : '',
+      d.compensation ? 'Compensation: '     + d.compensation : '',
+      d.your_title   ? 'Submitter title: '  + d.your_title   : '',
+      d.phone        ? 'Phone: '            + d.phone        : '',
+      d.message      ? 'Message: '          + d.message      : '',
+      d.notes        ? 'Notes: '            + d.notes        : '',
+    ].filter(Boolean).join('\n');
+
+    try {
+      const res = await fetch(HUNDREDX_API + '/api/public/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          employer_name:    name || d.name || '',
+          employer_email:   d.email || '',
+          employer_company: d.company || '',
+          inquiry_type:     form.dataset.form,
+          notes:            notes,
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (json.ok) {
+        form.reset();
+        if (successEl) successEl.style.display = 'block';
+        if (btn) { btn.textContent = 'Sent ✓'; }
+      } else {
+        throw new Error(json.error || 'server error');
+      }
+    } catch {
       if (btn) { btn.disabled = false; btn.textContent = orig; }
-    }, 900);
+      alert('Something went wrong — please email gus@stafffinancial.com directly.');
+    }
   });
 });
