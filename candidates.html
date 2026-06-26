@@ -76,6 +76,70 @@
       accent-color: #15803d;
       cursor: pointer;
     }
+    /* Criteria builder */
+    .criteria-wrap {
+      grid-column: 1 / -1;
+      border-top: 1px solid #edf0f7;
+      padding-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .criteria-toggle {
+      background: none; border: none; cursor: pointer;
+      font-size: .8rem; font-weight: 700; color: #6b7280;
+      text-align: left; padding: 0; display: flex; align-items: center; gap: 5px;
+    }
+    .criteria-toggle:hover { color: #0c1f47; }
+    .criteria-rows { display: none; flex-direction: column; gap: 7px; }
+    .criteria-rows.open { display: flex; }
+    .criteria-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .cr-label {
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      width: 88px;
+      flex-shrink: 0;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+    .cr-label.must { background: #dcfce7; color: #15803d; }
+    .cr-label.nice { background: #dbeafe; color: #1d4ed8; }
+    .cr-label.not  { background: #fee2e2; color: #b91c1c; }
+    .cr-chips { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
+    .cr-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 10px 3px 10px;
+      border-radius: 100px;
+      font-size: .78rem; font-weight: 600;
+    }
+    .cr-chip.must { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+    .cr-chip.nice { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+    .cr-chip.not  { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+    .cr-chip-del  { background: none; border: none; cursor: pointer; font-size: .78rem; line-height: 1; padding: 0; color: inherit; opacity: .6; }
+    .cr-chip-del:hover { opacity: 1; }
+    .cr-input-row { display: flex; gap: 6px; flex: 1; min-width: 200px; }
+    .cr-input {
+      border: 1px solid #dde3ee; border-radius: 8px;
+      padding: 6px 10px; font-size: .85rem; color: #0c1f47;
+      background: #f8fafc; outline: none; flex: 1;
+    }
+    .cr-input:focus { border-color: #2766A8; background: #fff; }
+    .cr-add-btn {
+      border: none; border-radius: 8px; padding: 6px 12px;
+      font-size: .78rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+    }
+    .cr-add-btn.must { background: #16a34a; color: #fff; }
+    .cr-add-btn.nice { background: #2563eb; color: #fff; }
+    .cr-add-btn.not  { background: #dc2626; color: #fff; }
+
     .cand-search-btn {
       background: #1a6ec7;
       color: #fff;
@@ -499,6 +563,42 @@
           <span>⚡ Available for temp / contract only</span>
         </label>
       </div>
+
+      <!-- Criteria builder -->
+      <div class="criteria-wrap">
+        <button class="criteria-toggle" onclick="toggleCriteria()" id="criteriaToggle">
+          <span id="criteriaArrow">▸</span> Criteria filters <span id="criteriaSummary" style="color:#0c1f47;font-weight:800;"></span>
+        </button>
+        <div class="criteria-rows" id="criteriaRows">
+          <!-- Must Have -->
+          <div class="criteria-row">
+            <span class="cr-label must">Must Have</span>
+            <div class="cr-chips" id="chips-must"></div>
+            <div class="cr-input-row">
+              <input class="cr-input" id="cr-input-must" placeholder="e.g. CPA, NetSuite…" onkeydown="if(event.key==='Enter'){event.preventDefault();addCriteria('must');}">
+              <button class="cr-add-btn must" onclick="addCriteria('must')">+ Add</button>
+            </div>
+          </div>
+          <!-- Nice to Have -->
+          <div class="criteria-row">
+            <span class="cr-label nice">Nice to Have</span>
+            <div class="cr-chips" id="chips-nice"></div>
+            <div class="cr-input-row">
+              <input class="cr-input" id="cr-input-nice" placeholder="e.g. Big 4, SAP…" onkeydown="if(event.key==='Enter'){event.preventDefault();addCriteria('nice');}">
+              <button class="cr-add-btn nice" onclick="addCriteria('nice')">+ Add</button>
+            </div>
+          </div>
+          <!-- Not -->
+          <div class="criteria-row">
+            <span class="cr-label not">Not</span>
+            <div class="cr-chips" id="chips-not"></div>
+            <div class="cr-input-row">
+              <input class="cr-input" id="cr-input-not" placeholder="e.g. Entry level…" onkeydown="if(event.key==='Enter'){event.preventDefault();addCriteria('not');}">
+              <button class="cr-add-btn not" onclick="addCriteria('not')">+ Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Recent / saved searches -->
@@ -610,6 +710,91 @@ let _currentPage = 1;
 let _activeCandId = null;
 let _activeCandTitle = "";
 
+// ── Criteria filters (Must Have / Nice to Have / Not) ────────────────────────
+const _criteria = { must: [], nice: [], not: [] };
+
+function toggleCriteria() {
+  const rows = document.getElementById("criteriaRows");
+  const arrow = document.getElementById("criteriaArrow");
+  const open = rows.classList.toggle("open");
+  arrow.textContent = open ? "▾" : "▸";
+}
+
+function addCriteria(bucket) {
+  const input = document.getElementById("cr-input-" + bucket);
+  const val = input.value.trim();
+  if (!val) return;
+  if (!_criteria[bucket].includes(val.toLowerCase())) {
+    _criteria[bucket].push(val.toLowerCase());
+    renderCriteriaChips(bucket);
+    updateCriteriaSummary();
+    doSearch(1);
+  }
+  input.value = "";
+  input.focus();
+}
+
+function removeCriteria(bucket, val) {
+  _criteria[bucket] = _criteria[bucket].filter(v => v !== val);
+  renderCriteriaChips(bucket);
+  updateCriteriaSummary();
+  doSearch(1);
+}
+
+function renderCriteriaChips(bucket) {
+  const row = document.getElementById("chips-" + bucket);
+  row.innerHTML = _criteria[bucket].map(v =>
+    `<span class="cr-chip ${bucket}">${esc(v)}<button class="cr-chip-del" onclick="removeCriteria('${bucket}',${JSON.stringify(v)})">✕</button></span>`
+  ).join("");
+}
+
+function updateCriteriaSummary() {
+  const total = _criteria.must.length + _criteria.nice.length + _criteria.not.length;
+  const el = document.getElementById("criteriaSummary");
+  el.textContent = total ? `(${total} active)` : "";
+  // auto-open panel if criteria added
+  if (total > 0) {
+    document.getElementById("criteriaRows").classList.add("open");
+    document.getElementById("criteriaArrow").textContent = "▾";
+  }
+}
+
+function applyCriteria(cards) {
+  const must = _criteria.must;
+  const nice = _criteria.nice;
+  const not  = _criteria.not;
+  if (!must.length && !nice.length && !not.length) return cards;
+
+  function cardText(c) {
+    return [
+      c.title || "",
+      ...(c.skills  || []),
+      ...(c.systems || []),
+      c.location || "",
+      c.work_mode || "",
+    ].join(" ").toLowerCase();
+  }
+
+  let filtered = cards.filter(c => {
+    const t = cardText(c);
+    // must: ALL terms must appear
+    if (must.length && !must.every(m => t.includes(m))) return false;
+    // not: ANY term disqualifies
+    if (not.length  &&  not.some(n => t.includes(n)))  return false;
+    return true;
+  });
+
+  // nice: sort candidates who match nice-to-have terms first
+  if (nice.length) {
+    filtered.sort((a, b) => {
+      const sa = nice.filter(n => cardText(a).includes(n)).length;
+      const sb = nice.filter(n => cardText(b).includes(n)).length;
+      return sb - sa;
+    });
+  }
+  return filtered;
+}
+
 // ── Card ratings (localStorage, keyed by candidate ID) ───────────────────────
 const RATINGS_KEY = "sfg_cand_ratings";
 function _ratingsMap() {
@@ -668,8 +853,13 @@ function doSearch(page) {
         showEmpty("No candidates matched your search. Try broader terms or a different location.");
         return;
       }
-      renderCards(data.results);
-      renderMeta(data.total, data.page, data.pages);
+      const filtered = applyCriteria(data.results);
+      if (!filtered.length) {
+        showEmpty("No candidates matched your criteria. Try relaxing your Must Have or Not filters.");
+        return;
+      }
+      renderCards(filtered);
+      renderMeta(filtered.length, 1, 1);
       renderPager(data.pages, data.page);
     })
     .catch(() => showEmpty("Could not connect. Please try again shortly."));
