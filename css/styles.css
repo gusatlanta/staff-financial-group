@@ -640,8 +640,8 @@ footer { background: var(--navy); padding: 60px 0 32px; }
   justify-content: center;
   padding: 100px 0 80px;
   background:
-    url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80')
-    center / cover no-repeat;
+    url('https://images.unsplash.com/photo-1663601460253-aba72eea6edf?auto=format&fit=crop&w=1800&q=80')
+    center 60% / cover no-repeat;
   border-bottom: none;
 }
 .hero::before {
