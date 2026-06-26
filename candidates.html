@@ -218,6 +218,76 @@
     }
     .cc-request-btn:hover { background: #1a3560; }
 
+    /* Recent / saved searches */
+    .saved-searches-wrap {
+      max-width: 860px;
+      margin: 14px auto 0;
+      text-align: left;
+    }
+    .ss-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+    .ss-tab {
+      background: none;
+      border: none;
+      font-size: .78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.55);
+      cursor: pointer;
+      padding: 2px 10px 4px;
+      border-bottom: 2px solid transparent;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .ss-tab.active { color: #fff; border-bottom-color: #5ccfde; }
+    .ss-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      min-height: 28px;
+    }
+    .ss-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 100px;
+      padding: 5px 12px 5px 10px;
+      font-size: .8rem;
+      color: rgba(255,255,255,.9);
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .ss-chip:hover { background: rgba(255,255,255,.22); }
+    .ss-chip-star {
+      background: none; border: none; cursor: pointer;
+      font-size: .85rem; line-height: 1; padding: 0;
+      opacity: .7; transition: opacity .12s;
+    }
+    .ss-chip-star:hover { opacity: 1; }
+    .ss-chip-del {
+      background: none; border: none; cursor: pointer;
+      font-size: .78rem; color: rgba(255,255,255,.5);
+      line-height: 1; padding: 0; margin-left: 2px;
+    }
+    .ss-chip-del:hover { color: #f87171; }
+    .ss-save-current {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 100px;
+      color: rgba(255,255,255,.8);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .ss-save-current:hover { background: rgba(255,255,255,.2); }
+    .ss-empty-msg { font-size: .8rem; color: rgba(255,255,255,.4); font-style: italic; }
+
     /* Empty / loading state */
     .cand-empty {
       grid-column: 1 / -1;
@@ -400,6 +470,15 @@
           <span>⚡ Available for temp / contract only</span>
         </label>
       </div>
+    </div>
+
+    <!-- Recent / saved searches -->
+    <div class="saved-searches-wrap" id="savedSearchesWrap" style="display:none;">
+      <div class="ss-tabs">
+        <button class="ss-tab active" id="tabRecent" onclick="switchTab('recent')">🕐 Recent</button>
+        <button class="ss-tab" id="tabSaved" onclick="switchTab('saved')">⭐ Saved</button>
+      </div>
+      <div class="ss-chips-row" id="ssChips"></div>
     </div>
   </div>
 </div>
@@ -700,6 +779,125 @@ function submitInquiry() {
   });
 });
 document.getElementById("s_mode").addEventListener("change", () => doSearch(1));
+
+// ── Saved / recent search history ───────────────────────────────────────────
+const SS_RECENT_KEY = "sfg_cand_recent";
+const SS_SAVED_KEY  = "sfg_cand_saved";
+const SS_MAX_RECENT = 8;
+let _ssTab = "recent";
+
+function _ssLoad(key) {
+  try { return JSON.parse(localStorage.getItem(key) || "[]"); } catch { return []; }
+}
+function _ssSave(key, arr) {
+  try { localStorage.setItem(key, JSON.stringify(arr)); } catch {}
+}
+function _ssLabel(params) {
+  const parts = [params.q, params.loc, params.mode,
+                 params.temp === "1" ? "⚡ temp" : ""].filter(Boolean);
+  return parts.join(" · ") || "All candidates";
+}
+
+function recordSearch(params) {
+  const label = _ssLabel(params);
+  let recent = _ssLoad(SS_RECENT_KEY).filter(r => r.label !== label);
+  recent.unshift({ ...params, label, ts: Date.now() });
+  if (recent.length > SS_MAX_RECENT) recent = recent.slice(0, SS_MAX_RECENT);
+  _ssSave(SS_RECENT_KEY, recent);
+  renderSavedSearches();
+}
+
+function isSaved(label) {
+  return _ssLoad(SS_SAVED_KEY).some(r => r.label === label);
+}
+function toggleSave(params) {
+  const label = _ssLabel(params);
+  let saved = _ssLoad(SS_SAVED_KEY);
+  if (isSaved(label)) {
+    saved = saved.filter(r => r.label !== label);
+  } else {
+    saved.unshift({ ...params, label, ts: Date.now() });
+  }
+  _ssSave(SS_SAVED_KEY, saved);
+  renderSavedSearches();
+}
+function deleteRecent(label) {
+  _ssSave(SS_RECENT_KEY, _ssLoad(SS_RECENT_KEY).filter(r => r.label !== label));
+  renderSavedSearches();
+}
+function deleteSaved(label) {
+  _ssSave(SS_SAVED_KEY, _ssLoad(SS_SAVED_KEY).filter(r => r.label !== label));
+  renderSavedSearches();
+}
+
+function switchTab(tab) {
+  _ssTab = tab;
+  document.getElementById("tabRecent").classList.toggle("active", tab === "recent");
+  document.getElementById("tabSaved").classList.toggle("active", tab === "saved");
+  renderSavedSearches();
+}
+
+function applySearch(params) {
+  document.getElementById("s_q").value     = params.q   || "";
+  document.getElementById("s_loc").value   = params.loc || "";
+  document.getElementById("s_mode").value  = params.mode|| "";
+  document.getElementById("s_temp").checked = params.temp === "1";
+  doSearch(1);
+}
+
+function renderSavedSearches() {
+  const wrap = document.getElementById("savedSearchesWrap");
+  const row  = document.getElementById("ssChips");
+  const recent = _ssLoad(SS_RECENT_KEY);
+  const saved  = _ssLoad(SS_SAVED_KEY);
+
+  const hasAny = recent.length > 0 || saved.length > 0;
+  wrap.style.display = hasAny ? "block" : "none";
+  if (!hasAny) { row.innerHTML = ""; return; }
+
+  const list = _ssTab === "recent" ? recent : saved;
+  if (!list.length) {
+    row.innerHTML = `<span class="ss-empty-msg">${_ssTab === "recent" ? "No recent searches yet." : "No saved searches — star a recent search to pin it."}</span>`;
+    return;
+  }
+
+  row.innerHTML = list.map((r, i) => {
+    const starred = isSaved(r.label);
+    const starIcon = starred ? "⭐" : "☆";
+    const starTitle = starred ? "Remove from saved" : "Save this search";
+    const delFn = _ssTab === "recent"
+      ? `deleteRecent(${JSON.stringify(r.label)})`
+      : `deleteSaved(${JSON.stringify(r.label)})`;
+    return `
+      <span class="ss-chip" onclick="applySearch(${JSON.stringify(r)})" title="Run this search">
+        ${esc(r.label)}
+        <button class="ss-chip-star" title="${starTitle}"
+          onclick="event.stopPropagation();toggleSave(${JSON.stringify(r)})">${starIcon}</button>
+        <button class="ss-chip-del" title="Remove"
+          onclick="event.stopPropagation();${delFn}">✕</button>
+      </span>`;
+  }).join("");
+}
+
+// Wrap original doSearch to record each search
+const _origDoSearch = doSearch;
+function doSearch(page) {
+  _origDoSearch(page);
+  if (page === 1) {
+    const params = {
+      q:    document.getElementById("s_q").value.trim(),
+      loc:  document.getElementById("s_loc").value.trim(),
+      mode: document.getElementById("s_mode").value,
+      temp: document.getElementById("s_temp").checked ? "1" : "0",
+    };
+    if (params.q || params.loc || params.mode || params.temp === "1") {
+      recordSearch(params);
+    }
+  }
+}
+
+// Init saved searches display
+renderSavedSearches();
 
 // Auto-search if URL has a query param (e.g. linked from homepage search bar)
 (function() {
