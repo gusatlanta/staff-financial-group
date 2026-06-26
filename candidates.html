@@ -197,24 +197,53 @@
       font-weight: 500;
     }
 
+    /* Card rating border */
+    .cand-card[data-rating="must"]  { border-left: 4px solid #16a34a; }
+    .cand-card[data-rating="nice"]  { border-left: 4px solid #2563eb; }
+    .cand-card[data-rating="not"]   { border-left: 4px solid #dc2626; opacity: .55; }
+
     /* Footer row */
     .cc-foot {
       margin-top: auto;
       padding-top: 10px;
       border-top: 1px solid #f1f5f9;
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
     }
+    .cc-ratings { display: flex; gap: 5px; }
+    .cc-rate-btn {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: .75rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .15s;
+      background: #f8fafc;
+      color: #6b7280;
+    }
+    .cc-rate-btn[data-r="must"]          { border-color: #bbf7d0; }
+    .cc-rate-btn[data-r="must"]:hover,
+    .cc-rate-btn[data-r="must"].on       { background: #16a34a; color: #fff; border-color: #16a34a; }
+    .cc-rate-btn[data-r="nice"]          { border-color: #bfdbfe; }
+    .cc-rate-btn[data-r="nice"]:hover,
+    .cc-rate-btn[data-r="nice"].on       { background: #2563eb; color: #fff; border-color: #2563eb; }
+    .cc-rate-btn[data-r="not"]           { border-color: #fecaca; }
+    .cc-rate-btn[data-r="not"]:hover,
+    .cc-rate-btn[data-r="not"].on        { background: #dc2626; color: #fff; border-color: #dc2626; }
     .cc-request-btn {
       background: #0c1f47;
       color: #fff;
       border: none;
       border-radius: 8px;
-      padding: 9px 20px;
-      font-size: .85rem;
+      padding: 9px 16px;
+      font-size: .82rem;
       font-weight: 700;
       cursor: pointer;
       transition: background .15s;
+      white-space: nowrap;
     }
     .cc-request-btn:hover { background: #1a3560; }
 
@@ -581,6 +610,30 @@ let _currentPage = 1;
 let _activeCandId = null;
 let _activeCandTitle = "";
 
+// ── Card ratings (localStorage, keyed by candidate ID) ───────────────────────
+const RATINGS_KEY = "sfg_cand_ratings";
+function _ratingsMap() {
+  try { return JSON.parse(localStorage.getItem(RATINGS_KEY) || "{}"); } catch { return {}; }
+}
+function getRating(id) { return _ratingsMap()[id] || ""; }
+function setRating(id, val, btn) {
+  const map = _ratingsMap();
+  const current = map[id];
+  // clicking same button again = clear
+  if (current === val) { delete map[id]; } else { map[id] = val; }
+  try { localStorage.setItem(RATINGS_KEY, JSON.stringify(map)); } catch {}
+  // update card border
+  const card = document.getElementById("card-" + id);
+  if (card) {
+    const newRating = map[id] || "";
+    card.dataset.rating = newRating;
+    if (!newRating) delete card.dataset.rating;
+  }
+  // update all three buttons on the card
+  const allBtns = btn.closest(".cc-ratings").querySelectorAll(".cc-rate-btn");
+  allBtns.forEach(b => b.classList.toggle("on", b.dataset.r === map[id]));
+}
+
 // Avatar color palette (by id % 8)
 const COLORS = [
   ["#2563eb","#dbeafe"],["#7c3aed","#ede9fe"],["#0891b2","#cffafe"],
@@ -633,6 +686,7 @@ function renderCards(cards) {
   const grid = document.getElementById("candGrid");
   grid.innerHTML = cards.map(c => {
     const [fg, bg] = avatarColors(c.id);
+    const _rating = getRating(c.id);
     const initials = (c.title || "FA").replace(/[^A-Za-z ]/g,"").split(" ").filter(Boolean).map(w=>w[0]).join("").slice(0,2).toUpperCase() || "FA";
 
     const availBadge = c.available_temp
@@ -648,7 +702,7 @@ function renderCards(cards) {
       .map(s => `<span class="cc-skill">${esc(s)}</span>`).join("");
 
     return `
-      <div class="cand-card">
+      <div class="cand-card" id="card-${c.id}" ${_rating ? `data-rating="${_rating}"` : ''}>
         <div class="cc-head">
           <div class="cc-avatar" style="background:${fg};">${initials}</div>
           <div class="cc-title-wrap">
@@ -660,8 +714,13 @@ function renderCards(cards) {
         ${badges ? `<div class="cc-badges">${badges}</div>` : ""}
         ${skills ? `<div class="cc-skills">${skills}</div>` : ""}
         <div class="cc-foot">
+          <div class="cc-ratings">
+            <button class="cc-rate-btn ${_rating==='must'?'on':''}" data-r="must" data-cid="${c.id}" onclick="setRating(${c.id},'must',this)" title="Must have">✓ Must</button>
+            <button class="cc-rate-btn ${_rating==='nice'?'on':''}" data-r="nice" data-cid="${c.id}" onclick="setRating(${c.id},'nice',this)" title="Nice to have">+ Nice</button>
+            <button class="cc-rate-btn ${_rating==='not'?'on':''}" data-r="not"  data-cid="${c.id}" onclick="setRating(${c.id},'not',this)"  title="Not a fit">✕ Not</button>
+          </div>
           <button class="cc-request-btn" onclick="openModal(${c.id}, ${JSON.stringify(esc(c.title))})">
-            Request More Info →
+            Info →
           </button>
         </div>
       </div>`;
