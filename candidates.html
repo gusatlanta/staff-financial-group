@@ -101,6 +101,11 @@
       accent-color: #15803d;
       cursor: pointer;
     }
+    /* Level chips */
+    .lv-chip{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.3);border-radius:100px;color:rgba(255,255,255,.8);font-size:.75rem;font-weight:700;padding:4px 12px;cursor:pointer;transition:all .12s}
+    .lv-chip:hover{background:rgba(255,255,255,.22);color:#fff}
+    .lv-chip.on{background:#fff;color:#0c1f47;border-color:#fff}
+
     /* Criteria builder */
     .criteria-wrap {
       grid-column: 1 / -1;
@@ -613,19 +618,30 @@
         <input type="text" id="s_loc" placeholder="City or State — Atlanta, GA…" onkeydown="if(event.key==='Enter')doSearch(1)">
       </div>
       <button class="cand-search-btn" onclick="doSearch(1)">🔍 Search</button>
-      <div class="cand-filter-row">
+      <div class="cand-filter-row" style="gap:8px;flex-direction:column;align-items:flex-start">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+          <span style="font-size:.72rem;font-weight:800;color:#6b7280;letter-spacing:.07em;text-transform:uppercase;">Level</span>
+          <div id="levelChips" style="display:flex;gap:5px;flex-wrap:wrap">
+            <button class="lv-chip on" data-lv="" onclick="setLevel(this,'')">Any</button>
+            <button class="lv-chip" data-lv="c-level" onclick="setLevel(this,'c-level')">C-Level</button>
+            <button class="lv-chip" data-lv="vp" onclick="setLevel(this,'vp')">VP</button>
+            <button class="lv-chip" data-lv="director" onclick="setLevel(this,'director')">Director</button>
+            <button class="lv-chip" data-lv="manager" onclick="setLevel(this,'manager')">Manager</button>
+            <button class="lv-chip" data-lv="staff" onclick="setLevel(this,'staff')">Staff / IC</button>
+          </div>
+        </div>
         <label class="cand-toggle">
           <input type="checkbox" id="s_temp" onchange="doSearch(1)">
           <span>⚡ Available for temp / contract only</span>
         </label>
       </div>
 
-      <!-- Criteria builder -->
+      <!-- Criteria builder — open by default -->
       <div class="criteria-wrap">
         <button class="criteria-toggle" onclick="toggleCriteria()" id="criteriaToggle">
-          <span id="criteriaArrow">▸</span> Criteria filters <span id="criteriaSummary" style="color:#0c1f47;font-weight:800;"></span>
+          <span id="criteriaArrow">▾</span> Must Have / Nice to Have / Not <span id="criteriaSummary" style="color:#0c1f47;font-weight:800;"></span>
         </button>
-        <div class="criteria-rows" id="criteriaRows">
+        <div class="criteria-rows open" id="criteriaRows">
           <!-- Must Have -->
           <div class="criteria-row">
             <span class="cr-label must">Must Have</span>
@@ -768,6 +784,29 @@ const INQUIRY_API = "https://100xrecruiting.com/api/public/inquiry";
 let _currentPage = 1;
 let _activeCandId = null;
 let _activeCandTitle = "";
+
+// ── Level filter ─────────────────────────────────────────────────────────────
+let _activeLevel = "";
+const LEVEL_MAP = {
+  "c-level": ["ceo","cfo","cto","coo","chro","cio","chief"],
+  "vp":       ["vp ","vice president"],
+  "director": ["director"],
+  "manager":  ["manager"],
+  "staff":    ["analyst","specialist","associate","coordinator","accountant","bookkeeper","staff"],
+};
+function setLevel(btn, lv) {
+  _activeLevel = lv;
+  document.querySelectorAll('.lv-chip').forEach(b => b.classList.toggle('on', b.dataset.lv === lv));
+  doSearch(1);
+}
+function applyLevel(cards) {
+  if (!_activeLevel) return cards;
+  const terms = LEVEL_MAP[_activeLevel] || [_activeLevel];
+  return cards.filter(c => {
+    const t = (c.title || "").toLowerCase();
+    return terms.some(term => t.includes(term));
+  });
+}
 
 // ── Criteria filters (Must Have / Nice to Have / Not) ────────────────────────
 const _criteria = { must: [], nice: [], not: [] };
@@ -918,7 +957,7 @@ function doSearch(page) {
         showEmpty("No candidates matched your search. Try broader terms or a different location.");
         return;
       }
-      const filtered = applyCriteria(data.results);
+      const filtered = applyCriteria(applyLevel(data.results));
       if (!filtered.length) {
         showEmpty("No candidates matched your criteria. Try relaxing your Must Have or Not filters.");
         return;
