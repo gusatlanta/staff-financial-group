@@ -1282,6 +1282,7 @@ renderSavedSearches();
   if (document.getElementById("s_kw")) document.getElementById("s_kw").value = kw;
   if (loc) document.getElementById("s_loc").value = loc;
   if (t || kw || loc) doSearch(1);
+  else doSearch(1);  // auto-load all candidates on page init
 })();
 </script>
 
