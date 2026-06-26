@@ -28,16 +28,41 @@
       max-width: 520px;
     }
 
+    /* Progress bar */
+    .search-progress {
+      height: 4px;
+      background: #e5e9f2;
+      border-radius: 0 0 4px 4px;
+      overflow: hidden;
+      max-width: 860px;
+      margin: 0 auto;
+      display: none;
+    }
+    .search-progress.running { display: block; }
+    .search-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #5ccfde, #1a6ec7);
+      border-radius: 4px;
+      animation: progressPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes progressPulse {
+      0%   { width: 0%;   opacity: 1; }
+      60%  { width: 80%;  opacity: 1; }
+      90%  { width: 95%;  opacity: .7; }
+      100% { width: 95%;  opacity: .7; }
+    }
+
     /* Search bar */
     .cand-search-wrap {
       background: #fff;
-      border-radius: 12px;
+      border-radius: 12px 12px 0 0;
       box-shadow: 0 6px 32px rgba(0,0,0,.28);
-      padding: 18px 20px;
+      padding: 18px 20px 14px;
       max-width: 860px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr auto auto;
+      grid-template-columns: 1fr 1fr 1fr auto;
       gap: 10px;
       align-items: end;
     }
@@ -491,11 +516,11 @@
     .modal-success h3 { font-family: 'Playfair Display', serif; color: #0c1f47; margin-bottom: 6px; }
     .modal-success p { color: #6b7280; font-size: .9rem; }
 
-    @media (max-width: 680px) {
+    @media (max-width: 820px) {
       .cand-search-wrap { grid-template-columns: 1fr 1fr; }
       .cand-search-btn  { grid-column: 1 / -1; }
     }
-    @media (max-width: 460px) {
+    @media (max-width: 500px) {
       .cand-search-wrap { grid-template-columns: 1fr; }
     }
   </style>
@@ -540,23 +565,18 @@
 
     <div class="cand-search-wrap">
       <div>
-        <label style="font-size:.78rem;font-weight:600;color:#6b7280;display:block;margin-bottom:5px;">TITLE / KEYWORD</label>
-        <input type="text" id="s_q" placeholder="e.g. Controller, CPA, FP&amp;A…">
+        <label style="font-size:.75rem;font-weight:800;color:#0c1f47;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:6px;">Job Title</label>
+        <input type="text" id="s_title" placeholder="Controller, CFO, FP&amp;A…" onkeydown="if(event.key==='Enter')doSearch(1)">
       </div>
       <div>
-        <label style="font-size:.78rem;font-weight:600;color:#6b7280;display:block;margin-bottom:5px;">LOCATION</label>
-        <input type="text" id="s_loc" placeholder="City or State — e.g. Atlanta">
+        <label style="font-size:.75rem;font-weight:800;color:#0c1f47;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:6px;">Keywords / Skills</label>
+        <input type="text" id="s_kw" placeholder="CPA, NetSuite, SAP, Big 4…" onkeydown="if(event.key==='Enter')doSearch(1)">
       </div>
       <div>
-        <label style="font-size:.78rem;font-weight:600;color:#6b7280;display:block;margin-bottom:5px;">WORK MODE</label>
-        <select id="s_mode">
-          <option value="">Any</option>
-          <option value="remote">Remote</option>
-          <option value="hybrid">Hybrid</option>
-          <option value="onsite">On-site</option>
-        </select>
+        <label style="font-size:.75rem;font-weight:800;color:#0c1f47;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:6px;">Location</label>
+        <input type="text" id="s_loc" placeholder="City or State — Atlanta, GA…" onkeydown="if(event.key==='Enter')doSearch(1)">
       </div>
-      <button class="cand-search-btn" onclick="doSearch(1)">Search</button>
+      <button class="cand-search-btn" onclick="doSearch(1)">🔍 Search</button>
       <div class="cand-filter-row">
         <label class="cand-toggle">
           <input type="checkbox" id="s_temp" onchange="doSearch(1)">
@@ -600,6 +620,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Progress bar -->
+    <div class="search-progress" id="searchProgress"><div class="search-progress-bar"></div></div>
 
     <!-- Recent / saved searches -->
     <div class="saved-searches-wrap" id="savedSearchesWrap" style="display:none;">
@@ -831,23 +854,29 @@ function avatarColors(id) {
 
 function doSearch(page) {
   _currentPage = page || 1;
-  const q    = document.getElementById("s_q").value.trim();
-  const loc  = document.getElementById("s_loc").value.trim();
-  const mode = document.getElementById("s_mode").value;
-  const temp = document.getElementById("s_temp").checked ? "1" : "0";
+  const title = (document.getElementById("s_title") || {}).value || (document.getElementById("s_q") || {}).value || "";
+  const kw    = (document.getElementById("s_kw")    || {}).value || "";
+  const loc   = document.getElementById("s_loc").value.trim();
+  const temp  = document.getElementById("s_temp").checked ? "1" : "0";
 
   const grid  = document.getElementById("candGrid");
   const meta  = document.getElementById("candMeta");
   const pager = document.getElementById("candPager");
+  const prog  = document.getElementById("searchProgress");
 
-  grid.innerHTML = '<div class="cand-empty"><p>Searching…</p></div>';
+  grid.innerHTML = "";
   meta.style.display = "none";
   pager.innerHTML = "";
+  prog.classList.add("running");
 
-  const params = new URLSearchParams({ q, location: loc, mode, temp, page: _currentPage });
+  const params = new URLSearchParams({
+    title: title.trim(), keywords: kw.trim(),
+    location: loc, temp, page: _currentPage
+  });
   fetch(`${API}?${params}`)
     .then(r => r.json())
     .then(data => {
+      prog.classList.remove("running");
       if (!data.ok) { showEmpty("Search error — please try again."); return; }
       if (!data.results || !data.results.length) {
         showEmpty("No candidates matched your search. Try broader terms or a different location.");
@@ -862,7 +891,7 @@ function doSearch(page) {
       renderMeta(filtered.length, 1, 1);
       renderPager(data.pages, data.page);
     })
-    .catch(() => showEmpty("Could not connect. Please try again shortly."));
+    .catch(() => { prog.classList.remove("running"); showEmpty("Could not connect. Please try again shortly."); });
 }
 
 function showEmpty(msg) {
@@ -1128,34 +1157,56 @@ function renderSavedSearches() {
   }).join("");
 }
 
-// Wrap original doSearch to record each search
+// Record search to history on every new search
 const _origDoSearch = doSearch;
 function doSearch(page) {
   _origDoSearch(page);
   if (page === 1) {
-    const params = {
-      q:    document.getElementById("s_q").value.trim(),
-      loc:  document.getElementById("s_loc").value.trim(),
-      mode: document.getElementById("s_mode").value,
-      temp: document.getElementById("s_temp").checked ? "1" : "0",
-    };
-    if (params.q || params.loc || params.mode || params.temp === "1") {
+    const title = (document.getElementById("s_title") || {}).value || "";
+    const kw    = (document.getElementById("s_kw")    || {}).value || "";
+    const loc   = document.getElementById("s_loc").value.trim();
+    const temp  = document.getElementById("s_temp").checked ? "1" : "0";
+    const params = { title: title.trim(), kw: kw.trim(), loc, temp };
+    if (params.title || params.kw || params.loc || params.temp === "1") {
       recordSearch(params);
     }
   }
 }
 
+function applySearch(params) {
+  const titleEl = document.getElementById("s_title") || document.getElementById("s_q");
+  const kwEl    = document.getElementById("s_kw");
+  if (titleEl) titleEl.value = params.title || params.q || "";
+  if (kwEl)    kwEl.value    = params.kw    || "";
+  document.getElementById("s_loc").value    = params.loc  || "";
+  document.getElementById("s_temp").checked = params.temp === "1";
+  _origDoSearch(1);
+}
+
+function _ssLabel(params) {
+  const parts = [
+    params.title || params.q,
+    params.kw,
+    params.loc,
+    params.temp === "1" ? "⚡ temp" : ""
+  ].filter(Boolean);
+  return parts.join(" · ") || "All candidates";
+}
+
 // Init saved searches display
 renderSavedSearches();
 
-// Auto-search if URL has a query param (e.g. linked from homepage search bar)
+// Auto-search if URL has a query param
 (function() {
   const sp = new URLSearchParams(location.search);
-  const q  = sp.get("q") || sp.get("keyword") || "";
+  const t  = sp.get("title") || sp.get("q") || sp.get("keyword") || "";
+  const kw = sp.get("keywords") || sp.get("kw") || "";
   const loc = sp.get("location") || sp.get("city") || "";
-  if (q)   document.getElementById("s_q").value   = q;
+  const titleEl = document.getElementById("s_title") || document.getElementById("s_q");
+  if (titleEl) titleEl.value = t;
+  if (document.getElementById("s_kw")) document.getElementById("s_kw").value = kw;
   if (loc) document.getElementById("s_loc").value = loc;
-  if (q || loc) doSearch(1);
+  if (t || kw || loc) _origDoSearch(1);
 })();
 </script>
 
