@@ -532,10 +532,9 @@
     /* ── Global color fixes for candidates page ─── */
     /* body text is #1a1a2e from styles.css — fine on white,
        but footer + hero need explicit overrides */
-    .cand-hero,
-    .cand-hero * { box-sizing: border-box; }
-    .cand-hero h1,
-    .cand-hero p  { color: inherit; } /* set by cand-hero rules above */
+    .cand-hero { color: #fff; }
+    .cand-hero h1 { color: #fff !important; }
+    .cand-hero > .container > p { color: rgba(255,255,255,.75) !important; }
 
     /* Results area — ensure readable dark text on white */
     .cand-body { color: #1a1a2e; background: #f8fafc; }
@@ -929,10 +928,15 @@ function avatarColors(id) {
 
 function doSearch(page) {
   _currentPage = page || 1;
-  const title = (document.getElementById("s_title") || {}).value || (document.getElementById("s_q") || {}).value || "";
+  const title = (document.getElementById("s_title") || {}).value || "";
   const kw    = (document.getElementById("s_kw")    || {}).value || "";
   const loc   = document.getElementById("s_loc").value.trim();
   const temp  = document.getElementById("s_temp").checked ? "1" : "0";
+
+  // Record to history on new searches
+  if (_currentPage === 1 && (title || kw || loc || temp === "1")) {
+    recordSearch({ title: title.trim(), kw: kw.trim(), loc, temp });
+  }
 
   const grid  = document.getElementById("candGrid");
   const meta  = document.getElementById("candMeta");
@@ -1232,30 +1236,14 @@ function renderSavedSearches() {
   }).join("");
 }
 
-// Record search to history on every new search
-const _origDoSearch = doSearch;
-function doSearch(page) {
-  _origDoSearch(page);
-  if (page === 1) {
-    const title = (document.getElementById("s_title") || {}).value || "";
-    const kw    = (document.getElementById("s_kw")    || {}).value || "";
-    const loc   = document.getElementById("s_loc").value.trim();
-    const temp  = document.getElementById("s_temp").checked ? "1" : "0";
-    const params = { title: title.trim(), kw: kw.trim(), loc, temp };
-    if (params.title || params.kw || params.loc || params.temp === "1") {
-      recordSearch(params);
-    }
-  }
-}
-
 function applySearch(params) {
-  const titleEl = document.getElementById("s_title") || document.getElementById("s_q");
+  const titleEl = document.getElementById("s_title");
   const kwEl    = document.getElementById("s_kw");
   if (titleEl) titleEl.value = params.title || params.q || "";
   if (kwEl)    kwEl.value    = params.kw    || "";
   document.getElementById("s_loc").value    = params.loc  || "";
   document.getElementById("s_temp").checked = params.temp === "1";
-  _origDoSearch(1);
+  doSearch(1);
 }
 
 function _ssLabel(params) {
@@ -1281,7 +1269,7 @@ renderSavedSearches();
   if (titleEl) titleEl.value = t;
   if (document.getElementById("s_kw")) document.getElementById("s_kw").value = kw;
   if (loc) document.getElementById("s_loc").value = loc;
-  if (t || kw || loc) _origDoSearch(1);
+  if (t || kw || loc) doSearch(1);
 })();
 </script>
 
