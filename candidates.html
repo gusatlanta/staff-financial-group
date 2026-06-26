@@ -523,6 +523,42 @@
     @media (max-width: 500px) {
       .cand-search-wrap { grid-template-columns: 1fr; }
     }
+
+    /* ── Global color fixes for candidates page ─── */
+    /* body text is #1a1a2e from styles.css — fine on white,
+       but footer + hero need explicit overrides */
+    .cand-hero,
+    .cand-hero * { box-sizing: border-box; }
+    .cand-hero h1,
+    .cand-hero p  { color: inherit; } /* set by cand-hero rules above */
+
+    /* Results area — ensure readable dark text on white */
+    .cand-body { color: #1a1a2e; background: #f8fafc; }
+    .cand-empty h3 { color: #0c1f47; }
+    .cand-empty p  { color: #6b7280; }
+
+    /* Footer — force white text on dark navy */
+    .site-footer {
+      background: #0c1f47;
+      color: rgba(255,255,255,.75);
+    }
+    .site-footer p,
+    .site-footer span,
+    .site-footer li { color: rgba(255,255,255,.65); }
+    .site-footer h4 { color: #c8861a; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+    .site-footer a  { color: rgba(255,255,255,.65); }
+    .site-footer a:hover { color: #fff; }
+    .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding: 48px 0 32px; }
+    .footer-bottom { background: rgba(0,0,0,.2); padding: 16px 0; }
+    .footer-bottom-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: .78rem; color: rgba(255,255,255,.4); }
+    .footer-bottom-inner a { color: rgba(255,255,255,.5); }
+    .footer-bottom-inner a:hover { color: #fff; }
+    .footer-legal { display: flex; gap: 16px; }
+    .footer-logo ul, .footer-links ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .footer-email { color: #c8861a !important; font-size: .88rem; }
+    @media (max-width: 680px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 24px; }
+    }
   </style>
 </head>
 <body>
