@@ -631,29 +631,86 @@ footer { background: var(--navy); padding: 60px 0 32px; }
   .nav-links > li > a { color: rgba(255,255,255,.8); }
 }
 
-/* ── Full-bleed dark hero ───────────────────────── */
+/* ── Hero — clean navy, no photo ───────────────── */
 .hero {
   position: relative;
-  min-height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 0 80px;
-  background:
-    url('https://images.unsplash.com/photo-1663601460253-aba72eea6edf?auto=format&fit=crop&w=1800&q=80')
-    center 60% / cover no-repeat;
+  padding: 64px 0 52px;
+  background: linear-gradient(160deg, #0c1f47 0%, #163370 100%);
   border-bottom: none;
 }
-.hero::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(160deg, rgba(8,16,40,.82) 0%, rgba(10,28,60,.75) 100%);
-}
+.hero::before { display: none; }
 .hero-inner {
   display: block !important;
   text-align: center;
   position: relative; z-index: 2;
-  max-width: 840px; margin: 0 auto;
+  max-width: 860px; margin: 0 auto;
+}
+
+/* ── Hero job-search bar ───────────────────────── */
+.hero-search-form { margin-top: 32px; }
+.hero-search-bar {
+  display: flex;
+  gap: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 32px rgba(0,0,0,.28);
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero-search-bar input[type="text"] {
+  flex: 1.1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 16px 18px;
+  color: #0c1f47;
+  background: transparent;
+  border-right: 1px solid #e3e8ef;
+  min-width: 0;
+}
+.hero-search-bar select {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: .95rem;
+  padding: 16px 14px;
+  color: #4b5563;
+  background: #fff;
+  cursor: pointer;
+  border-right: 1px solid #e3e8ef;
+  min-width: 0;
+  appearance: auto;
+}
+.hero-search-bar button {
+  background: #1a6ec7;
+  color: #fff;
+  border: none;
+  padding: 16px 30px;
+  font-size: .97rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: .03em;
+  transition: background .18s;
+  flex-shrink: 0;
+}
+.hero-search-bar button:hover { background: #1558a8; }
+.hero-search-sub {
+  margin-top: 18px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .hero-search-bar { flex-direction: column; border-radius: 8px; }
+  .hero-search-bar input[type="text"],
+  .hero-search-bar select { border-right: none; border-bottom: 1px solid #e3e8ef; }
+  .hero-search-bar button { padding: 14px; }
 }
 .hero-kicker {
   color: rgba(255,255,255,.82);
