@@ -352,7 +352,7 @@ function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x
         </div>
         <div class="search-field" style="flex:0 1 180px;">
           <label>Location</label>
-          <input type="text" id="hl-loc" placeholder="e.g. Atlanta, TX…" oninput="filterHotlist()">
+          <input type="text" id="hl-loc" placeholder="e.g. Atlanta, GA…" oninput="filterHotlist()">
         </div>
         <div class="search-field" style="flex:0 1 160px;">
           <label>Has video résumé</label>
@@ -537,6 +537,7 @@ function switchTab(tab, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('tab-' + tab).classList.add('active');
+  if (tab === 'search') runSearch(1);
 }
 
 /* ─── Render a single card ──── */
@@ -613,22 +614,15 @@ async function runSearch(page) {
   page = page || 1;
   const q   = (document.getElementById('db-q').value || '').trim();
   const loc = (document.getElementById('db-loc').value || '').trim();
-  if (!q && !loc) {
-    document.getElementById('search-grid').innerHTML =
-      `<div class="state-box" style="grid-column:1/-1;"><div class="state-icon">🔍</div><p>Enter a title or skill above to search our candidate database.</p></div>`;
-    document.getElementById('db-count').innerHTML = '';
-    document.getElementById('search-pagination').innerHTML = '';
-    return;
-  }
   document.getElementById('search-grid').innerHTML =
     `<div class="state-box" style="grid-column:1/-1;"><div class="spinner"></div><p>Searching…</p></div>`;
   document.getElementById('db-count').innerHTML = '';
   document.getElementById('search-pagination').innerHTML = '';
   try {
-    const params = new URLSearchParams({ q, location: loc, page });
-    const res  = await fetch(`${API}/api/public/candidates?${params}`);
+    const params = new URLSearchParams({ q, keywords: q, location: loc, page });
+    const res  = await fetch(`${API}/api/public/candidates/search?${params}`);
     const json = await res.json();
-    const cands = json.candidates || [];
+    const cands = json.results || [];
     searchPage  = json.page  || 1;
     searchTotal = json.total || 0;
     searchPages = json.pages || 1;
@@ -639,8 +633,8 @@ async function runSearch(page) {
       grid.innerHTML = `<div class="state-box" style="grid-column:1/-1;"><div class="state-icon">🔍</div><p>No results for that search. Try broader terms or <a href="opt-in.html">submit a talent request</a>.</p></div>`;
       cnt.innerHTML  = '';
     } else {
-      const start = (searchPage - 1) * 24 + 1;
-      const end   = Math.min(searchPage * 24, searchTotal);
+      const start = (searchPage - 1) * 12 + 1;
+      const end   = Math.min(searchPage * 12, searchTotal);
       cnt.innerHTML = `Showing <strong>${start}–${end}</strong> of <strong>${searchTotal}</strong> candidates`;
       grid.innerHTML = cands.map(c => renderCard(c, false)).join('');
       renderPagination();
