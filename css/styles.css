@@ -95,15 +95,15 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-logo {
-  display: flex; align-items: center; gap: 10px;
+  display: flex; align-items: center; gap: 12px;
   flex-shrink: 0; margin-right: 40px; text-decoration: none;
 }
 .nav-logo-badge {
-  width: 42px; height: 42px; object-fit: contain;
+  width: 58px; height: 58px; object-fit: contain;
 }
-.nav-logo-text { line-height: 1.2; }
-.nav-logo-main { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--navy); display: block; }
-.nav-logo-sub  { font-size: .62rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--orange); display: block; }
+.nav-logo-text { line-height: 1.25; }
+.nav-logo-main { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 700; color: var(--navy); display: block; letter-spacing: .01em; }
+.nav-logo-sub  { font-size: .64rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); display: block; margin-top: 2px; }
 
 /* Main nav links */
 .nav-links {
@@ -603,9 +603,9 @@ footer { background: var(--navy); padding: 60px 0 32px; }
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
 .navbar.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.45); }
-.nav-logo-main { color: white; }
+.nav-logo-main { color: white; font-size: 1.12rem; }
 .nav-logo-sub  { color: #5ccfde; }
-.nav-logo-badge { filter: brightness(1.1); }
+.nav-logo-badge { filter: brightness(1.15) drop-shadow(0 1px 4px rgba(0,0,0,.4)); width: 58px; height: 58px; }
 .nav-links > li > a {
   color: rgba(255,255,255,.8);
   border-bottom: 2px solid transparent;
@@ -775,6 +775,32 @@ footer { background: var(--navy); padding: 60px 0 32px; }
   border-color: white;
   background: rgba(255,255,255,.1);
   transform: translateY(-2px);
+}
+/* Hero pill buttons — clean, no class conflicts */
+.btn-hero-pill {
+  display: inline-block;
+  background: transparent;
+  color: rgba(255,255,255,.9);
+  border: 2px solid rgba(255,255,255,.45);
+  border-radius: 100px;
+  padding: 11px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: .83rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap;
+  transition: all .2s;
+  cursor: pointer;
+}
+.btn-hero-pill:hover {
+  border-color: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.1);
+  color: white;
+  transform: translateY(-2px);
+}
+.btn-hero-pill--filled {
+  background: rgba(255,255,255,.18);
+  border-color: rgba(255,255,255,.7);
+  color: white;
 }
 
 /* ── "A History of Success" stats section ───────── */
