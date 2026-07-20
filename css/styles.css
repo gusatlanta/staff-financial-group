@@ -824,7 +824,7 @@ footer { background: var(--navy); padding: 60px 0 32px; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .stats-box .stat-item {
   background: white; text-align: center;
