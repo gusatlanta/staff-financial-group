@@ -1149,6 +1149,19 @@ function submitInquiry() {
   if (el) el.addEventListener("keydown", e => { if (e.key === "Enter") doSearch(1); });
 });
 
+// Deep links from the homepage search box: candidates.html?kw=…&title=…&loc=…
+(function(){
+  const qp = new URLSearchParams(window.location.search);
+  const title = qp.get("title") || "";
+  const kw    = qp.get("kw")    || qp.get("q") || "";
+  const loc   = qp.get("loc")   || "";
+  if (!title && !kw && !loc) return;
+  if (title) document.getElementById("s_title").value = title;
+  if (kw)    document.getElementById("s_kw").value    = kw;
+  if (loc)   document.getElementById("s_loc").value   = loc;
+  doSearch(1);
+})();
+
 // ── Saved / recent search history ───────────────────────────────────────────
 const SS_RECENT_KEY = "sfg_cand_recent";
 const SS_SAVED_KEY  = "sfg_cand_saved";

@@ -343,6 +343,100 @@
 })();
 </script>
 
+<!-- ── MPC Talent Spotlight (auto-feeds from Smartlead marketing) ── -->
+<div id="mpc-spotlight" style="display:none;background:#fff;padding:56px 0 48px;border-top:1px solid #eee6da;">
+  <div class="container" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px;">
+    <div>
+      <div style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Talent Spotlight</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.2rem);color:var(--navy);line-height:1.2;">Candidates We're Marketing <em>Right Now</em></h2>
+      <p style="color:#555;line-height:1.7;margin-top:10px;max-width:560px;">Real finance &amp; accounting professionals we're actively representing this week. Names are hidden to protect confidentiality — click any card to view the blinded résumé.</p>
+    </div>
+    <a href="candidates.html" class="btn btn-primary" style="flex-shrink:0;">Search All Talent →</a>
+  </div>
+
+  <div class="mpc-marquee" aria-label="Candidates currently being marketed">
+    <div class="mpc-track" id="mpcTrack"></div>
+  </div>
+
+  <div class="container" style="margin-top:34px;">
+    <form onsubmit="return sfgTalentSearch(this)" style="display:flex;gap:10px;max-width:640px;margin:0 auto;background:#f9f7f4;border:1px solid #e8e3da;border-radius:12px;padding:10px;">
+      <input type="text" name="q" placeholder="Search our candidate database — Controller, CPA, NetSuite…" aria-label="Search our candidate database"
+             style="flex:1;border:none;background:transparent;padding:10px 12px;font-size:.95rem;font-family:'Inter',sans-serif;outline:none;color:var(--navy);">
+      <button type="submit" class="btn btn-primary" style="flex-shrink:0;">Search Database</button>
+    </form>
+  </div>
+</div>
+<style>
+.mpc-marquee { overflow:hidden; position:relative; }
+.mpc-marquee::before,.mpc-marquee::after {
+  content:""; position:absolute; top:0; bottom:0; width:70px; z-index:2; pointer-events:none;
+}
+.mpc-marquee::before { left:0;  background:linear-gradient(90deg,#fff,rgba(255,255,255,0)); }
+.mpc-marquee::after  { right:0; background:linear-gradient(270deg,#fff,rgba(255,255,255,0)); }
+.mpc-track { display:flex; gap:16px; width:max-content; padding:4px 70px; animation:mpcScroll 55s linear infinite; }
+.mpc-marquee:hover .mpc-track { animation-play-state:paused; }
+@keyframes mpcScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .mpc-track { animation:none; overflow-x:auto; width:auto; }
+  .mpc-marquee { overflow-x:auto; }
+}
+.mpc-card {
+  display:block; width:300px; flex-shrink:0; background:#fff; border:1px solid #e8e3da; border-radius:14px;
+  padding:18px 18px 16px; text-decoration:none; box-shadow:0 2px 10px rgba(0,0,0,.05);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.mpc-card:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(12,31,71,.13); }
+.mpc-card-head { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.mpc-avatar {
+  width:44px; height:44px; border-radius:11px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:.9rem; color:#fff; background:var(--navy); font-family:'Inter',sans-serif;
+}
+.mpc-card-title { font-weight:700; color:var(--navy); font-size:.96rem; line-height:1.25; font-family:'Inter',sans-serif; }
+.mpc-card-loc { font-size:.79rem; color:#888; margin-top:2px; }
+.mpc-badges { display:flex; flex-wrap:wrap; gap:6px; }
+.mpc-badge { font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:20px; background:#f4f1ea; color:#555; border:1px solid #e8e3da; }
+.mpc-badge.gold { background:#fff7ed; color:#b45309; border-color:#fed7aa; }
+.mpc-badge.green { background:#ecfdf3; color:#15803d; border-color:#bbf7d0; }
+.mpc-card-cta { display:block; margin-top:12px; font-size:.83rem; font-weight:700; color:var(--orange); }
+</style>
+<script>
+function sfgTalentSearch(f){
+  var q=(f.q.value||'').trim();
+  window.location.href='candidates.html'+(q?('?kw='+encodeURIComponent(q)):'');
+  return false;
+}
+(function(){
+  fetch('https://100xrecruiting.com/api/public/mpc-feed?limit=16')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(!d||!d.ok||!d.candidates||!d.candidates.length) return;
+      function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var cards=d.candidates.map(function(c){
+        var initials=(c.title||'FA').replace(/[^A-Za-z ]/g,'').split(' ').filter(Boolean).map(function(w){return w[0];}).join('').slice(0,2).toUpperCase()||'FA';
+        var badges='';
+        (c.badges||[]).slice(0,3).forEach(function(b){
+          var cls=/public|big 4|cpa/i.test(b)?' gold':'';
+          badges+='<span class="mpc-badge'+cls+'">'+esc(b)+'</span>';
+        });
+        if(c.years)  badges+='<span class="mpc-badge">'+esc(c.years)+'</span>';
+        if(c.salary) badges+='<span class="mpc-badge green">'+esc(c.salary)+'</span>';
+        var href=c.share_url?esc(c.share_url):'candidates.html';
+        var ext=c.share_url?' target="_blank" rel="noopener"':'';
+        return '<a class="mpc-card" href="'+href+'"'+ext+'>'
+          +'<div class="mpc-card-head"><div class="mpc-avatar">'+initials+'</div>'
+          +'<div><div class="mpc-card-title">'+esc(c.title||'Finance Professional')+'</div>'
+          +'<div class="mpc-card-loc">📍 '+esc(c.location||'Southeast US')+'</div></div></div>'
+          +(badges?'<div class="mpc-badges">'+badges+'</div>':'')
+          +'<span class="mpc-card-cta">View blinded résumé →</span></a>';
+      }).join('');
+      var track=document.getElementById('mpcTrack');
+      track.innerHTML=cards+cards; /* duplicated for seamless loop */
+      document.getElementById('mpc-spotlight').style.display='block';
+    })
+    .catch(function(){});
+})();
+</script>
+
 <!-- ── Stats strip ───────────────────────────── -->
 <div class="hero-stats">
   <div class="container">
