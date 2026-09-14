@@ -147,7 +147,10 @@ document.getElementById('navToggle').addEventListener('click',function(){documen
     <h2 class="section-title" style="text-align:center;margin-bottom:8px;">Become a Partner</h2>
     <p style="color:var(--text-muted);text-align:center;margin-bottom:32px;">Sixty seconds. We review every application personally and reply within one business day.</p>
     <div class="form-card">
-      <form data-form="partner" action="mailto:gus@stafffinancial.com" method="POST" enctype="text/plain" novalidate>
+      <form id="partnerForm" novalidate>
+        <input type="hidden" name="_subject" value="New Partner Application - stafffinancial.com/partners">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;top:-9999px;">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Your Name *</label>
@@ -178,6 +181,39 @@ document.getElementById('navToggle').addEventListener('click',function(){documen
     </div>
   </div>
 </section>
+<script>
+/* Partner form -> emails gus@stafffinancial.com via FormSubmit (no cross-site
+   API). First submission triggers a one-time activation email to gus@. */
+(function(){
+  var f = document.getElementById('partnerForm'); if(!f) return;
+  f.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if (typeof f.reportValidity === 'function' && !f.reportValidity()) return;
+    var btn = f.querySelector('button[type="submit"]');
+    var ok  = f.querySelector('.alert-success');
+    var orig = btn ? btn.textContent : '';
+    if (btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+    try {
+      var res = await fetch('https://formsubmit.co/ajax/gus@stafffinancial.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(f)))
+      });
+      var j = await res.json().catch(function(){ return {}; });
+      if (j && (j.success === 'true' || j.success === true)) {
+        f.reset();
+        if (ok) ok.style.display = 'block';
+        if (btn) btn.textContent = 'Sent ✓';
+      } else {
+        throw new Error((j && j.message) || 'error');
+      }
+    } catch (err) {
+      if (btn){ btn.disabled = false; btn.textContent = orig; }
+      alert('Something went wrong — please email gus@stafffinancial.com directly.');
+    }
+  });
+})();
+</script>
 
 <footer>
   <div class="container">
