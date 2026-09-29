@@ -424,6 +424,19 @@
     .ss-empty-msg { font-size: .8rem; color: rgba(255,255,255,.4); font-style: italic; }
 
     /* Empty / loading state */
+    /* CAND_ABOUT_v1: static copy under the results */
+    .cand-about { background:#f7f8fb; border-top:1px solid #e5e7eb; padding:48px 0 56px; }
+    .cand-about h2 { font-family:'Playfair Display',serif; color:#0c1f47; font-size:1.6rem; margin:0 0 10px; }
+    .cand-about > .container > p { color:#4b5563; max-width:820px; line-height:1.6; margin:0 0 24px; }
+    .cand-about-cols { display:grid; grid-template-columns:1fr 2fr; gap:32px; }
+    .cand-about h3 { color:#0c1f47; font-size:1rem; margin:0 0 10px; }
+    .cand-about ul { margin:0; padding-left:18px; line-height:1.9; }
+    .cand-about a { color:#0c1f47; }
+    .cand-faq-item { border-bottom:1px solid #e5e7eb; padding:10px 0; }
+    .cand-faq-item summary { cursor:pointer; font-weight:700; color:#0c1f47; }
+    .cand-faq-item p { color:#4b5563; margin:8px 0 2px; line-height:1.55; }
+    .cand-grid.loading { opacity:.55; transition:opacity .15s; }
+    @media (max-width:760px) { .cand-about-cols { grid-template-columns:1fr; } }
     .cand-empty {
       grid-column: 1 / -1;
       text-align: center;
@@ -578,6 +591,46 @@
       .footer-inner { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 24px; }
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who are these candidates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Accounting and finance professionals who have shared a résumé with Staff Financial Group, mostly across Atlanta and the Southeast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are the profiles blinded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To protect each candidate's privacy, names, employers and schools are hidden. Click Info on any profile and we'll share the full profile and set up an intro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I hire on a temp or contract basis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tick “Available for temp / contract” above, or browse our Temps page for people ready to start now."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get started?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Click Info on any profile that fits, or tell us what you're hiring for on the Hire Now page."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -624,7 +677,7 @@
       </div>
       <div>
         <label style="font-size:.75rem;font-weight:800;color:#0c1f47;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:6px;">Keywords / Skills</label>
-        <input type="text" id="s_kw" placeholder="CPA, NetSuite, SAP, Big 4…" onkeydown="if(event.key==='Enter')doSearch(1)">
+        <input type="text" id="s_kw" placeholder="CPA, NetSuite, SAP, GAAP…" onkeydown="if(event.key==='Enter')doSearch(1)">
       </div>
       <div>
         <label style="font-size:.75rem;font-weight:800;color:#0c1f47;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:6px;">Location</label>
@@ -715,6 +768,34 @@
   <div class="cand-pager" id="candPager"></div>
 </div>
 
+<!-- ── About this page (static: always visible, even before results load) ── -->
+<section class="cand-about">
+  <div class="container">
+    <h2>Pre-screened accounting &amp; finance professionals</h2>
+    <p>Every profile on this page is a real candidate who has shared a résumé with Staff Financial Group. Names, employers and schools are hidden to protect their privacy &mdash; you see the role, location, skills and systems. When someone fits, click <strong>Info &rarr;</strong> and we'll share the full profile and set up an intro.</p>
+    <div class="cand-about-cols">
+      <div>
+        <h3>Roles we place</h3>
+        <ul>
+          <li><a href="services.html">Controllers &amp; Accounting Managers</a></li>
+          <li><a href="services.html">CFOs &amp; VPs of Finance</a></li>
+          <li><a href="services.html">Senior &amp; Staff Accountants</a></li>
+          <li><a href="services.html">FP&amp;A &amp; Financial Analysts</a></li>
+          <li><a href="services.html">Tax &amp; Audit</a></li>
+          <li><a href="temps.html">AP / AR / Payroll &mdash; temp &amp; contract</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Common questions</h3>
+        <details class="cand-faq-item"><summary>Who are these candidates?</summary><p>Accounting and finance professionals who have shared a résumé with Staff Financial Group, mostly across Atlanta and the Southeast.</p></details>
+        <details class="cand-faq-item"><summary>Why are the profiles blinded?</summary><p>To protect each candidate's privacy, names, employers and schools are hidden. Click Info on any profile and we'll share the full profile and set up an intro.</p></details>
+        <details class="cand-faq-item"><summary>Can I hire on a temp or contract basis?</summary><p>Yes. Tick “Available for temp / contract” above, or browse our <a href="temps.html">Temps page</a> for people ready to start now.</p></details>
+        <details class="cand-faq-item"><summary>How do I get started?</summary><p>Click Info on any profile that fits, or tell us what you're hiring for on the <a href="opt-in.html">Hire Now page</a>.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Request More Info Modal ───────────────── -->
 <div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
@@ -781,7 +862,7 @@
   </div>
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>© 2025 Staff Financial Group · NorthPoint Search Group. All rights reserved.</span>
+      <span>© 2026 Staff Financial Group · NorthPoint Search Group. All rights reserved.</span>
       <div class="footer-legal">
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
@@ -855,7 +936,7 @@ function removeCriteria(bucket, val) {
 function renderCriteriaChips(bucket) {
   const row = document.getElementById("chips-" + bucket);
   row.innerHTML = _criteria[bucket].map(v =>
-    `<span class="cr-chip ${bucket}">${esc(v)}<button class="cr-chip-del" onclick="removeCriteria('${bucket}',${JSON.stringify(v)})">✕</button></span>`
+    `<span class="cr-chip ${bucket}">${esc(v)}<button class="cr-chip-del" onclick="removeCriteria('${bucket}',${esc(JSON.stringify(v))})">✕</button></span>`
   ).join("");
 }
 
@@ -957,41 +1038,66 @@ function doSearch(page) {
   const pager = document.getElementById("candPager");
   const prog  = document.getElementById("searchProgress");
 
-  grid.innerHTML = "";
-  meta.style.display = "none";
-  pager.innerHTML = "";
+  // SEARCH_UX_v2: keep what's on screen until the answer arrives
+  grid.classList.add("loading");
   prog.classList.add("running");
+  const mySeq = ++_searchSeq;
 
   const params = new URLSearchParams({
     title: title.trim(), keywords: kw.trim(),
     location: loc, temp, page: _currentPage
   });
-  fetch(`${API}?${params}`)
+  const ctl = ("AbortController" in window) ? new AbortController() : null;
+  const timer = setTimeout(() => { if (ctl) ctl.abort(); }, 15000);
+  fetch(`${API}?${params}`, ctl ? {signal: ctl.signal} : {})
     .then(r => r.json())
     .then(data => {
+      clearTimeout(timer);
+      if (mySeq !== _searchSeq) return;          // a newer search already started
       prog.classList.remove("running");
-      if (!data.ok) { showEmpty("Search error — please try again."); return; }
+      grid.classList.remove("loading");
+      if (data.warming && _warmRetries < 3) {    // candidate pool is loading right after an update
+        _warmRetries++;
+        showEmpty("Loading our candidate pool…", "One moment — the list will appear automatically.");
+        setTimeout(() => doSearch(_currentPage), 6000);
+        return;
+      }
+      _warmRetries = 0;
+      if (!data.ok) { showEmpty("Search is taking a break", "Please try again in a minute, or <a href=\"opt-in.html\">tell us who you're hiring</a> and we'll send matches."); return; }
       if (!data.results || !data.results.length) {
-        showEmpty("No candidates matched your search. Try broader terms or a different location.");
+        showEmpty("No results", "No candidates matched your search. Try broader terms or a different location.");
         return;
       }
       const filtered = applyCriteria(applyLevel(data.results));
       if (!filtered.length) {
-        showEmpty("No candidates matched your criteria. Try relaxing your Must Have or Not filters.");
+        showEmpty("No results", "No candidates on this page matched your criteria. Try relaxing your Must Have or Not filters.", data);
         return;
       }
       renderCards(filtered);
-      renderMeta(filtered.length, 1, 1);
+      if (filtered.length === data.results.length && typeof data.total === "number") {
+        renderMeta(data.total, data.page, data.pages);
+      } else {
+        renderMeta(filtered.length, 1, 1);
+      }
       renderPager(data.pages, data.page);
     })
-    .catch(() => { prog.classList.remove("running"); showEmpty("Could not connect. Please try again shortly."); });
+    .catch(() => {
+      clearTimeout(timer);
+      if (mySeq !== _searchSeq) return;
+      prog.classList.remove("running");
+      grid.classList.remove("loading");
+      showEmpty("Search is taking a break", "Please try again in a minute, or <a href=\"opt-in.html\">tell us who you're hiring</a> and we'll send matches.");
+    });
 }
+let _searchSeq = 0, _warmRetries = 0;
 
-function showEmpty(msg) {
+function showEmpty(heading, msg, data) {
   document.getElementById("candGrid").innerHTML =
-    `<div class="cand-empty"><h3>No results</h3><p>${msg}</p></div>`;
+    `<div class="cand-empty"><h3>${heading}</h3><p>${msg || ""}</p></div>`;
   document.getElementById("candMeta").style.display = "none";
-  document.getElementById("candPager").innerHTML = "";
+  // keep paging when the server has more pages (client-side filters can empty one page)
+  if (data && data.pages > 1) renderPager(data.pages, data.page);
+  else document.getElementById("candPager").innerHTML = "";
 }
 
 function renderCards(cards) {
@@ -1031,7 +1137,7 @@ function renderCards(cards) {
             <button class="cc-rate-btn ${_rating==='nice'?'on':''}" data-r="nice" data-cid="${c.id}" onclick="setRating(${c.id},'nice',this)" title="Nice to have">+ Nice</button>
             <button class="cc-rate-btn ${_rating==='not'?'on':''}" data-r="not"  data-cid="${c.id}" onclick="setRating(${c.id},'not',this)"  title="Not a fit">✕ Not</button>
           </div>
-          <button class="cc-request-btn" onclick="openModal(${c.id}, ${JSON.stringify(esc(c.title))})">
+          <button class="cc-request-btn" onclick="openModal(${c.id}, ${esc(JSON.stringify(c.title || ''))})">
             Info →
           </button>
         </div>
@@ -1143,11 +1249,7 @@ function submitInquiry() {
   });
 }
 
-// Allow pressing Enter in search inputs
-["s_title","s_kw","s_loc"].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener("keydown", e => { if (e.key === "Enter") doSearch(1); });
-});
+// (Enter is handled by each input's onkeydown - a second listener here made every Enter search twice)
 
 // Deep links from the homepage search box: candidates.html?kw=…&title=…&loc=…
 (function(){
@@ -1248,13 +1350,13 @@ function renderSavedSearches() {
     const starIcon = starred ? "⭐" : "☆";
     const starTitle = starred ? "Remove from saved" : "Save this search";
     const delFn = _ssTab === "recent"
-      ? `deleteRecent(${JSON.stringify(r.label)})`
-      : `deleteSaved(${JSON.stringify(r.label)})`;
+      ? `deleteRecent(${esc(JSON.stringify(r.label))})`
+      : `deleteSaved(${esc(JSON.stringify(r.label))})`;
     return `
-      <span class="ss-chip" onclick="applySearch(${JSON.stringify(r)})" title="Run this search">
+      <span class="ss-chip" onclick="applySearch(${esc(JSON.stringify(r))})" title="Run this search">
         ${esc(r.label)}
         <button class="ss-chip-star" title="${starTitle}"
-          onclick="event.stopPropagation();toggleSave(${JSON.stringify(r)})">${starIcon}</button>
+          onclick="event.stopPropagation();toggleSave(${esc(JSON.stringify(r))})">${starIcon}</button>
         <button class="ss-chip-del" title="Remove"
           onclick="event.stopPropagation();${delFn}">✕</button>
       </span>`;

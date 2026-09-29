@@ -563,7 +563,7 @@ function renderCard(c, isTemp) {
       <div class="cand-meta">${meta}</div>
       ${chips ? `<div class="skill-chips">${chips}</div>` : ''}
       <div class="cand-footer">
-        <button class="btn btn-gold" onclick='openModal(${JSON.stringify(c)}, "${reqType}")' style="font-size:.82rem;">${reqLabel}</button>
+        <button class="btn btn-gold" onclick="openModal(${escHtml(JSON.stringify(c))}, '${reqType}')" style="font-size:.82rem;">${reqLabel}</button>
       </div>
     </div>`;
 }
