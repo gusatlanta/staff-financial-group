@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="img/logo-badge.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
   <title>Contact | Atlanta Finance & Accounting Recruiting & Staffing | Staff Financial Group</title>
   <meta name="description" content="Contact Staff Financial Group — Atlanta's specialized finance & accounting recruiters. Email gus@stafffinancial.com or submit an inquiry. We respond within one business day.">
   <link rel="canonical" href="https://www.stafffinancial.com/contact.html">
@@ -47,60 +48,87 @@
 
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="img/logo-badge.png" alt="" class="nav-logo-badge" onerror="this.style.display='none'">
-      <div class="nav-logo-text">
-        <span class="nav-logo-main">Staff Financial Group</span>
-        <span class="nav-logo-sub">Finance &amp; Accounting Recruiters</span>
-      </div>
+    <a href="index.html" class="brand" aria-label="Staff Financial Group — home">
+      <img src="img/sfg-mark.png" alt="" class="brand-mark" width="38" height="45">
+      <span class="brand-text">
+        <span class="brand-name">StaffFinancial</span>
+        <span class="brand-group">Group</span>
+        <span class="brand-tag">Powered by NorthPoint</span>
+      </span>
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="services.html" >Services</a></li>
-      <li class="has-mega"><a href="services.html">Recruiting Areas <span class="chevron">▾</span></a>
-        <div class="mega-menu">
-          <div class="mega-sidebar">
-            <button class="mega-tab-btn active" onclick="switchMegaTab('direct',this)">Direct Hire</button>
-            <button class="mega-tab-btn" onclick="switchMegaTab('staffing',this)">Staffing &amp; Contract</button>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="services.html">Services</a></li>
+        <li class="has-mega">
+          <a href="services.html">Recruiting Areas <span class="chevron">▾</span></a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <button class="mega-tab-btn active" onclick="switchMegaTab('direct',this)">Direct Hire</button>
+              <button class="mega-tab-btn" onclick="switchMegaTab('staffing',this)">Staffing &amp; Contract</button>
+            </div>
+            <div class="mega-panel active" id="mega-direct">
+              <a href="services.html#retained" style="font-weight:600;color:var(--ink);"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg> Retained Search</a>
+              <a href="services.html#rpo" style="font-weight:600;color:var(--ink);"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> RPO &amp; Project Staffing</a>
+              <a href="services.html">Controller &amp; Accounting Manager</a>
+              <a href="services.html">CFO &amp; VP Finance</a>
+              <a href="services.html">Senior &amp; Staff Accountant</a>
+              <a href="services.html">Financial Analyst &amp; FP&amp;A</a>
+              <a href="services.html">Tax Manager &amp; Tax Analyst</a>
+              <a href="services.html">Internal Audit &amp; Compliance</a>
+              <a href="services.html">Cost Accountant</a>
+              <a href="services.html">Treasury &amp; Cash Management</a>
+              <a href="services.html">Accounts Payable &amp; Receivable</a>
+              <a href="services.html">Payroll Manager</a>
+              <a class="mega-all" href="services.html">All Direct Hire Specialties →</a>
+            </div>
+            <div class="mega-panel" id="mega-staffing">
+              <a href="temps.html">Interim Controller</a>
+              <a href="temps.html">Interim CFO</a>
+              <a href="temps.html">Contract Accountant</a>
+              <a href="temps.html">Temp-to-Hire Analyst</a>
+              <a href="temps.html">Project-Based Finance Support</a>
+              <a href="temps.html">ERP Implementation Support</a>
+              <a href="temps.html">Month-End Close Support</a>
+              <a href="temps.html">Audit Preparation</a>
+              <a href="temps.html">Payroll &amp; AP Coverage</a>
+              <a href="temps.html">Employer of Record (EOR)</a>
+              <a class="mega-all" href="temps.html">Browse Available Temps →</a>
+            </div>
+            <div class="mega-featured">
+              <div class="mega-featured-placeholder"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></div>
+              <h4>We Payroll Your Temp &amp; Contract Workers</h4>
+              <a href="temps.html" class="learn">Learn More →</a>
+            </div>
           </div>
-          <div class="mega-panel active" id="mega-direct">
-            <a href="services.html#retained" style="font-weight:700;color:var(--gold-dark);">⭐ Retained Search</a>
-            <a href="services.html#rpo" style="font-weight:700;color:var(--gold-dark);">🔧 RPO &amp; Project Staffing</a>
-            <a href="services.html">Controller &amp; Accounting Manager</a><a href="services.html">CFO &amp; VP Finance</a>
-            <a href="services.html">Senior &amp; Staff Accountant</a><a href="services.html">Financial Analyst &amp; FP&amp;A</a>
-            <a href="services.html">Tax Manager &amp; Tax Analyst</a><a href="services.html">Internal Audit &amp; Compliance</a>
-            <a href="services.html">Cost Accountant</a><a href="services.html">Treasury &amp; Cash Management</a>
-            <a href="services.html">Accounts Payable &amp; Receivable</a><a href="services.html">Payroll Manager</a>
-            <a class="mega-all" href="services.html">All Direct Hire Specialties →</a>
+        </li>
+        <li class="has-mega">
+          <a href="about.html">Industries <span class="chevron">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="about.html">Manufacturing</a>
+            <a href="about.html">Healthcare &amp; Life Sciences</a>
+            <a href="about.html">Real Estate &amp; Construction</a>
+            <a href="about.html">Technology &amp; SaaS</a>
+            <a href="about.html">Private Equity</a>
+            <a href="about.html">Professional Services</a>
+            <a href="about.html">Distribution &amp; Logistics</a>
+            <a href="about.html">All Industries</a>
           </div>
-          <div class="mega-panel" id="mega-staffing">
-            <a href="temps.html">Interim Controller</a><a href="temps.html">Interim CFO</a>
-            <a href="temps.html">Contract Accountant</a><a href="temps.html">Temp-to-Hire Analyst</a>
-            <a href="temps.html">ERP Implementation Support</a><a href="temps.html">Month-End Close Support</a>
-            <a href="temps.html">Audit Preparation</a><a href="temps.html">Employer of Record (EOR)</a>
-            <a class="mega-all" href="temps.html">Browse Available Temps →</a>
-          </div>
-          <div class="mega-featured">
-            <div class="mega-featured-placeholder">💼</div>
-            <h4>EOR Back-Office for Temp &amp; Contract Workers</h4>
-            <a href="temps.html" class="learn">Learn More →</a>
-          </div>
-        </div>
-      </li>
-      <li><a href="temps.html" >Find Talent</a></li>
-      <li><a href="about.html" >About</a></li>
-      <li><a href="partners.html">Partner Program</a></li>
-    </ul>
-    <div class="nav-ctas">
-      <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-outline-dark">Job Board</a>
-      <a href="opt-in.html" class="btn btn-primary">Hire Top Talent</a>
+        </li>
+        <li><a href="temps.html">Find Talent</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partners.html">Partner Program</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-outline-dark">Job Board</a>
+        <a href="opt-in.html" class="btn btn-primary">Hire Top Talent</a>
+      </div>
     </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <script>
 window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>10),{passive:true});
 document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open');this.classList.toggle('open');});
-function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.mega-panel').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('mega-'+t).classList.add('active');}
 </script>
 
 <section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1600&q=80');background-size:cover;background-position:center top;">
@@ -114,7 +142,7 @@ function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x
 
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start;">
+    <div class="stack-md" style="display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start;">
 
       <!-- Contact info -->
       <div>
@@ -124,14 +152,14 @@ function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x
 
         <div style="display:flex;flex-direction:column;gap:24px;">
           <div style="display:flex;align-items:flex-start;gap:16px;">
-            <div style="width:44px;height:44px;min-width:44px;background:rgba(200,162,67,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📧</div>
+            <div style="width:44px;height:44px;min-width:44px;background:rgba(42,156,192,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;"><svg class="ico" aria-hidden="true" style="color:var(--blue)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
             <div>
               <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Email</div>
               <a href="mailto:gus@stafffinancial.com" style="color:var(--navy);font-weight:600;font-size:1rem;">gus@stafffinancial.com</a>
             </div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;">
-            <div style="width:44px;height:44px;min-width:44px;background:rgba(200,162,67,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📍</div>
+            <div style="width:44px;height:44px;min-width:44px;background:rgba(42,156,192,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;"><svg class="ico" aria-hidden="true" style="color:var(--blue)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
               <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Location</div>
               <span style="color:var(--navy);font-weight:600;">Atlanta, GA</span>
@@ -139,7 +167,7 @@ function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x
             </div>
           </div>
           <div style="display:flex;align-items:flex-start;gap:16px;">
-            <div style="width:44px;height:44px;min-width:44px;background:rgba(200,162,67,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">💼</div>
+            <div style="width:44px;height:44px;min-width:44px;background:rgba(42,156,192,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;"><svg class="ico" aria-hidden="true" style="color:var(--blue)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></div>
             <div>
               <div style="font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;">Job Board</div>
               <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;">View Open Positions ↗</a>
@@ -209,19 +237,24 @@ function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo" style="display:inline-flex;">
-          <span class="footer-logo-main">Staff Financial Group</span>
-          <span class="footer-logo-sub">Finance &amp; Accounting · Powered by NorthPoint</span>
+        <a href="index.html" class="brand brand--light" aria-label="Staff Financial Group — home">
+          <img src="img/sfg-mark.png" alt="" class="brand-mark" width="38" height="45">
+          <span class="brand-text">
+            <span class="brand-name">StaffFinancial</span>
+            <span class="brand-group">Group</span>
+            <span class="brand-tag">Powered by NorthPoint</span>
+          </span>
         </a>
-        <p>Specialized finance and accounting recruitment across Atlanta and the Southeast.</p>
+        <p>Specialized finance and accounting recruitment across Atlanta and the Southeast. Over 20 years connecting top talent with leading companies — since 2005.</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Explore</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="opt-in.html">Request Talent</a></li>
+          <li><a href="temps.html">Find Talent</a></li>
+          <li><a href="candidates.html">Browse Candidates</a></li>
+          <li><a href="partners.html">Partner Program</a></li>
           <li><a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener">Job Board ↗</a></li>
         </ul>
       </div>
@@ -230,7 +263,8 @@ function switchMegaTab(t,b){document.querySelectorAll('.mega-tab-btn').forEach(x
         <ul>
           <li><a href="mailto:gus@stafffinancial.com">gus@stafffinancial.com</a></li>
           <li><a href="contact.html">Send a Message</a></li>
-          <li><span style="color:rgba(255,255,255,.45);font-size:.85rem;">Atlanta, GA</span></li>
+          <li><a href="opt-in.html">Request Talent</a></li>
+          <li><span>Atlanta, GA · Since 2005</span></li>
         </ul>
       </div>
     </div>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="img/logo-badge.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
   <title>Atlanta Finance & Accounting Recruiting & Staffing | Staff Financial Group</title>
   <meta name="description" content="Atlanta's specialized finance & accounting recruiting firm since 2005. We place CFOs, Controllers, Accountants & FP&A professionals. Direct hire, contract & EOR staffing.">
   <link rel="canonical" href="https://www.stafffinancial.com/">
@@ -46,7 +47,7 @@
           {
             "@type": "Question",
             "name": "What types of finance professionals does Staff Financial Group place?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Staff Financial Group places CFOs, VPs of Finance, Controllers, Accounting Managers, Senior and Staff Accountants, Financial Analysts, FP&A professionals, Tax Managers, Internal Auditors, Cost Accountants, Treasury Analysts, Payroll Managers, and Accounts Payable/Receivable specialists. We focus exclusively on finance and accounting roles." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Staff Financial Group places CFOs, VPs of Finance, Controllers, Accounting Managers, Senior and Staff Accountants, Financial Analysts, FP&A professionals, Tax Managers, Internal Auditors, Cost Accountants, Treasury Analysts, Payroll Managers, and Accounts Payable/Receivable specialists. We specialize in finance and accounting roles across all industries." }
           },
           {
             "@type": "Question",
@@ -109,7 +110,7 @@
                 "addressCountry":"US"
               }
             },
-            "description":"Finance and accounting role placed by Staff Financial Group, Atlanta's specialized recruiting firm. Contact us to learn more.",
+            "description":"Role placed by Staff Financial Group, Atlanta's specialized recruiting firm. Contact us to learn more.",
             "url":"https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg"
           };
           if(j.salary){
@@ -130,110 +131,86 @@
 </head>
 <body>
 
-<!-- ── Top bar ──────────────────────────────── -->
-<div class="topbar">
-  <div class="container topbar-inner">
-    <span>Over 20 years connecting top talent with leading companies · Since 2005</span>
-    <a href="mailto:gus@stafffinancial.com">gus@stafffinancial.com</a>
-    <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener">View Open Jobs ↗</a>
-  </div>
-</div>
 
 <!-- ── Navigation ───────────────────────────── -->
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
-
-    <!-- Logo -->
-    <a href="index.html" class="nav-logo">
-      <img src="img/logo-badge.png" alt="" class="nav-logo-badge" onerror="this.style.display='none'">
-      <div class="nav-logo-text">
-        <span class="nav-logo-main">Staff Financial Group</span>
-        <span class="nav-logo-sub">Finance &amp; Accounting Recruiters</span>
-      </div>
+    <a href="index.html" class="brand" aria-label="Staff Financial Group — home">
+      <img src="img/sfg-mark.png" alt="" class="brand-mark" width="38" height="45">
+      <span class="brand-text">
+        <span class="brand-name">StaffFinancial</span>
+        <span class="brand-group">Group</span>
+        <span class="brand-tag">Powered by NorthPoint</span>
+      </span>
     </a>
-
-    <!-- Center nav links -->
-    <ul class="nav-links" id="navLinks">
-
-      <li><a href="services.html">Services</a></li>
-
-      <!-- Mega menu: Recruiting Areas -->
-      <li class="has-mega">
-        <a href="services.html">Recruiting Areas <span class="chevron">▾</span></a>
-        <div class="mega-menu">
-          <div class="mega-sidebar">
-            <button class="mega-tab-btn active" onclick="switchMegaTab('direct',this)">Direct Hire</button>
-            <button class="mega-tab-btn" onclick="switchMegaTab('staffing',this)">Staffing &amp; Contract</button>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="services.html">Services</a></li>
+        <li class="has-mega">
+          <a href="services.html">Recruiting Areas <span class="chevron">▾</span></a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <button class="mega-tab-btn active" onclick="switchMegaTab('direct',this)">Direct Hire</button>
+              <button class="mega-tab-btn" onclick="switchMegaTab('staffing',this)">Staffing &amp; Contract</button>
+            </div>
+            <div class="mega-panel active" id="mega-direct">
+              <a href="services.html#retained" style="font-weight:600;color:var(--ink);"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg> Retained Search</a>
+              <a href="services.html#rpo" style="font-weight:600;color:var(--ink);"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> RPO &amp; Project Staffing</a>
+              <a href="services.html">Controller &amp; Accounting Manager</a>
+              <a href="services.html">CFO &amp; VP Finance</a>
+              <a href="services.html">Senior &amp; Staff Accountant</a>
+              <a href="services.html">Financial Analyst &amp; FP&amp;A</a>
+              <a href="services.html">Tax Manager &amp; Tax Analyst</a>
+              <a href="services.html">Internal Audit &amp; Compliance</a>
+              <a href="services.html">Cost Accountant</a>
+              <a href="services.html">Treasury &amp; Cash Management</a>
+              <a href="services.html">Accounts Payable &amp; Receivable</a>
+              <a href="services.html">Payroll Manager</a>
+              <a class="mega-all" href="services.html">All Direct Hire Specialties →</a>
+            </div>
+            <div class="mega-panel" id="mega-staffing">
+              <a href="temps.html">Interim Controller</a>
+              <a href="temps.html">Interim CFO</a>
+              <a href="temps.html">Contract Accountant</a>
+              <a href="temps.html">Temp-to-Hire Analyst</a>
+              <a href="temps.html">Project-Based Finance Support</a>
+              <a href="temps.html">ERP Implementation Support</a>
+              <a href="temps.html">Month-End Close Support</a>
+              <a href="temps.html">Audit Preparation</a>
+              <a href="temps.html">Payroll &amp; AP Coverage</a>
+              <a href="temps.html">Employer of Record (EOR)</a>
+              <a class="mega-all" href="temps.html">Browse Available Temps →</a>
+            </div>
+            <div class="mega-featured">
+              <div class="mega-featured-placeholder"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></div>
+              <h4>We Payroll Your Temp &amp; Contract Workers</h4>
+              <a href="temps.html" class="learn">Learn More →</a>
+            </div>
           </div>
-
-          <div class="mega-panel active" id="mega-direct">
-            <a href="services.html#retained" style="font-weight:700;color:var(--gold-dark);">⭐ Retained Search</a>
-            <a href="services.html#rpo" style="font-weight:700;color:var(--gold-dark);">🔧 RPO &amp; Project Staffing</a>
-            <a href="services.html">Controller &amp; Accounting Manager</a>
-            <a href="services.html">CFO &amp; VP Finance</a>
-            <a href="services.html">Senior &amp; Staff Accountant</a>
-            <a href="services.html">Financial Analyst &amp; FP&amp;A</a>
-            <a href="services.html">Tax Manager &amp; Tax Analyst</a>
-            <a href="services.html">Internal Audit &amp; Compliance</a>
-            <a href="services.html">Cost Accountant</a>
-            <a href="services.html">Treasury &amp; Cash Management</a>
-            <a href="services.html">Accounts Payable &amp; Receivable</a>
-            <a href="services.html">Payroll Manager</a>
-            <a class="mega-all" href="services.html">All Direct Hire Specialties →</a>
+        </li>
+        <li class="has-mega">
+          <a href="about.html">Industries <span class="chevron">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="about.html">Manufacturing</a>
+            <a href="about.html">Healthcare &amp; Life Sciences</a>
+            <a href="about.html">Real Estate &amp; Construction</a>
+            <a href="about.html">Technology &amp; SaaS</a>
+            <a href="about.html">Private Equity</a>
+            <a href="about.html">Professional Services</a>
+            <a href="about.html">Distribution &amp; Logistics</a>
+            <a href="about.html">All Industries</a>
           </div>
-
-          <div class="mega-panel" id="mega-staffing">
-            <a href="temps.html">Interim Controller</a>
-            <a href="temps.html">Interim CFO</a>
-            <a href="temps.html">Contract Accountant</a>
-            <a href="temps.html">Temp-to-Hire Analyst</a>
-            <a href="temps.html">Project-Based Finance Support</a>
-            <a href="temps.html">ERP Implementation Support</a>
-            <a href="temps.html">Month-End Close Support</a>
-            <a href="temps.html">Audit Preparation</a>
-            <a href="temps.html">Payroll &amp; AP Coverage</a>
-            <a href="temps.html">Employer of Record (EOR)</a>
-            <a class="mega-all" href="temps.html">Browse Available Temps →</a>
-          </div>
-
-          <div class="mega-featured">
-            <div class="mega-featured-placeholder">💼</div>
-            <h4>Now Offering EOR Back-Office for Temp &amp; Contract Workers</h4>
-            <a href="temps.html" class="learn">Learn More →</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Industries dropdown -->
-      <li class="has-mega">
-        <a href="about.html">Industries <span class="chevron">▾</span></a>
-        <div class="dropdown-menu">
-          <a href="about.html">Manufacturing</a>
-          <a href="about.html">Healthcare &amp; Life Sciences</a>
-          <a href="about.html">Real Estate &amp; Construction</a>
-          <a href="about.html">Technology &amp; SaaS</a>
-          <a href="about.html">Private Equity</a>
-          <a href="about.html">Professional Services</a>
-          <a href="about.html">Distribution &amp; Logistics</a>
-          <a href="about.html">All Industries</a>
-        </div>
-      </li>
-
-      <li><a href="temps.html">Find Talent</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="partners.html">Partner Program</a></li>
-
-    </ul>
-
-    <!-- CTA buttons -->
-    <div class="nav-ctas">
-      <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-outline-dark">Job Board</a>
-      <a href="opt-in.html" class="btn btn-primary">Hire Top Talent</a>
+        </li>
+        <li><a href="temps.html">Find Talent</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partners.html">Partner Program</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-outline-dark">Job Board</a>
+        <a href="opt-in.html" class="btn btn-primary">Hire Top Talent</a>
+      </div>
     </div>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -243,13 +220,13 @@
     <div class="hero-inner">
       <span class="hero-kicker">Finance &amp; Accounting Staffing · Atlanta, GA · Since 2005</span>
       <h1>Specialized <em>Accounting &amp; Finance</em><br>Recruiting</h1>
-      <p class="hero-service-line">Direct Hire &nbsp;|&nbsp; Contract &nbsp;|&nbsp; Retained Search</p>
+      <p class="hero-service-line">Direct Hire &nbsp;·&nbsp; Contract &nbsp;·&nbsp; Retained Search</p>
 
       <form class="hero-search-form" action="https://host.pcrecruiter.net/pcrbin/jobboard.aspx" method="get" target="_blank">
         <input type="hidden" name="uid" value="Staff Financial.npsg">
         <div class="hero-search-bar">
-          <input type="text" name="keyword" placeholder="Keyword — e.g. Controller, CPA…">
-          <select name="specialty">
+          <input type="text" name="keyword" placeholder="Keyword — e.g. Controller, CPA…" aria-label="Keyword">
+          <select name="specialty" aria-label="Specialty">
             <option value="">Select Specialty</option>
             <option value="CFO">CFO / VP Finance</option>
             <option value="Controller">Controller</option>
@@ -264,142 +241,84 @@
             <option value="Accounts Payable">Accounts Payable / AR</option>
             <option value="Bookkeeper">Bookkeeper</option>
           </select>
-          <button type="submit">Search Jobs</button>
+          <button type="submit"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg> Search Jobs</button>
         </div>
       </form>
       <div class="hero-search-sub">
-        <a href="candidates.html" class="btn-hero-pill btn-hero-pill--filled">Browse Talent Pool ›</a>
-        <a href="opt-in.html" class="btn-hero-pill">Ready to Hire? ›</a>
-        <a href="temps.html" class="btn-hero-pill">Browse Available Temps ›</a>
+        <a href="candidates.html" class="btn-hero-pill btn-hero-pill--filled">Browse Talent Pool →</a>
+        <a href="opt-in.html" class="btn-hero-pill">Ready to Hire? →</a>
+        <a href="temps.html" class="btn-hero-pill">Browse Available Temps →</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ── Now Placing widget ────────────────────── -->
-<div style="background:#f9f7f4;padding:56px 0;">
-  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
-
+<section class="section section-alt">
+  <div class="container jobs-grid">
     <div>
-      <div style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Open Positions</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.2rem);color:var(--navy);line-height:1.2;margin-bottom:16px;">Finance &amp; Accounting<br>Roles We're Filling <em>Now</em></h2>
-      <p style="color:#555;line-height:1.75;margin-bottom:28px;">Every role below is an active search. Our clients are interviewing now — contact us to fast-track your search or submit a hiring request.</p>
+      <span class="section-kicker">Open Positions</span>
+      <h2 class="section-title">Roles We're Filling <em>Now</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-sub" style="margin-bottom:28px;">Every role below is an active search. Our clients are interviewing now — contact us to fast-track your search or submit a hiring request.</p>
       <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-primary">View All Open Jobs →</a>
     </div>
-
-    <div>
-      <div style="background:#fff;border:1px solid #e8e3da;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.06);">
-        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #f0ece4;">
-          <span style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#888;">Now Placing</span>
-          <span style="font-size:.72rem;font-weight:700;color:var(--orange);background:#fff7ed;border:1px solid #fed7aa;padding:3px 10px;border-radius:20px;">Updated Weekly</span>
-        </div>
-        <div id="now-placing-list" style="padding:8px 0;">
-          <div style="padding:14px 20px;color:#999;font-size:.9rem;">Loading positions…</div>
-        </div>
-        <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener"
-           style="display:block;padding:14px 20px;border-top:1px solid #f0ece4;font-size:.88rem;color:var(--navy);font-weight:600;text-decoration:none;">
-          View all open positions →
-        </a>
+    <div class="panel">
+      <div class="panel-head">
+        <span class="panel-label">Now Placing</span>
+        <span class="live-pill">Hiring now</span>
       </div>
+      <div id="now-placing-list"><div class="np-empty">Loading positions…</div></div>
+      <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="panel-foot">View all open positions →</a>
     </div>
-
   </div>
-</div>
-<style>
-.np-job { display:flex;align-items:flex-start;justify-content:space-between;padding:13px 20px;border-bottom:1px solid #f5f1ea;gap:12px; }
-.np-job:last-child { border-bottom:none; }
-.np-job-dot { width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0;margin-top:6px; }
-.np-job-title { font-weight:700;color:var(--navy);font-size:.93rem;line-height:1.3; }
-.np-job-meta { font-size:.8rem;color:#888;margin-top:2px; }
-.np-job-sal { font-size:.82rem;font-weight:700;color:#2e7d32;white-space:nowrap;flex-shrink:0; }
-@media(max-width:720px){
-  #now-placing-band-grid{grid-template-columns:1fr!important;}
-}
-</style>
+</section>
 <script>
 (function(){
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  var el=document.getElementById('now-placing-list');
+  var empty='<div class="np-empty">Check back soon for new positions.</div>';
   fetch('https://100xrecruiting.com/api/public/jobs?limit=6')
     .then(function(r){return r.json();})
     .then(function(d){
-      var el=document.getElementById('now-placing-list');
-      if(!d||!d.jobs||!d.jobs.length){
-        el.innerHTML='<div style="padding:14px 20px;color:#999;font-size:.9rem;">Check back soon for new positions.</div>';
-        return;
-      }
+      if(!d||!d.jobs||!d.jobs.length){ el.innerHTML=empty; return; }
       el.innerHTML=d.jobs.map(function(j){
         return '<div class="np-job">'
-          +'<div style="display:flex;gap:10px;align-items:flex-start;">'
+          +'<div style="display:flex;gap:12px;align-items:flex-start;">'
           +'<div class="np-job-dot"></div>'
-          +'<div><div class="np-job-title">'+j.title+'</div>'
-          +(j.location?'<div class="np-job-meta">'+j.location+'</div>':'')
+          +'<div><div class="np-job-title">'+esc(j.title)+'</div>'
+          +(j.location?'<div class="np-job-meta">'+esc(j.location)+'</div>':'')
           +'</div></div>'
-          +(j.salary?'<div class="np-job-sal">'+j.salary+'</div>':'')
+          +(j.salary?'<div class="np-job-sal">'+esc(j.salary)+'</div>':'')
           +'</div>';
       }).join('');
     })
-    .catch(function(){
-      document.getElementById('now-placing-list').innerHTML=
-        '<div style="padding:14px 20px;color:#999;font-size:.9rem;">Check back soon for new positions.</div>';
-    });
+    .catch(function(){ el.innerHTML=empty; });
 })();
 </script>
 
 <!-- ── MPC Talent Spotlight (auto-feeds from Smartlead marketing) ── -->
-<div id="mpc-spotlight" style="display:none;background:#fff;padding:56px 0 48px;border-top:1px solid #eee6da;">
-  <div class="container" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px;">
+<section id="mpc-spotlight" class="section" style="display:none;">
+  <div class="container section-head">
     <div>
-      <div style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Talent Spotlight</div>
-      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.2rem);color:var(--navy);line-height:1.2;">Candidates We're Marketing <em>Right Now</em></h2>
-      <p style="color:#555;line-height:1.7;margin-top:10px;max-width:560px;">Real finance &amp; accounting professionals we're actively representing this week. Names are hidden to protect confidentiality — click any card to view the blinded résumé.</p>
+      <span class="section-kicker">Talent Spotlight</span>
+      <h2 class="section-title">Candidates We're Marketing <em>Right Now</em></h2>
+      <p class="section-sub">Real finance &amp; accounting professionals we're actively representing this week. Names are hidden to protect confidentiality — click any card to view the blinded résumé.</p>
     </div>
-    <a href="candidates.html" class="btn btn-primary" style="flex-shrink:0;">Search All Talent →</a>
+    <a href="candidates.html" class="btn btn-outline-dark" style="flex-shrink:0;">Search All Talent →</a>
   </div>
 
   <div class="mpc-marquee" aria-label="Candidates currently being marketed">
     <div class="mpc-track" id="mpcTrack"></div>
   </div>
 
-  <div class="container" style="margin-top:34px;">
-    <form onsubmit="return sfgTalentSearch(this)" style="display:flex;gap:10px;max-width:640px;margin:0 auto;background:#f9f7f4;border:1px solid #e8e3da;border-radius:12px;padding:10px;">
-      <input type="text" name="q" placeholder="Search our candidate database — Controller, CPA, NetSuite…" aria-label="Search our candidate database"
-             style="flex:1;border:none;background:transparent;padding:10px 12px;font-size:.95rem;font-family:'Inter',sans-serif;outline:none;color:var(--navy);">
-      <button type="submit" class="btn btn-primary" style="flex-shrink:0;">Search Database</button>
+  <div class="container">
+    <form class="db-search" onsubmit="return sfgTalentSearch(this)">
+      <input type="text" name="q" placeholder="Search our candidate database — Controller, CPA, NetSuite…" aria-label="Search our candidate database">
+      <button type="submit" class="btn btn-primary"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg> Search Database</button>
     </form>
   </div>
-</div>
-<style>
-.mpc-marquee { overflow:hidden; position:relative; }
-.mpc-marquee::before,.mpc-marquee::after {
-  content:""; position:absolute; top:0; bottom:0; width:70px; z-index:2; pointer-events:none;
-}
-.mpc-marquee::before { left:0;  background:linear-gradient(90deg,#fff,rgba(255,255,255,0)); }
-.mpc-marquee::after  { right:0; background:linear-gradient(270deg,#fff,rgba(255,255,255,0)); }
-.mpc-track { display:flex; gap:16px; width:max-content; padding:4px 70px; animation:mpcScroll 55s linear infinite; }
-.mpc-marquee:hover .mpc-track { animation-play-state:paused; }
-@keyframes mpcScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-  .mpc-track { animation:none; overflow-x:auto; width:auto; }
-  .mpc-marquee { overflow-x:auto; }
-}
-.mpc-card {
-  display:block; width:300px; flex-shrink:0; background:#fff; border:1px solid #e8e3da; border-radius:14px;
-  padding:18px 18px 16px; text-decoration:none; box-shadow:0 2px 10px rgba(0,0,0,.05);
-  transition:transform .18s ease, box-shadow .18s ease;
-}
-.mpc-card:hover { transform:translateY(-3px); box-shadow:0 8px 22px rgba(12,31,71,.13); }
-.mpc-card-head { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
-.mpc-avatar {
-  width:44px; height:44px; border-radius:11px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
-  font-weight:800; font-size:.9rem; color:#fff; background:var(--navy); font-family:'Inter',sans-serif;
-}
-.mpc-card-title { font-weight:700; color:var(--navy); font-size:.96rem; line-height:1.25; font-family:'Inter',sans-serif; }
-.mpc-card-loc { font-size:.79rem; color:#888; margin-top:2px; }
-.mpc-badges { display:flex; flex-wrap:wrap; gap:6px; }
-.mpc-badge { font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:20px; background:#f4f1ea; color:#555; border:1px solid #e8e3da; }
-.mpc-badge.gold { background:#fff7ed; color:#b45309; border-color:#fed7aa; }
-.mpc-badge.green { background:#ecfdf3; color:#15803d; border-color:#bbf7d0; }
-.mpc-card-cta { display:block; margin-top:12px; font-size:.83rem; font-weight:700; color:var(--orange); }
-</style>
+</section>
 <script>
 function sfgTalentSearch(f){
   var q=(f.q.value||'').trim();
@@ -407,6 +326,7 @@ function sfgTalentSearch(f){
   return false;
 }
 (function(){
+  var PIN='<svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>';
   fetch('https://100xrecruiting.com/api/public/mpc-feed?limit=16')
     .then(function(r){return r.json();})
     .then(function(d){
@@ -426,7 +346,7 @@ function sfgTalentSearch(f){
         return '<a class="mpc-card" href="'+href+'"'+ext+'>'
           +'<div class="mpc-card-head"><div class="mpc-avatar">'+initials+'</div>'
           +'<div><div class="mpc-card-title">'+esc(c.title||'Finance Professional')+'</div>'
-          +'<div class="mpc-card-loc">📍 '+esc(c.location||'Southeast US')+'</div></div></div>'
+          +'<div class="mpc-card-loc">'+PIN+' '+esc(c.location||'Southeast US')+'</div></div></div>'
           +(badges?'<div class="mpc-badges">'+badges+'</div>':'')
           +'<span class="mpc-card-cta">View blinded résumé →</span></a>';
       }).join('');
@@ -460,104 +380,98 @@ function sfgTalentSearch(f){
 </div>
 
 <!-- ── Service photo cards ───────────────────── -->
-<div class="service-cards">
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="service-cards">
 
-  <div class="svc-card">
-    <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');background-size:cover;background-position:center top;"></div>
-    <div class="svc-card-overlay"></div>
-    <div class="svc-card-body">
-      <h3>Executive Search</h3>
-      <p>CFOs, VP Finance, and Controllers who drive strategy and lead teams with confidence.</p>
-      <a href="services.html" class="svc-card-link">Learn More →</a>
+      <a class="svc-card" href="services.html">
+        <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80');background-position:center top;"></div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <h3>Executive Search</h3>
+          <p>CFOs, VP Finance, and Controllers who drive strategy and lead teams with confidence.</p>
+          <span class="svc-card-link">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-card" href="services.html">
+        <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80');"></div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <h3>Direct Hire</h3>
+          <p>Access entry-level to senior accounting and finance professionals placed for the long term.</p>
+          <span class="svc-card-link">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-card" href="temps.html">
+        <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80');"></div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <h3>Contract &amp; Temp Staffing</h3>
+          <p>Flexible interim talent with full EOR back-office — payroll, taxes, and compliance handled.</p>
+          <span class="svc-card-link">Browse Available Talent →</span>
+        </div>
+      </a>
+
+      <a class="svc-card" href="services.html#retained">
+        <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80');background-position:center top;"></div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <h3>Retained Search</h3>
+          <p>Exclusive, dedicated engagement for critical hires — we go deeper, move faster, and guarantee results.</p>
+          <span class="svc-card-link">Learn More →</span>
+        </div>
+      </a>
+
+      <a class="svc-card" href="services.html#rpo">
+        <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80');"></div>
+        <div class="svc-card-overlay"></div>
+        <div class="svc-card-body">
+          <h3>RPO &amp; Project Staffing</h3>
+          <p>We become your recruiting department — custom screening, video résumés, and end-to-end hiring solutions built around your needs.</p>
+          <span class="svc-card-link">Learn More →</span>
+        </div>
+      </a>
+
     </div>
   </div>
-
-  <div class="svc-card">
-    <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=800&q=80');background-size:cover;background-position:center;"></div>
-    <div class="svc-card-overlay"></div>
-    <div class="svc-card-body">
-      <h3>Direct Hire</h3>
-      <p>Access entry-level to senior accounting and finance professionals placed for the long term.</p>
-      <a href="services.html" class="svc-card-link">Learn More →</a>
-    </div>
-  </div>
-
-  <div class="svc-card">
-    <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80');background-size:cover;background-position:center;"></div>
-    <div class="svc-card-overlay"></div>
-    <div class="svc-card-body">
-      <h3>Contract &amp; Temp Staffing</h3>
-      <p>Flexible interim talent with full EOR back-office — payroll, taxes, and compliance handled.</p>
-      <a href="temps.html" class="svc-card-link">Browse Available Talent →</a>
-    </div>
-  </div>
-
-  <div class="svc-card">
-    <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80');background-size:cover;background-position:center top;"></div>
-    <div class="svc-card-overlay"></div>
-    <div class="svc-card-body">
-      <h3>Retained Search</h3>
-      <p>Exclusive, dedicated engagement for critical hires — we go deeper, move faster, and guarantee results.</p>
-      <a href="services.html#retained" class="svc-card-link">Learn More →</a>
-    </div>
-  </div>
-
-  <div class="svc-card">
-    <div class="svc-card-bg" style="background-image:url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80');background-size:cover;background-position:center;"></div>
-    <div class="svc-card-overlay"></div>
-    <div class="svc-card-body">
-      <h3>RPO &amp; Project Staffing</h3>
-      <p>We become your recruiting department — custom screening, video résumés, and end-to-end hiring solutions built around your needs.</p>
-      <a href="services.html#rpo" class="svc-card-link">Learn More →</a>
-    </div>
-  </div>
-
-</div>
+</section>
 
 <!-- ── Temps Available Today Band ─────────────── -->
-<div style="background:var(--navy);padding:56px 0;">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
-
-      <div>
-        <div style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Available Now</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3.5vw,2.4rem);color:var(--white);line-height:1.2;margin-bottom:16px;">Search Finance &amp; Accounting<br>Temps Available <em>Today</em> — Free</h2>
-        <p style="color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:28px;font-size:1rem;">Browse our live pool of pre-vetted contractors with no commitment and no fee. When you're ready, we step in as Employer of Record and handle all payroll, taxes, and compliance — so you get the talent without the admin burden.</p>
-        <a href="temps.html" class="btn btn-primary btn-lg">Browse Available Temps →</a>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:22px;">
-        <div style="display:flex;gap:16px;align-items:flex-start;">
-          <div style="font-size:1.6rem;flex-shrink:0;margin-top:2px;">🔍</div>
-          <div>
-            <h4 style="color:var(--white);font-family:'Inter',sans-serif;font-size:.98rem;font-weight:700;margin-bottom:4px;">Free to Browse</h4>
-            <p style="color:rgba(255,255,255,.62);font-size:.88rem;line-height:1.65;">Search blinded profiles by title, skill, and location. No sign-up, no fee to look.</p>
-          </div>
-        </div>
-        <div style="display:flex;gap:16px;align-items:flex-start;">
-          <div style="font-size:1.6rem;flex-shrink:0;margin-top:2px;">🧾</div>
-          <div>
-            <h4 style="color:var(--white);font-family:'Inter',sans-serif;font-size:.98rem;font-weight:700;margin-bottom:4px;">We Payroll Them for You</h4>
-            <p style="color:rgba(255,255,255,.62);font-size:.88rem;line-height:1.65;">We act as Employer of Record — payroll, taxes, workers' comp, and W-2 all covered. You get one simple invoice.</p>
-          </div>
-        </div>
-        <div style="display:flex;gap:16px;align-items:flex-start;">
-          <div style="font-size:1.6rem;flex-shrink:0;margin-top:2px;">⚡</div>
-          <div>
-            <h4 style="color:var(--white);font-family:'Inter',sans-serif;font-size:.98rem;font-weight:700;margin-bottom:4px;">Ready to Start Immediately</h4>
-            <p style="color:rgba(255,255,255,.62);font-size:.88rem;line-height:1.65;">Every candidate on the hotlist has self-flagged as available now — no notice period, no search lag.</p>
-          </div>
+<section class="section section-dark">
+  <div class="container split">
+    <div>
+      <span class="section-kicker">Available Now</span>
+      <h2 class="section-title">Finance &amp; Accounting<br>Temps Available <em>Today</em></h2>
+      <p>Browse our live pool of pre-vetted contractors. When you're ready, we step in as Employer of Record and handle all payroll, taxes, and compliance — so you get the talent without the admin burden.</p>
+      <a href="temps.html" class="btn btn-white btn-lg">Browse Available Temps →</a>
+    </div>
+    <div class="feature-list">
+      <div class="feature">
+        <div class="feature-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+        <div>
+          <h4>Browse Blinded Profiles</h4>
+          <p>Search by title, skill, and location. No sign-up needed to look.</p>
         </div>
       </div>
-
+      <div class="feature">
+        <div class="feature-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg></div>
+        <div>
+          <h4>We Payroll Them for You</h4>
+          <p>We act as Employer of Record — payroll, taxes, workers' comp, and W-2 all covered. You get one simple invoice.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+        <div>
+          <h4>Ready to Start Immediately</h4>
+          <p>Every candidate on the hotlist has self-flagged as available now — no notice period, no search lag.</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<style>
-@media (max-width:720px) {
-  #temps-band-grid { grid-template-columns: 1fr !important; }
-}
-</style>
+</section>
 
 <!-- ── How it works ──────────────────────────── -->
 <section class="section section-alt">
@@ -601,7 +515,7 @@ function sfgTalentSearch(f){
         <div class="section-divider"></div>
         <p class="section-sub">We place candidates at every level — from Staff Accountants to C-suite executives — across a focused set of finance and accounting disciplines.</p>
         <div style="margin-top:28px;">
-          <a href="services.html" class="btn btn-primary">All Recruiting Areas</a>
+          <a href="services.html" class="btn btn-primary">All Recruiting Areas →</a>
         </div>
       </div>
       <div>
@@ -630,69 +544,22 @@ function sfgTalentSearch(f){
     <div class="centered">
       <span class="section-kicker">Industries We Serve</span>
       <h2 class="section-title">Finance Talent Across Every Sector</h2>
-      <div class="section-divider" style="margin:0 auto 14px;"></div>
+      <div class="section-divider"></div>
       <p class="section-sub">We place candidates at companies of every size and sector — because great finance talent is needed everywhere.</p>
     </div>
     <div class="industry-grid">
-      <div class="industry-chip"><span class="industry-icon">🏭</span>Manufacturing</div>
-      <div class="industry-chip"><span class="industry-icon">🏥</span>Healthcare &amp; Life Sciences</div>
-      <div class="industry-chip"><span class="industry-icon">🏗️</span>Real Estate &amp; Construction</div>
-      <div class="industry-chip"><span class="industry-icon">💻</span>Technology &amp; SaaS</div>
-      <div class="industry-chip"><span class="industry-icon">📈</span>Private Equity</div>
-      <div class="industry-chip"><span class="industry-icon">🎓</span>Nonprofit &amp; Education</div>
-      <div class="industry-chip"><span class="industry-icon">🚚</span>Distribution &amp; Logistics</div>
-      <div class="industry-chip"><span class="industry-icon">⚖️</span>Professional Services</div>
-      <div class="industry-chip"><span class="industry-icon">🛍️</span>Retail &amp; Consumer</div>
-      <div class="industry-chip"><span class="industry-icon">🏦</span>Financial Services</div>
-      <div class="industry-chip"><span class="industry-icon">⚡</span>Energy &amp; Utilities</div>
-      <div class="industry-chip"><span class="industry-icon">🏛️</span>Government &amp; Public Sector</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Testimonials ──────────────────────────── -->
-<section class="section section-alt">
-  <div class="container">
-    <div class="centered">
-      <span class="section-kicker">Client Stories</span>
-      <h2 class="section-title">Trusted by Finance Leaders</h2>
-      <div class="section-divider" style="margin:0 auto 14px;"></div>
-      <p class="section-sub">Hear from the hiring managers and CFOs who partner with us to build their teams.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-quote">"We'd been searching for a Controller for four months with another firm and got nowhere. Staff Financial had three qualified candidates in front of us within the week. The person they placed is still with us two years later."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">M.R.</div>
-          <div>
-            <div class="testimonial-name">Michael R.</div>
-            <div class="testimonial-role">CFO, Manufacturing Company · Atlanta, GA</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-quote">"The speed and quality were unmatched. Gus took the time to really understand what we needed — not just the job description, but the culture and where this person would grow. That made all the difference."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">S.T.</div>
-          <div>
-            <div class="testimonial-name">Sarah T.</div>
-            <div class="testimonial-role">VP Finance, Healthcare System · Atlanta, GA</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-quote">"We needed interim accounting support fast during an audit. The temp they sent was sharp, professional, and fit right in. We ended up converting her to full-time. Couldn't have asked for a better outcome."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">D.W.</div>
-          <div>
-            <div class="testimonial-name">David W.</div>
-            <div class="testimonial-role">Controller, Private Equity Portfolio Co.</div>
-          </div>
-        </div>
-      </div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg></span>Manufacturing</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg></span>Healthcare &amp; Life Sciences</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></span>Real Estate &amp; Construction</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg></span>Technology &amp; SaaS</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>Private Equity</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>Nonprofit &amp; Education</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg></span>Distribution &amp; Logistics</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>Professional Services</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>Retail &amp; Consumer</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg></span>Financial Services</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>Energy &amp; Utilities</div>
+      <div class="industry-chip"><span class="industry-icon"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>Government &amp; Public Sector</div>
     </div>
   </div>
 </section>
@@ -704,36 +571,36 @@ function sfgTalentSearch(f){
       <div>
         <span class="section-kicker">Employer of Record</span>
         <h2 class="section-title" style="color:var(--white);">You Get the Talent.<br>We Handle the Rest.</h2>
-        <p style="color:rgba(255,255,255,.7);line-height:1.75;margin-bottom:28px;">Staff Financial Group — powered by NorthPoint — acts as the Employer of Record for every temp and contract placement. One simple bill rate. Zero HR overhead on your end.</p>
+        <p style="color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:28px;">Staff Financial Group — powered by NorthPoint — acts as the Employer of Record for every temp and contract placement. One simple bill rate. Zero HR overhead on your end.</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="temps.html" class="btn btn-primary btn-lg">Browse Available Temps</a>
+          <a href="temps.html" class="btn btn-white btn-lg">Browse Available Temps</a>
           <a href="opt-in.html" class="btn btn-outline-white btn-lg">Request Talent</a>
         </div>
       </div>
       <div class="eor-features">
         <div class="eor-feature">
-          <div class="eor-icon-wrap">🧾</div>
+          <div class="eor-icon-wrap"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></svg></div>
           <div>
             <h4>Weekly Payroll</h4>
             <p>We payroll your temps every week and send one clean invoice at your agreed bill rate.</p>
           </div>
         </div>
         <div class="eor-feature">
-          <div class="eor-icon-wrap">🛡️</div>
+          <div class="eor-icon-wrap"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <div>
             <h4>Workers Comp &amp; Insurance</h4>
             <p>Fully covered under our policy. No exposure for your organization.</p>
           </div>
         </div>
         <div class="eor-feature">
-          <div class="eor-icon-wrap">📋</div>
+          <div class="eor-icon-wrap"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></div>
           <div>
             <h4>Taxes &amp; Compliance</h4>
             <p>All federal, state, and FICA withholdings handled. W-2 issued at year-end.</p>
           </div>
         </div>
         <div class="eor-feature">
-          <div class="eor-icon-wrap">🔄</div>
+          <div class="eor-icon-wrap"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></div>
           <div>
             <h4>Easy Conversion</h4>
             <p>Love the candidate? Convert to full-time anytime with a simple conversion agreement.</p>
@@ -745,30 +612,32 @@ function sfgTalentSearch(f){
 </div>
 
 <!-- ── FAQ ────────────────────────────────────── -->
-<section class="section" style="background:var(--off-white);border-top:1px solid var(--border);" aria-label="Frequently asked questions">
-  <div class="container" style="max-width:820px;">
-    <div class="section-label" style="text-align:center;">Common Questions</div>
-    <h2 class="section-title" style="text-align:center;">Everything You Need to Know</h2>
-    <div style="display:flex;flex-direction:column;gap:0;margin-top:40px;" itemscope itemtype="https://schema.org/FAQPage">
-      <details style="border-bottom:1px solid var(--border);padding:22px 0;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary style="font-weight:700;font-size:1.05rem;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;" itemprop="name">What types of finance professionals does Staff Financial Group place? <span style="color:var(--gold);font-size:1.3rem;font-weight:400;">+</span></summary>
-        <div style="padding-top:14px;color:var(--text-muted);line-height:1.75;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">We place CFOs, VPs of Finance, Controllers, Accounting Managers, Senior and Staff Accountants, Financial Analysts, FP&amp;A professionals, Tax Managers, Internal Auditors, Cost Accountants, Treasury Analysts, Payroll Managers, and AP/AR specialists — exclusively finance and accounting roles, across all industries.</span></div>
+<section class="section section-alt" aria-label="Frequently asked questions">
+  <div class="container">
+    <div class="centered">
+      <span class="section-kicker">Common Questions</span>
+      <h2 class="section-title">Everything You Need to Know</h2>
+    </div>
+    <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+      <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">What types of finance professionals does Staff Financial Group place?</summary>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">We place CFOs, VPs of Finance, Controllers, Accounting Managers, Senior and Staff Accountants, Financial Analysts, FP&amp;A professionals, Tax Managers, Internal Auditors, Cost Accountants, Treasury Analysts, Payroll Managers, and AP/AR specialists — across all industries.</span></div>
       </details>
-      <details style="border-bottom:1px solid var(--border);padding:22px 0;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary style="font-weight:700;font-size:1.05rem;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;" itemprop="name">How quickly will I receive a shortlist of candidates? <span style="color:var(--gold);font-size:1.3rem;font-weight:400;">+</span></summary>
-        <div style="padding-top:14px;color:var(--text-muted);line-height:1.75;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">We deliver a blinded shortlist of pre-vetted candidates within 48 to 72 hours of receiving your talent request. Our active pipeline and deep Atlanta network allow us to move faster than generalist staffing firms.</span></div>
+      <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">How quickly will I receive a shortlist of candidates?</summary>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">We deliver a blinded shortlist of pre-vetted candidates within 48 to 72 hours of receiving your talent request. Our active pipeline and deep Atlanta network allow us to move faster than generalist staffing firms.</span></div>
       </details>
-      <details style="border-bottom:1px solid var(--border);padding:22px 0;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary style="font-weight:700;font-size:1.05rem;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;" itemprop="name">Do you offer contract, temp, or interim staffing? <span style="color:var(--gold);font-size:1.3rem;font-weight:400;">+</span></summary>
-        <div style="padding-top:14px;color:var(--text-muted);line-height:1.75;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Yes. We provide contract, temp-to-hire, and interim staffing for all finance and accounting roles — from Interim CFO and Controller to contract Accountants and ERP implementation support. We act as the Employer of Record, so payroll, taxes, workers' comp, and compliance are fully handled on our end.</span></div>
+      <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">Do you offer contract, temp, or interim staffing?</summary>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">Yes. We provide contract, temp-to-hire, and interim staffing for all finance and accounting roles — from Interim CFO and Controller to contract Accountants and ERP implementation support. We act as the Employer of Record, so payroll, taxes, workers' comp, and compliance are fully handled on our end.</span></div>
       </details>
-      <details style="border-bottom:1px solid var(--border);padding:22px 0;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary style="font-weight:700;font-size:1.05rem;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;" itemprop="name">What does "blinded shortlist" mean? <span style="color:var(--gold);font-size:1.3rem;font-weight:400;">+</span></summary>
-        <div style="padding-top:14px;color:var(--text-muted);line-height:1.75;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">A blinded profile shows a candidate's skills, experience, title, and location — but no name, employer name, or contact information. This protects candidate privacy during the screening phase. Once you express interest, we facilitate the introduction.</span></div>
+      <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">What does "blinded shortlist" mean?</summary>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">A blinded profile shows a candidate's skills, experience, title, and location — but no name, employer name, or contact information. This protects candidate privacy during the screening phase. Once you express interest, we facilitate the introduction.</span></div>
       </details>
-      <details style="padding:22px 0;" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-        <summary style="font-weight:700;font-size:1.05rem;color:var(--navy);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;" itemprop="name">Where does Staff Financial Group place candidates? <span style="color:var(--gold);font-size:1.3rem;font-weight:400;">+</span></summary>
-        <div style="padding-top:14px;color:var(--text-muted);line-height:1.75;" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">We are headquartered in Atlanta, GA, and primarily serve companies throughout Atlanta and the Southeast. We have placed finance and accounting professionals in Charlotte, Nashville, Tampa, and other major Southeast markets, and handle remote searches nationally.</span></div>
+      <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <summary itemprop="name">Where does Staff Financial Group place candidates?</summary>
+        <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><span itemprop="text">We are headquartered in Atlanta, GA, and primarily serve companies throughout Atlanta and the Southeast. We have placed finance and accounting professionals in Charlotte, Nashville, Tampa, and other major Southeast markets, and handle remote searches nationally.</span></div>
       </details>
     </div>
   </div>
@@ -780,7 +649,7 @@ function sfgTalentSearch(f){
     <h2>Ready to Find Your Next<br>Finance &amp; Accounting Hire?</h2>
     <p>Tell us about your open role and we'll deliver a shortlist — guaranteed.</p>
     <div class="cta-actions">
-      <a href="opt-in.html" class="btn btn-outline-white btn-lg">Request Talent Now</a>
+      <a href="opt-in.html" class="btn btn-white btn-lg">Request Talent Now</a>
       <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-outline-white btn-lg">Browse Open Jobs ↗</a>
     </div>
   </div>
@@ -791,20 +660,24 @@ function sfgTalentSearch(f){
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" style="text-decoration:none;">
-          <span class="footer-logo-main">Staff Financial Group</span>
-          <span class="footer-logo-sub">Finance &amp; Accounting · Powered by NorthPoint</span>
+        <a href="index.html" class="brand brand--light" aria-label="Staff Financial Group — home">
+          <img src="img/sfg-mark.png" alt="" class="brand-mark" width="38" height="45">
+          <span class="brand-text">
+            <span class="brand-name">StaffFinancial</span>
+            <span class="brand-group">Group</span>
+            <span class="brand-tag">Powered by NorthPoint</span>
+          </span>
         </a>
         <p>Specialized finance and accounting recruitment across Atlanta and the Southeast. Over 20 years connecting top talent with leading companies — since 2005.</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Explore</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Our Services</a></li>
           <li><a href="temps.html">Find Talent</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="opt-in.html">Request Talent</a></li>
+          <li><a href="candidates.html">Browse Candidates</a></li>
+          <li><a href="partners.html">Partner Program</a></li>
           <li><a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener">Job Board ↗</a></li>
         </ul>
       </div>
@@ -813,7 +686,8 @@ function sfgTalentSearch(f){
         <ul>
           <li><a href="mailto:gus@stafffinancial.com">gus@stafffinancial.com</a></li>
           <li><a href="contact.html">Send a Message</a></li>
-          <li><span style="color:rgba(255,255,255,.4);font-size:.84rem;">Atlanta, GA · Since 2005</span></li>
+          <li><a href="opt-in.html">Request Talent</a></li>
+          <li><span>Atlanta, GA · Since 2005</span></li>
         </ul>
       </div>
     </div>
@@ -825,28 +699,6 @@ function sfgTalentSearch(f){
   </div>
 </footer>
 
-<script>
-// Navbar scroll shadow
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
-}, { passive: true });
-
-// Mobile nav toggle
-const toggle = document.getElementById('navToggle');
-const links  = document.getElementById('navLinks');
-toggle.addEventListener('click', () => {
-  const open = links.classList.toggle('open');
-  toggle.classList.toggle('open', open);
-});
-
-// Mega menu tabs
-function switchMegaTab(tab, btn) {
-  document.querySelectorAll('.mega-tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.mega-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('mega-' + tab).classList.add('active');
-}
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
