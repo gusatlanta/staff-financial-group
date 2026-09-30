@@ -506,6 +506,7 @@ img { max-width: 100%; display: block; }
 .audience-extras { border-top: 1px solid var(--border); padding-top: 16px; font-size: .86rem; color: var(--text-muted); line-height: 1.6; }
 .audience-extras strong { color: var(--blue); }
 .audience-extras .fee-line { color: var(--ink); }
+.audience-extras a { color: var(--blue); font-weight: 600; text-decoration: underline; }
 .pay-when-hire { display: inline-flex; align-items: center; gap: 8px; margin: 2px 0 20px; padding: 10px 16px; border-radius: 10px; font-weight: 700; font-size: .98rem; color: var(--blue-dark); background: rgba(42,156,192,.1); border: 1px solid rgba(42,156,192,.3); }
 .pay-when-hire .ico { font-size: 1.1rem; color: var(--teal); }
 .pay-when-hire .pwh-2 { white-space: nowrap; }
