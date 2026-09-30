@@ -384,7 +384,7 @@ document.getElementById('navToggle').addEventListener('click',function(){documen
           <input type="text" id="hl-loc" placeholder="e.g. Atlanta, GA…" oninput="filterHotlist()">
         </div>
         <div class="search-field" style="flex:0 1 160px;">
-          <label>Has video résumé</label>
+          <label>Has video intro</label>
           <select id="hl-video" onchange="filterHotlist()">
             <option value="">Any</option>
             <option value="yes">Yes</option>
@@ -578,7 +578,7 @@ function switchTab(tab, btn) {
 function renderCard(c, isTemp) {
   const skills = [...(c.skills || []), ...(c.systems || [])].slice(0, 8);
   const chips = skills.map(s => `<span class="skill-chip">${escHtml(s)}</span>`).join('');
-  const videoB = c.has_video ? `<span class="badge badge-video">▶ Video résumé</span>` : '';
+  const videoB = c.has_video ? `<span class="badge badge-video">▶ Video intro</span>` : '';
   const tempB  = isTemp ? `<span class="badge badge-temp"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg> Available now</span>` : '';
   const meta = [c.location && `<svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg> ${escHtml(c.location)}`, c.years && `${escHtml(c.years)} exp`,
                 c.industry && escHtml(c.industry)].filter(Boolean).map(m => `<span>${m}</span>`).join('');
