@@ -695,7 +695,7 @@ function renderPagination() {
 /* ─── Modal ──────────────────── */
 function openModal(cand, reqType) {
   document.getElementById('modal-cand-title').textContent = cand.title || 'Finance Professional';
-  const meta = [cand.location && `<svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg> ${cand.location}`, cand.years && `${cand.years} exp`].filter(Boolean).join(' · ');
+  const meta = [cand.location && cand.location, cand.years && `${cand.years} exp`].filter(Boolean).join(' · ');
   document.getElementById('modal-cand-meta').textContent = (reqType === 'temp_request' ? 'Request this temp — ' : 'Request résumé — ') + (meta || 'Blinded candidate');
   document.getElementById('req-cid').value  = cand.id || '';
   document.getElementById('req-type').value = reqType;
