@@ -495,6 +495,17 @@ img { max-width: 100%; display: block; }
 .cta-band .btn-outline:hover, .cta-band .btn-outline-dark:hover { background: rgba(255,255,255,.1); border-color: var(--white); color: var(--white); }
 .btn-outline { background: var(--white); color: var(--ink); border-color: var(--border); }
 
+/* ── Numbered steps (Perfect Candidate Audience) ── */
+.num-steps { list-style: none; counter-reset: ns; display: flex; flex-direction: column; gap: 14px; margin: 22px 0 28px; padding: 0; }
+.num-steps li { counter-increment: ns; position: relative; padding-left: 44px; line-height: 1.55; color: var(--text-muted); font-size: .95rem; min-height: 30px; }
+.num-steps li strong { color: var(--ink); }
+.num-steps li::before { content: counter(ns); position: absolute; left: 0; top: -3px; width: 30px; height: 30px; border-radius: 9px; background: var(--grad-brand); color: var(--white); font-family: var(--font-head); font-weight: 700; font-size: .9rem; display: flex; align-items: center; justify-content: center; }
+.panel .num-steps { margin: 0 0 20px; }
+.on-dark .num-steps li { color: rgba(255,255,255,.75); }
+.on-dark .num-steps li strong { color: var(--white); }
+.audience-extras { border-top: 1px solid var(--border); padding-top: 16px; font-size: .86rem; color: var(--text-muted); line-height: 1.6; }
+.audience-extras strong { color: var(--blue); }
+
 /* ── Industries ───────────────────────────────── */
 .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 40px; }
 .industry-chip {
