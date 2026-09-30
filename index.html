@@ -329,7 +329,7 @@ function sfgTalentSearch(f){
 }
 (function(){
   var PIN='<svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>';
-  fetch('https://100xrecruiting.com/api/public/mpc-feed?limit=16')
+  fetch('https://100xrecruiting.com/api/public/mpc-feed?limit=16&metro=atlanta&af=1')  /* ATL_AF_ONLY_v1: metro Atlanta + accounting & finance only */
     .then(function(r){return r.json();})
     .then(function(d){
       if(!d||!d.ok||!d.candidates||!d.candidates.length) return;

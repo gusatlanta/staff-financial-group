@@ -611,7 +611,7 @@ function escHtml(s) {
 /* ─── Load Temp Hotlist ─────── */
 async function loadHotlist() {
   try {
-    const res = await fetch(`${API}/api/public/temp-hotlist`);
+    const res = await fetch(`${API}/api/public/temp-hotlist?metro=atlanta&af=1`)  /* ATL_AF_ONLY_v1 */;
     const json = await res.json();
     hotlistData = json.candidates || [];
     document.getElementById('hotlist-count').textContent = `(${hotlistData.length})`;
@@ -656,7 +656,7 @@ async function runSearch(page) {
   document.getElementById('db-count').innerHTML = '';
   document.getElementById('search-pagination').innerHTML = '';
   try {
-    const params = new URLSearchParams({ q, keywords: q, location: loc, page });
+    const params = new URLSearchParams({ q, keywords: q, location: loc, page, metro: 'atlanta', af: '1' });  // ATL_AF_ONLY_v1
     const res  = await fetch(`${API}/api/public/candidates/search?${params}`);
     const json = await res.json();
     const cands = json.results || [];

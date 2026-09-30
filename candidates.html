@@ -1085,7 +1085,8 @@ function doSearch(page) {
 
   const params = new URLSearchParams({
     title: title.trim(), keywords: kw.trim(),
-    location: loc, temp, page: _currentPage
+    location: loc, temp, page: _currentPage,
+    metro: "atlanta", af: "1"   // ATL_AF_ONLY_v1: metro Atlanta + accounting & finance only
   });
   const ctl = ("AbortController" in window) ? new AbortController() : null;
   const timer = setTimeout(() => { if (ctl) ctl.abort(); }, 15000);
