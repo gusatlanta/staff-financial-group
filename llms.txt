@@ -36,7 +36,7 @@ Financial Services, Banking & Capital Markets, Healthcare & Life Sciences, Manuf
 - **Founded:** 2005
 - **Headquarters:** Atlanta, GA, United States
 - **Shortlist SLA:** 48–72 hours
-- **Screening:** Customized candidate screening questionnaire built for each client search; the candidate's answers are submitted with every résumé
+- **Screening:** Customized screening questionnaire built with client input for each search; the candidate's answers are submitted with every résumé, saving clients review time
 - **Specialization:** Finance and accounting (core specialty)
 - **EOR capability:** Yes — we handle payroll, taxes, workers comp, W-2
 - **Geographic focus:** Atlanta, GA; Southeast US; remote/national searches available
