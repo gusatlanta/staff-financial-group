@@ -566,6 +566,10 @@ textarea.form-control { resize: vertical; min-height: 110px; }
 .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
 
 /* ── About page ───────────────────────────────── */
+.mini-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 520px; }
+.mini-stat-num { font-family: var(--font-head); font-size: 2.2rem; font-weight: 700; color: var(--ink); line-height: 1.1; letter-spacing: -.01em; }
+.mini-stat-label { font-size: .74rem; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--blue); margin-top: 6px; line-height: 1.35; }
+@media (max-width: 420px) { .mini-stats { gap: 14px; } .mini-stat-num { font-size: 1.75rem; } .mini-stat-label { font-size: .68rem; letter-spacing: .06em; } }
 .tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .tag { display: inline-block; padding: 7px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 20px; font-size: .86rem; font-weight: 500; color: var(--ink); transition: all .18s; }
 .tag:hover { border-color: var(--teal); color: var(--blue); }
