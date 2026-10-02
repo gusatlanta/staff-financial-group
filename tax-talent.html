@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
+  <title>Tax Talent Available Now | Staff Financial Group</title>
+  <meta name="description" content="Tax professionals available now - CPAs, EAs, tax seniors and managers, remote and local. Blinded profiles built from each candidate's tax application: years in tax, return types, specialties and software.">
+  <link rel="canonical" href="https://www.stafffinancial.com/tax-talent.html">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* TAX_TALENT_PAGE_v1 */
+    .tax-hero { background: var(--grad-dark); padding: 56px 0 46px; text-align: center; }
+    .tax-hero h1 { color: #fff; font-size: clamp(1.9rem, 4vw, 2.9rem); margin-bottom: 10px; }
+    .tax-hero h1 em { color: var(--teal-light); font-style: normal; }
+    .tax-hero p { color: rgba(255,255,255,.75); font-size: 1rem; margin: 0 auto; max-width: 640px; }
+    .tax-wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 70px; }
+    .tax-filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 18px; }
+    .tax-chip { border: 1px solid var(--border); background: #fff; color: var(--text); border-radius: 999px;
+      padding: 7px 15px; font-size: .88rem; font-weight: 600; cursor: pointer; }
+    .tax-chip.on { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .tax-search { margin-left: auto; border: 1px solid var(--border); border-radius: 999px; padding: 8px 15px;
+      font-size: .9rem; min-width: 240px; }
+    .tax-count { color: var(--text-muted); font-size: .9rem; margin-bottom: 14px; }
+    .tax-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+    .tax-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px;
+      box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+    .tax-card h3 { font-family: var(--font-head); font-size: 1.12rem; color: var(--ink); margin: 0 0 3px; }
+    .tax-loc { color: var(--text-muted); font-size: .86rem; margin-bottom: 10px; }
+    .tax-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .tax-badge { background: #fff4dc; color: #8a5a00; border: 1px solid #f3d38c; border-radius: 6px; padding: 2px 9px;
+      font-size: .76rem; font-weight: 700; }
+    .tax-badge.remote { background: #e6f6fa; color: #11647a; border-color: #a8dde9; }
+    .tax-k { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted);
+      margin-top: 9px; }
+    .tax-v { font-size: .9rem; color: var(--text); }
+    .tax-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 3px; }
+    .tax-tag { background: var(--light); color: var(--navy-mid); border-radius: 6px; padding: 2px 8px; font-size: .8rem; }
+    .tax-foot { margin-top: auto; padding-top: 16px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .tax-foot a { font-size: .88rem; font-weight: 600; color: var(--blue); text-decoration: none; }
+    .tax-req { background: var(--blue); color: #fff; border: 0; border-radius: 8px; padding: 9px 16px; font-weight: 700;
+      font-size: .88rem; cursor: pointer; margin-left: auto; }
+    .tax-empty { text-align: center; color: var(--text-muted); padding: 50px 0; }
+    .tax-cta { text-align: center; margin-top: 40px; color: var(--text-muted); }
+    @media (max-width: 640px) { .tax-search { margin-left: 0; min-width: 0; width: 100%; } }
+    .modal-backdrop {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,.48);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px 28px 24px;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,.22);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 16px;
+      background: none; border: none; font-size: 1.4rem;
+      cursor: pointer; color: #6b7280; line-height: 1;
+    }
+    .modal-title {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      color: #0c1f47;
+      margin-bottom: 4px;
+    }
+    .modal-sub { font-size: .85rem; color: #6b7280; margin-bottom: 20px; }
+    .modal-box label {
+      display: block;
+      font-size: .82rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 4px;
+      margin-top: 14px;
+    }
+    .modal-box input,
+    .modal-box textarea {
+      width: 100%;
+      border: 1px solid #dde3ee;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: .93rem;
+      color: #0c1f47;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .modal-box input:focus,
+    .modal-box textarea:focus { border-color: #2766A8; }
+    .modal-box textarea { resize: vertical; min-height: 80px; }
+    .modal-submit {
+      background: #1a76a7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      transition: background .15s;
+    }
+    .modal-submit:hover { background: #a36d10; }
+    .modal-submit:disabled { opacity: .6; cursor: default; }
+    .modal-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .modal-success .check { font-size: 2.8rem; margin-bottom: 10px; }
+    .modal-success h3 { font-family: var(--font-head); color: #0c1f47; margin-bottom: 6px; }
+    .modal-success p { color: #6b7280; font-size: .9rem; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="Staff Financial Group — home">
+      <img src="img/sfg-mark.png" alt="" class="brand-mark" width="38" height="45">
+      <span class="brand-text">
+        <span class="brand-name">StaffFinancial</span>
+        <span class="brand-group">Group</span>
+        <span class="brand-tag">Powered by NorthPoint</span>
+      </span>
+    </a>
+    <div class="nav-menu" id="navMenu">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="services.html">Services</a></li>
+        <li class="has-mega">
+          <a href="services.html">Recruiting Areas <span class="chevron">▾</span></a>
+          <div class="mega-menu">
+            <div class="mega-sidebar">
+              <button class="mega-tab-btn active" onclick="switchMegaTab('direct',this)">Direct Hire</button>
+              <button class="mega-tab-btn" onclick="switchMegaTab('staffing',this)">Staffing &amp; Contract</button>
+            </div>
+            <div class="mega-panel active" id="mega-direct">
+              <a href="services.html#retained" style="font-weight:600;color:var(--ink);"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg> Retained Search</a>
+              <a href="services.html#rpo" style="font-weight:600;color:var(--ink);"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> RPO &amp; Project Staffing</a>
+              <a href="services.html#audience" style="font-weight:600;color:var(--ink);"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Perfect Candidate Audience</a>
+              <a href="services.html">Controller &amp; Accounting Manager</a>
+              <a href="services.html">CFO &amp; VP Finance</a>
+              <a href="services.html">Senior &amp; Staff Accountant</a>
+              <a href="services.html">Financial Analyst &amp; FP&amp;A</a>
+              <a href="tax-talent.html">Tax Manager &amp; Tax Analyst</a>
+              <a href="services.html">Internal Audit &amp; Compliance</a>
+              <a href="services.html">Cost Accountant</a>
+              <a href="services.html">Treasury &amp; Cash Management</a>
+              <a href="services.html">Accounts Payable &amp; Receivable</a>
+              <a href="services.html">Payroll Manager</a>
+              <a class="mega-all" href="services.html">All Direct Hire Specialties →</a>
+            </div>
+            <div class="mega-panel" id="mega-staffing">
+              <a href="temps.html">Interim Controller</a>
+              <a href="temps.html">Interim CFO</a>
+              <a href="temps.html">Contract Accountant</a>
+              <a href="temps.html">Temp-to-Hire Analyst</a>
+              <a href="temps.html">Project-Based Finance Support</a>
+              <a href="temps.html">ERP Implementation Support</a>
+              <a href="temps.html">Month-End Close Support</a>
+              <a href="temps.html">Audit Preparation</a>
+              <a href="temps.html">Payroll &amp; AP Coverage</a>
+              <a href="temps.html">Employer of Record (EOR)</a>
+              <a class="mega-all" href="temps.html">Browse Available Temps →</a>
+            </div>
+            <div class="mega-featured">
+              <div class="mega-featured-placeholder"><svg class="ico" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></div>
+              <h4>We Payroll Your Temp &amp; Contract Workers</h4>
+              <a href="temps.html" class="learn">Learn More →</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-mega">
+          <a href="about.html">Industries <span class="chevron">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="about.html">Manufacturing</a>
+            <a href="about.html">Healthcare &amp; Life Sciences</a>
+            <a href="about.html">Real Estate &amp; Construction</a>
+            <a href="about.html">Technology &amp; SaaS</a>
+            <a href="about.html">Private Equity</a>
+            <a href="about.html">Professional Services</a>
+            <a href="about.html">Distribution &amp; Logistics</a>
+            <a href="about.html">All Industries</a>
+          </div>
+        </li>
+        <li><a href="tax-talent.html">Tax Talent</a></li>
+        <li><a href="temps.html">Find Talent</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="partners.html">Partner Program</a></li>
+      </ul>
+      <div class="nav-ctas">
+        <a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener" class="btn btn-outline-dark">Job Board</a>
+        <a href="opt-in.html" class="btn btn-primary">Hire Top Talent</a>
+      </div>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="tax-hero">
+  <div class="container">
+    <h1>Tax Talent <em>Available Now</em></h1>
+    <p>CPAs, EAs, tax seniors and managers, remote and local. Every profile is built from the candidate's own tax application: years in tax, the returns they prepare and review, their specialties and software. Names stay private until you ask for an intro.</p>
+  </div>
+</section>
+
+<main class="tax-wrap">
+  <div class="tax-filters" id="taxFilters"></div>
+  <div class="tax-count" id="taxCount">Loading tax candidates…</div>
+  <div class="tax-grid" id="taxGrid"></div>
+  <p class="tax-cta">Don't see the right fit? <a href="opt-in.html">Tell us what you need</a> and we'll find them.</p>
+</main>
+
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+
+    <div id="modalForm">
+      <h2 class="modal-title">Request More Info</h2>
+      <p class="modal-sub" id="modalSub">We'll reach out with the full profile and set up an intro call.</p>
+
+      <label>Your Name *</label>
+      <input type="text" id="m_name" placeholder="Jane Smith">
+
+      <label>Company *</label>
+      <input type="text" id="m_company" placeholder="Acme Corp">
+
+      <label>Work Email *</label>
+      <input type="email" id="m_email" placeholder="jane@acmecorp.com">
+
+      <label>Phone</label>
+      <input type="tel" id="m_phone" placeholder="(404) 555-0100">
+
+      <label>Message</label>
+      <textarea id="m_msg" placeholder="Any specific requirements or questions…"></textarea>
+
+      <button class="modal-submit" id="modalSubmit" onclick="submitInquiry()">Send Request →</button>
+      <p id="modalErr" style="color:#dc2626;font-size:.82rem;margin-top:8px;display:none;"></p>
+    </div>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="check">✅</div>
+      <h3>Request Sent!</h3>
+      <p>Our team will follow up with the full profile and next steps — usually within a few hours.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── Footer ───────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand brand--light" aria-label="Staff Financial Group — home">
+          <img src="img/sfg-mark.png" alt="" class="brand-mark" width="38" height="45">
+          <span class="brand-text">
+            <span class="brand-name">StaffFinancial</span>
+            <span class="brand-group">Group</span>
+            <span class="brand-tag">Powered by NorthPoint</span>
+          </span>
+        </a>
+        <p>Specialized finance and accounting recruitment across Atlanta and the Southeast. Over 20 years connecting top talent with leading companies — since 2005.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Our Services</a></li>
+          <li><a href="temps.html">Find Talent</a></li>
+          <li><a href="candidates.html">Browse Candidates</a></li>
+          <li><a href="tax-talent.html">Tax Talent</a></li>
+          <li><a href="partners.html">Partner Program</a></li>
+          <li><a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener">Job Board ↗</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:gus@stafffinancial.com">gus@stafffinancial.com</a></li>
+          <li><a href="tel:+14042500790">404-250-0790</a></li>
+          <li><a href="tel:+16787775627">678-777-5627</a></li>
+          <li><a href="contact.html">Send a Message</a></li>
+          <li><a href="opt-in.html">Request Talent</a></li>
+          <li><span>Atlanta, GA · Since 2005</span></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span>&copy; 2026 Staff Financial Group. Powered by NorthPoint. All rights reserved.</span>
+      <a href="contact.html">Privacy &amp; Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const TAX_API = "https://100xrecruiting.com/api/public/tax-candidates?limit=48";
+const INQUIRY_API = "https://100xrecruiting.com/api/public/inquiry";
+let TAX = [], taxFilter = "all";
+let _activeCandId = null, _activeCandTitle = "";
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const FILTERS = [["all", "All"], ["remote", "Remote"], ["cpa", "CPA"], ["ea", "EA"], ["1065", "Partnerships"], ["1120", "Corporate"], ["1040", "Individual"]];
+
+function drawFilters() {
+  document.getElementById("taxFilters").innerHTML = FILTERS.map(f =>
+    '<button class="tax-chip' + (taxFilter === f[0] ? " on" : "") + '" onclick="setTaxFilter(\'' + f[0] + '\')">' + f[1] + "</button>").join("")
+    + '<input class="tax-search" id="taxQ" placeholder="Search returns, specialties, software" oninput="drawTax()">';
+}
+function setTaxFilter(f) { taxFilter = f; const q = document.getElementById("taxQ").value; drawFilters(); document.getElementById("taxQ").value = q; drawTax(); }
+function matches(c) {
+  const all = [c.title, c.location, ...(c.badges || []), ...(c.credentials || []), ...(c.return_types || []), ...(c.specialties || []),
+               (c.software || {}).primary, ...((c.software || {}).other || []), ...(c.clients || [])].join(" ").toLowerCase();
+  const q = (document.getElementById("taxQ") || {}).value || "";
+  if (q && !all.includes(q.toLowerCase())) return false;
+  if (taxFilter === "remote") return c.work_style === "Remote";
+  if (taxFilter === "cpa") return (c.badges || []).includes("CPA");
+  if (taxFilter === "ea") return (c.badges || []).includes("EA");
+  if (["1065", "1120", "1040"].includes(taxFilter)) return (c.return_types || []).some(r => r.includes(taxFilter));
+  return true;
+}
+function card(c) {
+  const sw = c.software || {}, sws = [sw.primary, ...(sw.other || [])].filter(Boolean);
+  const tags = a => '<div class="tax-tags">' + a.map(x => '<span class="tax-tag">' + esc(x) + "</span>").join("") + "</div>";
+  return '<div class="tax-card"><h3>' + esc(c.title) + "</h3>"
+    + '<div class="tax-loc">' + esc(c.location) + (c.years ? " · " + esc(c.years) + " years in tax" : "") + "</div>"
+    + '<div class="tax-badges">' + (c.badges || []).map(b => '<span class="tax-badge' + (b === "Remote" ? " remote" : "") + '">' + esc(b) + "</span>").join("") + "</div>"
+    + ((c.credentials || []).length ? '<div class="tax-k">Credentials</div><div class="tax-v">' + esc(c.credentials.join(" · ")) + "</div>" : "")
+    + ((c.return_types || []).length ? '<div class="tax-k">Returns prepared / reviewed</div>' + tags(c.return_types) : "")
+    + ((c.specialties || []).length ? '<div class="tax-k">Specialties</div>' + tags(c.specialties) : "")
+    + (c.review_level ? '<div class="tax-k">Review</div><div class="tax-v">' + esc(c.review_level) + "</div>" : "")
+    + (sws.length ? '<div class="tax-k">Software</div><div class="tax-v">' + esc(sws.join(" · ")) + "</div>" : "")
+    + ((c.clients || []).length ? '<div class="tax-k">Clients</div><div class="tax-v">' + esc(c.clients.join(", ")) + "</div>" : "")
+    + '<div class="tax-foot">' + (c.share_url ? '<a href="' + esc(c.share_url) + '" target="_blank" rel="noopener">View blinded profile →</a>' : "")
+    + '<button class="tax-req" onclick="openModal(' + Number(c.id) + ', \'' + esc(c.title).replace(/'/g, "&#39;") + '\')">Request this candidate</button></div></div>';
+}
+function drawTax() {
+  const list = TAX.filter(matches);
+  document.getElementById("taxCount").textContent = TAX.length
+    ? (list.length + " of " + TAX.length + " tax candidates available now") : "";
+  document.getElementById("taxGrid").innerHTML = list.length ? list.map(card).join("")
+    : '<div class="tax-empty">' + (TAX.length ? "No one matches that filter yet." : "New tax candidates are being added - check back soon, or <a href=\"opt-in.html\">tell us what you need</a>.") + "</div>";
+}
+fetch(TAX_API).then(r => r.json()).then(d => { TAX = (d && d.candidates) || []; drawTax(); })
+  .catch(() => { document.getElementById("taxCount").textContent = ""; drawTax(); });
+drawFilters();
+
+function openModal(candId, candTitle) {
+  _activeCandId    = candId;
+  _activeCandTitle = candTitle;
+  document.getElementById("modalSub").textContent =
+    `Interested in: ${candTitle} — we'll share the full profile and set up an intro call.`;
+  document.getElementById("m_msg").value = "";
+  document.getElementById("modalErr").style.display = "none";
+  document.getElementById("modalForm").style.display = "block";
+  document.getElementById("modalSuccess").style.display = "none";
+  document.getElementById("modalSubmit").disabled = false;
+  document.getElementById("modalBackdrop").classList.add("open");
+}
+function closeModal() {
+  document.getElementById("modalBackdrop").classList.remove("open");
+}
+
+function submitInquiry() {
+  const name    = document.getElementById("m_name").value.trim();
+  const company = document.getElementById("m_company").value.trim();
+  const email   = document.getElementById("m_email").value.trim();
+  const phone   = document.getElementById("m_phone").value.trim();
+  const msg     = document.getElementById("m_msg").value.trim();
+  const errEl   = document.getElementById("modalErr");
+
+  if (!name || !company || !email) {
+    errEl.textContent = "Name, company, and email are required.";
+    errEl.style.display = "block"; return;
+  }
+  if (!email.includes("@")) {
+    errEl.textContent = "Please enter a valid email address.";
+    errEl.style.display = "block"; return;
+  }
+  errEl.style.display = "none";
+  const btn = document.getElementById("modalSubmit");
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+
+  fetch(INQUIRY_API, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      candidate_id:    _activeCandId,
+      name,
+      employer_name:   name,
+      employer_company: company,
+      employer_email:  email,
+      email,
+      phone,
+      notes:  msg || `Interested in candidate: ${_activeCandTitle}`,
+      message: msg || `Interested in candidate: ${_activeCandTitle}`,
+      inquiry_type: "candidate_inquiry",
+    }),
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      document.getElementById("modalForm").style.display = "none";
+      document.getElementById("modalSuccess").style.display = "block";
+    } else {
+      errEl.textContent = data.error || "Something went wrong. Please email us directly.";
+      errEl.style.display = "block";
+      btn.disabled = false; btn.textContent = "Send Request →";
+    }
+  })
+  .catch(() => {
+    errEl.textContent = "Network error. Please email gus@stafffinancial.com directly.";
+    errEl.style.display = "block";
+    btn.disabled = false; btn.textContent = "Send Request →";
+  });
+}
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
