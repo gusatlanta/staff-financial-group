@@ -129,6 +129,16 @@
       }).catch(function(){});
   })();
   </script>
+<style>
+/* SALARY_GUIDE_HOME_v1: the Salary Guide band on the home page */
+.sg-home { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: center; }
+.sg-home img { display: block; width: 220px; height: auto; border-radius: 8px; transform: rotate(3deg); box-shadow: 0 24px 48px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.15); }
+.sg-home-stats { display: grid; gap: 12px; }
+.sg-home-stats div { background: rgba(255,255,255,.07); border: 1px solid rgba(111,197,212,.3); border-radius: 12px; padding: 12px 16px; }
+.sg-home-stats b { display: block; font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; color: var(--teal-light); line-height: 1; }
+.sg-home-stats span { display: block; margin-top: 5px; font-size: .88rem; color: rgba(255,255,255,.8); line-height: 1.35; }
+@media (max-width: 640px) { .sg-home { grid-template-columns: 1fr; justify-items: center; } .sg-home img { width: 180px; } .sg-home-stats { width: 100%; } }
+</style>
 </head>
 <body>
 
@@ -576,6 +586,26 @@ function sfgTalentSearch(f){
           <div class="specialty-item"><span class="specialty-dot"></span>AP / AR Manager</div>
           <div class="specialty-item"><span class="specialty-dot"></span>Payroll Manager</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Salary Guide 2026 (SALARY_GUIDE_HOME_v1) ── -->
+<section class="section section-dark" id="salary-guide">
+  <div class="container split">
+    <div>
+      <span class="section-kicker">Salary Guide 2026</span>
+      <h2 class="section-title">What Accounting &amp; Finance People Are <em>Asking to Be Paid</em></h2>
+      <p>Built from 1,447 candidate questionnaires this year plus U.S. Bureau of Labor Statistics data. The typical ask for 14 titles from AP to CFO, a tax and audit section, why people are looking, where they'll work and the systems they know.</p>
+      <a href="salary-guide.html" class="btn btn-white btn-lg">Get the Salary Guide →</a>
+    </div>
+    <div class="sg-home">
+      <a href="salary-guide.html" aria-label="Get the Salary Guide"><img src="img/salary-guide-cover.png" alt="Cover of the Staff Financial Group Salary Guide 2026: Accounting &amp; Finance" width="240" height="310" loading="lazy"></a>
+      <div class="sg-home-stats">
+        <div><b>$95K</b><span>Senior Accountant typical ask</span></div>
+        <div><b>$150K</b><span>Controller typical ask</span></div>
+        <div><b>35%</b><span>are looking for growth. Only 4% named pay.</span></div>
       </div>
     </div>
   </div>
