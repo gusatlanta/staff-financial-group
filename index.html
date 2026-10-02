@@ -138,6 +138,31 @@
 .sg-home-stats b { display: block; font-family: var(--font-head); font-size: 1.7rem; font-weight: 700; color: var(--teal-light); line-height: 1; }
 .sg-home-stats span { display: block; margin-top: 5px; font-size: .88rem; color: rgba(255,255,255,.8); line-height: 1.35; }
 @media (max-width: 640px) { .sg-home { grid-template-columns: 1fr; justify-items: center; } .sg-home img { width: 180px; } .sg-home-stats { width: 100%; } }
+
+/* SALARY_GUIDE_HERO_v1: the guide on the right of the hero, above the fold */
+.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 56px; align-items: center; }
+.hero-grid .hero-inner { margin: 0; text-align: left; }
+.hero-grid .hero-search-bar { margin: 0; }
+.hero-grid .hero-search-sub { justify-content: flex-start; }
+.hero-guide { background: #fff; color: var(--ink); border-radius: 18px; padding: 22px 22px 18px; box-shadow: 0 30px 70px rgba(0,0,0,.38); display: grid; gap: 16px; text-align: left; }
+.hg-top { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 16px; align-items: center; }
+.hg-top img { display: block; width: 112px; height: auto; border-radius: 6px; transform: rotate(-4deg); box-shadow: 0 12px 26px rgba(14,34,64,.35); }
+.hg-kicker { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: 6px; }
+.hero-guide h2 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 600; line-height: 1.2; color: var(--ink); margin: 0; }
+.hg-stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.hg-stats li { background: #f2f7fa; border: 1px solid #dceaf1; border-radius: 10px; padding: 9px 8px; text-align: center; }
+.hg-stats b { display: block; font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--blue-dark); line-height: 1; }
+.hg-stats span { display: block; margin-top: 4px; font-size: .72rem; color: var(--text-muted); line-height: 1.2; }
+.hg-go { display: block; text-align: center; background: var(--grad-brand); color: #fff; font-weight: 700; font-size: 1rem; padding: 13px 16px; border-radius: 11px; text-decoration: none; transition: filter .18s; }
+.hg-go:hover { filter: brightness(1.08); color: #fff; }
+.hero .hero-guide .hg-fine { margin: 0; max-width: none; font-size: .76rem; line-height: 1.4; color: var(--text-muted); text-align: center; }
+@media (max-width: 960px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .hero-grid .hero-inner { text-align: center; }
+  .hero-grid .hero-search-bar { margin: 0 auto; }
+  .hero-grid .hero-search-sub { justify-content: center; }
+  .hero-guide { width: 100%; max-width: 440px; margin: 0 auto; }
+}
 </style>
 </head>
 <body>
@@ -229,7 +254,7 @@
 
 <!-- ── Hero ─────────────────────────────────── -->
 <section class="hero">
-  <div class="container">
+  <div class="container hero-grid">
     <div class="hero-inner">
       <span class="hero-kicker">Finance &amp; Accounting Staffing · Atlanta, GA · Since 2005</span>
       <h1>Specialized <em>Accounting &amp; Finance</em><br>Recruiting</h1>
@@ -263,6 +288,22 @@
         <a href="temps.html" class="btn-hero-pill">Browse Available Temps →</a>
       </div>
     </div>
+    <aside class="hero-guide" aria-label="Salary Guide 2026">
+      <div class="hg-top">
+        <a href="salary-guide.html" tabindex="-1" aria-hidden="true"><img src="img/salary-guide-cover.png" alt="" width="112" height="145"></a>
+        <div>
+          <span class="hg-kicker">New &middot; Salary Guide 2026</span>
+          <h2>What accounting &amp; finance people are asking to be paid</h2>
+        </div>
+      </div>
+      <ul class="hg-stats">
+        <li><b>$95K</b><span>Senior Accountant</span></li>
+        <li><b>$150K</b><span>Controller</span></li>
+        <li><b>$215K</b><span>CFO / VP Finance</span></li>
+      </ul>
+      <a class="hg-go" href="salary-guide.html">Get the Salary Guide &rarr;</a>
+      <p class="hg-fine">Typical asks for 14 titles, plus tax &amp; audit. From 1,447 candidate questionnaires this year.</p>
+    </aside>
   </div>
 </section>
 
