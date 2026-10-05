@@ -386,13 +386,16 @@ function sfgTalentSearch(f){
         });
         if(c.years)  badges+='<span class="mpc-badge">'+esc(c.years)+'</span>';
         if(c.salary) badges+='<span class="mpc-badge green">'+esc(c.salary)+'</span>';
+        var win = c.win ? '<div class="mpc-card-win">'
+          +'<span class="mpc-win-label">Made or saved money</span>'
+          +'<span class="mpc-win-text">'+esc(c.win)+'</span></div>' : '';
         var href=c.share_url?esc(c.share_url):'candidates.html';
         var ext=c.share_url?' target="_blank" rel="noopener"':'';
         return '<a class="mpc-card" href="'+href+'"'+ext+'>'
           +'<div class="mpc-card-head"><div class="mpc-avatar">'+initials+'</div>'
           +'<div><div class="mpc-card-title">'+esc(c.title||'Finance Professional')+'</div>'
           +'<div class="mpc-card-loc">'+PIN+' '+esc(c.location||'Southeast US')+'</div></div></div>'
-          +(badges?'<div class="mpc-badges">'+badges+'</div>':'')
+          +(badges?'<div class="mpc-badges">'+badges+'</div>':'')+win
           +'<span class="mpc-card-cta">View blinded résumé →</span></a>';
       }).join('');
       var track=document.getElementById('mpcTrack');
