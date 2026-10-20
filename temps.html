@@ -132,6 +132,9 @@
     }
 
     .cand-footer { display: flex; gap: 8px; margin-top: auto; padding-top: 4px; }
+    /* BENCH_RESUME_LINK_v1 */
+    .cand-resume { font-size: .84rem; font-weight: 600; color: var(--blue); text-decoration: none; }
+    .cand-resume:hover { text-decoration: underline; }
     .cand-footer .btn { flex: 1; justify-content: center; font-size: .82rem; padding: 9px 12px; }
 
     /* Loading / empty states */
@@ -601,6 +604,7 @@ function renderCard(c, isTemp) {
       ${startDate}
       <div class="cand-meta">${meta}</div>
       ${chips ? `<div class="skill-chips">${chips}</div>` : ''}
+      ${c.resume_url ? `<a class="cand-resume" href="${escHtml(c.resume_url)}" target="_blank" rel="noopener nofollow">View blinded résumé →</a>` : ''}
       <div class="cand-footer">
         <button class="btn btn-gold" onclick="openModal(${escHtml(JSON.stringify(c))}, '${reqType}')" style="font-size:.82rem;">${reqLabel}</button>
       </div>

@@ -353,6 +353,9 @@
       white-space: nowrap;
     }
     .cc-request-btn:hover { background: #1a3560; }
+    /* BENCH_RESUME_LINK_v1 */
+    .cc-resume { font-size: .84rem; font-weight: 600; color: var(--blue); text-decoration: none; }
+    .cc-resume:hover { text-decoration: underline; }
 
     /* Recent / saved searches */
     .saved-searches-wrap {
@@ -1175,6 +1178,7 @@ function renderCards(cards) {
         </div>
         ${badges ? `<div class="cc-badges">${badges}</div>` : ""}
         ${skills ? `<div class="cc-skills">${skills}</div>` : ""}
+        ${c.resume_url ? `<a class="cc-resume" href="${esc(c.resume_url)}" target="_blank" rel="noopener nofollow">View blinded résumé →</a>` : ""}
         <div class="cc-foot">
           <div class="cc-ratings">
             <button class="cc-rate-btn ${_rating==='must'?'on':''}" data-r="must" data-cid="${c.id}" onclick="setRating(${c.id},'must',this)" title="Must have">✓ Must</button>
