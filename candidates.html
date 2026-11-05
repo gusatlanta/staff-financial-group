@@ -550,6 +550,40 @@
     .modal-success h3 { font-family: var(--font-head); color: #0c1f47; margin-bottom: 6px; }
     .modal-success p { color: #6b7280; font-size: .9rem; }
 
+    /* ── INFO_DIGITAL_RESUME_v1: the blinded digital résumé, right on this page ── */
+    .resume-backdrop {
+      display: none;
+      position: fixed; inset: 0; z-index: 1001;
+      background: rgba(12,31,71,.55);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .resume-backdrop.open { display: flex; }
+    .resume-box {
+      background: #fff; border-radius: 16px; overflow: hidden;
+      width: 100%; max-width: 1040px; height: 92vh;
+      display: flex; flex-direction: column;
+      box-shadow: 0 20px 60px rgba(0,0,0,.28);
+    }
+    .resume-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 16px; border-bottom: 1px solid #e5e9f2; background: #f8fafc;
+    }
+    .resume-bar-title { flex: 1; min-width: 0; font-family: var(--font-head); font-weight: 700; color: #0c1f47; font-size: 1rem;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .resume-bar-title span { font-family: 'Inter', sans-serif; font-weight: 400; color: #6b7280; font-size: .82rem; }
+    .resume-bar a { font-size: .84rem; font-weight: 600; color: var(--blue); text-decoration: none; white-space: nowrap; }
+    .resume-bar a:hover { text-decoration: underline; }
+    .resume-close { background: none; border: none; font-size: 1.5rem; line-height: 1; cursor: pointer; color: #6b7280; padding: 0 2px; }
+    .resume-frame-wrap { position: relative; flex: 1; background: #fff; }
+    .resume-frame-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .resume-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #6b7280; font-size: .95rem; }
+    @media (max-width: 640px) {
+      .resume-backdrop { padding: 0; }
+      .resume-box { max-width: none; height: 100%; border-radius: 0; }
+      .resume-bar-title span { display: none; }
+    }
+
     @media (max-width: 820px) {
       .cand-search-wrap { grid-template-columns: 1fr 1fr; }
       .cand-search-btn  { grid-column: 1 / -1; }
@@ -869,6 +903,21 @@
   </div>
 </div>
 
+<!-- ── INFO_DIGITAL_RESUME_v1: Info → shows the candidate's blinded digital résumé here ── -->
+<div class="resume-backdrop" id="resumeBackdrop" onclick="if(event.target===this)closeResume()">
+  <div class="resume-box" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+    <div class="resume-bar">
+      <div class="resume-bar-title" id="resumeTitle">Candidate <span>— blinded: no name, employers or schools</span></div>
+      <a id="resumeNewTab" href="#" target="_blank" rel="noopener nofollow">Open in a new tab ↗</a>
+      <button class="resume-close" onclick="closeResume()" aria-label="Close">×</button>
+    </div>
+    <div class="resume-frame-wrap">
+      <div class="resume-loading" id="resumeLoading">Loading their résumé…</div>
+      <iframe id="resumeFrame" title="Blinded résumé" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </div>
+</div>
+
 <!-- ── Footer ───────────────────────────────── -->
 <footer>
   <div class="container">
@@ -1147,8 +1196,12 @@ function showEmpty(heading, msg, data) {
   else document.getElementById("candPager").innerHTML = "";
 }
 
+// INFO_DIGITAL_RESUME_v1: the cards on screen, so Info → can find a card's résumé link
+const _cardsById = {};
+
 function renderCards(cards) {
   const grid = document.getElementById("candGrid");
+  cards.forEach(c => { _cardsById[c.id] = c; });
   grid.innerHTML = cards.map(c => {
     const [fg, bg] = avatarColors(c.id);
     const _rating = getRating(c.id);
@@ -1178,14 +1231,14 @@ function renderCards(cards) {
         </div>
         ${badges ? `<div class="cc-badges">${badges}</div>` : ""}
         ${skills ? `<div class="cc-skills">${skills}</div>` : ""}
-        ${c.resume_url ? `<a class="cc-resume" href="${esc(c.resume_url)}" target="_blank" rel="noopener nofollow">View blinded résumé →</a>` : ""}
+        ${c.resume_url ? `<a class="cc-resume" href="${esc(c.resume_url)}" target="_blank" rel="noopener nofollow" onclick="return openResume(${c.id}, event)">View blinded résumé →</a>` : ""}
         <div class="cc-foot">
           <div class="cc-ratings">
             <button class="cc-rate-btn ${_rating==='must'?'on':''}" data-r="must" data-cid="${c.id}" onclick="setRating(${c.id},'must',this)" title="Must have">✓ Must</button>
             <button class="cc-rate-btn ${_rating==='nice'?'on':''}" data-r="nice" data-cid="${c.id}" onclick="setRating(${c.id},'nice',this)" title="Nice to have">+ Nice</button>
             <button class="cc-rate-btn ${_rating==='not'?'on':''}" data-r="not"  data-cid="${c.id}" onclick="setRating(${c.id},'not',this)"  title="Not a fit">✕ Not</button>
           </div>
-          <button class="cc-request-btn" onclick="openModal(${c.id}, ${esc(JSON.stringify(c.title || ''))})">
+          <button class="cc-request-btn" onclick="${c.resume_url ? `openResume(${c.id})` : `openModal(${c.id}, ${esc(JSON.stringify(c.title || ''))})`}">
             Info →
           </button>
         </div>
@@ -1241,6 +1294,38 @@ function openModal(candId, candTitle) {
 function closeModal() {
   document.getElementById("modalBackdrop").classList.remove("open");
 }
+
+// INFO_DIGITAL_RESUME_v1 (Gus 11-04: "we should show them the digital resume when they get here"):
+// Info → opens the candidate's blinded digital résumé in a big window on this page - their
+// timeline, skills and work history, with its own "Request more information" form. A card
+// without one keeps the Request More Info form. Returns false so the card's link doesn't
+// also open a new tab (a middle-click or ctrl-click still does).
+function openResume(candId, ev) {
+  const c = _cardsById[candId];
+  if (!c || !c.resume_url) { openModal(candId, (c && c.title) || ""); return false; }
+  if (ev && (ev.ctrlKey || ev.metaKey || ev.shiftKey)) return true;   // the link's own new tab
+  const frame = document.getElementById("resumeFrame");
+  const loading = document.getElementById("resumeLoading");
+  document.getElementById("resumeTitle").innerHTML =
+    `${esc(c.title || "Candidate")}${c.location ? " · " + esc(c.location) : ""} <span>— blinded: no name, employers or schools</span>`;
+  document.getElementById("resumeNewTab").href = c.resume_url;
+  loading.style.display = "flex";
+  frame.onload = () => { loading.style.display = "none"; };
+  frame.src = c.resume_url;
+  document.getElementById("resumeBackdrop").classList.add("open");
+  document.body.style.overflow = "hidden";
+  return false;
+}
+function closeResume() {
+  const bd = document.getElementById("resumeBackdrop");
+  if (!bd.classList.contains("open")) return;
+  bd.classList.remove("open");
+  document.getElementById("resumeFrame").src = "about:blank";
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") { closeResume(); closeModal(); }
+});
 
 function submitInquiry() {
   const name    = document.getElementById("m_name").value.trim();
@@ -1309,7 +1394,9 @@ function submitInquiry() {
   if (title) document.getElementById("s_title").value = title;
   if (kw)    document.getElementById("s_kw").value    = kw;
   if (loc)   document.getElementById("s_loc").value   = loc;
-  doSearch(1);
+  // DEEP_LINK_TDZ_v1: after the rest of this script runs - doSearch records the search in the
+  // history below, and searching right away read SS_RECENT_KEY before it existed (no results)
+  setTimeout(() => doSearch(1), 0);
 })();
 
 // ── Saved / recent search history ───────────────────────────────────────────
