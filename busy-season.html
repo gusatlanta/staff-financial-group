@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
+  <title>Busy Season Tax Talent, Delivered | Staff Financial Group</title>
+  <meta name="description" content="Staff Financial places tax preparers, seniors, and managers for CPA firms — Direct Hire or Contract, US-based or international. Every candidate is vetted. Metro Atlanta and remote.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #1F86B9;
+      --blue-dark: #176A94;
+      --blue-soft: #E8F4FA;
+      --navy: #0B2A4A;
+      --navy-deep: #081F38;
+      --text: #1C2B3A;
+      --muted: #5B6B7A;
+      --line: #D7E3EC;
+      --bg: #FFFFFF;
+      --bg-soft: #F4F8FB;
+      --white: #FFFFFF;
+      --radius: 12px;
+      --shadow: 0 16px 40px rgba(11, 42, 74, 0.12);
+      --header-h: 80px;
+      --bar-h: 64px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      padding-bottom: var(--bar-h);
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--blue); }
+    a:hover { color: var(--blue-dark); }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+
+    h1, h2, h3 { color: var(--navy); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+    h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); }
+    h3 { font-size: 1.2rem; }
+
+    p { color: var(--muted); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0.95rem 1.4rem;
+      border-radius: 8px;
+      border: 2px solid var(--blue);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); color: var(--white); }
+    .btn:active { transform: translateY(1px); }
+    .btn-light {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--white);
+    }
+    .btn-light:hover { background: var(--blue-soft); color: var(--navy); border-color: var(--blue-soft); }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border-color: var(--line);
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--bg); }
+
+    /* Header — modeled on RedBrick's sticky logo + single Book Meeting CTA */
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      height: var(--header-h);
+    }
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo img { height: 52px; width: auto; }
+    .header-cta { flex-shrink: 0; }
+
+    /* Hero — headline, proof subline, video, one primary CTA above the fold */
+    .hero {
+      background: linear-gradient(180deg, #F7FBFD 0%, #FFFFFF 100%);
+      padding: 48px 0 64px;
+      min-height: calc(100svh - var(--header-h) - var(--bar-h));
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: 48px;
+      align-items: center;
+    }
+    .hero p.sub {
+      font-size: 1.15rem;
+      color: var(--text);
+      margin: 1rem 0 1.5rem;
+      max-width: 36rem;
+    }
+    .hero .proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 0.92rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .hero .proof li { display: flex; align-items: center; gap: 0.4rem; }
+    .hero .proof li::before {
+      content: "";
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+    .video-frame {
+      background: var(--navy);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 16 / 9;
+    }
+    .video-frame video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      vertical-align: middle;
+      background: var(--navy);
+    }
+
+    /* Sections */
+    section { padding: 88px 0; }
+    section.alt { background: var(--bg-soft); }
+    section.navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    section.navy h2, section.navy h3 { color: var(--white); }
+    section.navy p { color: rgba(255,255,255,0.82); }
+    section.navy .eyebrow { color: #8EC8E6; }
+
+    .center { text-align: center; }
+    .center .lede, .section-intro {
+      max-width: 640px;
+      margin: 0.9rem auto 0;
+      font-size: 1.1rem;
+    }
+    .section-head { margin-bottom: 48px; }
+
+    /* Problem cards */
+    .cards-3, .cards-4 {
+      display: grid;
+      gap: 24px;
+    }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); margin-top: 48px; }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); margin-top: 48px; }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .card .num, .step .num {
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      font-size: 0.85rem;
+      margin-bottom: 0.7rem;
+    }
+    .card p, .step p { margin-top: 0.6rem; font-size: 0.98rem; }
+
+    /* How it works — numbered steps like RedBrick "From First Call To First Lead" */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+      counter-reset: step;
+    }
+    .step {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .step .badge {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 1.1rem;
+    }
+
+    /* Why */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .why-list { list-style: none; display: grid; gap: 18px; }
+    .why-list li {
+      padding-left: 2rem;
+      position: relative;
+      color: var(--text);
+    }
+    .why-list li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.45rem;
+      width: 14px; height: 14px;
+      border-radius: 4px;
+      background: var(--blue);
+    }
+    .why-list strong { color: var(--navy); }
+
+    /* Testimonial placeholders */
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .quote {
+      background: var(--white);
+      border: 1px dashed #A9C4D6;
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      min-height: 160px;
+      color: var(--muted);
+    }
+    .quote .label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.8rem;
+    }
+    .quote .placeholder { font-style: italic; }
+
+    /* FAQ */
+    .faq {
+      max-width: 760px;
+      margin: 40px auto 0;
+      display: grid;
+      gap: 12px;
+    }
+    details.faq-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0 22px;
+    }
+    details.faq-item summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--navy);
+      padding: 18px 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      color: var(--blue);
+      font-weight: 500;
+      line-height: 1;
+    }
+    details.faq-item[open] summary::after { content: "–"; }
+    details.faq-item p { padding: 0 0 18px; }
+
+    /* Final CTA */
+    .final-cta { text-align: center; padding: 96px 0; }
+    .final-cta p { max-width: 560px; margin: 1rem auto 1.75rem; font-size: 1.15rem; }
+    .final-cta .email-note { margin-top: 1rem; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
+    .final-cta .email-note a { color: #C9E6F5; }
+
+    /* Sticky bottom bar — modeled on RedBrick "Book Now" bar */
+    .book-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      z-index: 50;
+      background: var(--navy);
+      color: var(--white);
+      min-height: var(--bar-h);
+      display: flex;
+      align-items: center;
+    }
+    .book-bar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: min(1120px, calc(100% - 32px));
+    }
+    .book-bar p { color: var(--white); font-weight: 600; font-size: 1rem; }
+    .book-bar .btn { padding: 0.75rem 1.15rem; }
+
+    footer.site {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 0 36px;
+      font-size: 0.92rem;
+    }
+    footer.site .foot-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    footer.site .logo img {
+      height: 44px;
+      width: auto;
+      background: var(--white);
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+    footer.site a { color: #C9E6F5; text-decoration: none; }
+    footer.site a:hover { text-decoration: underline; color: var(--white); }
+
+    @media (max-width: 900px) {
+      :root { --header-h: 68px; }
+      .logo img { height: 42px; }
+      .hero { padding: 24px 0 32px; min-height: 0; display: block; }
+      .hero-grid, .why-grid, .cards-3, .cards-4, .steps, .quotes {
+        grid-template-columns: 1fr;
+      }
+      .cards-4 { grid-template-columns: 1fr 1fr; }
+      section { padding: 64px 0; }
+      .header-cta .btn { padding: 0.7rem 1rem; font-size: 0.92rem; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: calc(100% - 28px); }
+      .cards-4 { grid-template-columns: 1fr; }
+      .hero p.sub { font-size: 1.02rem; }
+      .book-bar p { font-size: 0.88rem; }
+      .btn { width: 100%; }
+      .header-cta .btn { width: auto; }
+      .book-bar .btn { width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="Staff Financial Group">
+        <img src="img/busy-season-logo.png" alt="Staff Financial Group, powered by NorthPoint">
+      </a>
+      <div class="header-cta">
+        <a class="btn" href="mailto:gus@stafffinancial.com?subject=Busy%20Season%20Tax%20Hiring">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Busy season tax talent">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">For tax partners at CPA firms</p>
+          <h1>Busy Season Tax Talent, Delivered</h1>
+          <p class="sub">Direct Hire or Contract tax preparers, seniors, and managers. US-based or international, every candidate vetted. Metro Atlanta and remote.</p>
+          <a class="btn" href="mailto:gus@stafffinancial.com?subject=Busy%20Season%20Tax%20Hiring">Get Your Busy Season Shortlist</a>
+          <ul class="proof">
+            <li>Direct Hire or Contract</li>
+            <li>US-based or international</li>
+            <li>A shortlist of five vetted candidates</li>
+          </ul>
+        </div>
+        <div class="video-frame">
+          <video
+            controls
+            playsinline
+            muted
+            autoplay
+            loop
+            preload="metadata"
+            poster="img/busy-season-poster.jpg"
+            title="Staff Financial busy season tax talent promo">
+            <source src="img/staff-financial-busy-season-promo.mp4" type="video/mp4">
+            Sorry, your browser doesn’t play this video. Email gus@stafffinancial.com and we’ll walk you through the offer.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="problem">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">The busy season crunch</p>
+          <h2>Busy season is coming. Is your tax team ready?</h2>
+          <p class="section-intro">Every January, tax partners tell us the same thing: the work is there, the people aren’t. Waiting until February to start interviewing is how a season gets away from you.</p>
+        </div>
+        <div class="cards-3">
+          <article class="card">
+            <p class="num">01</p>
+            <h3>The work arrives all at once</h3>
+            <p>Returns, reviews, and client deadlines stack up. You need experienced tax people in the seat before the rush, not after it starts.</p>
+          </article>
+          <article class="card">
+            <p class="num">02</p>
+            <h3>The right hire isn’t obvious</h3>
+            <p>You may need a preparer, a senior, or a manager — and you may need Direct Hire, Contract, or a mix. One rigid search rarely fits the season.</p>
+          </article>
+          <article class="card">
+            <p class="num">03</p>
+            <h3>Local or farther afield</h3>
+            <p>The next great tax professional might be in metro Atlanta, or available remotely, in the US or internationally. You shouldn’t have to choose only one pool.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="what-we-place">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">What we place</p>
+          <h2>Tax talent ready when you are</h2>
+          <p class="section-intro">We help CPA firms staff the tax desk for busy season — the roles you need, on the terms that fit your firm.</p>
+        </div>
+        <div class="cards-4">
+          <article class="card">
+            <p class="num">Roles</p>
+            <h3>Preparers, seniors, and managers</h3>
+            <p>Tax preparers, tax seniors, and tax managers, matched to the work your firm actually has this season.</p>
+          </article>
+          <article class="card">
+            <p class="num">How you hire</p>
+            <h3>Direct Hire or Contract</h3>
+            <p>Add someone to your team for the long term, or bring in Contract talent for the season. You choose the fit.</p>
+          </article>
+          <article class="card">
+            <p class="num">Where they work</p>
+            <h3>US-based or international</h3>
+            <p>Every candidate is vetted, whether they sit in the US or work with you from abroad.</p>
+          </article>
+          <article class="card">
+            <p class="num">Coverage</p>
+            <h3>Metro Atlanta and remote</h3>
+            <p>We serve firms in metro Atlanta and place remote tax talent wherever your busy season work can be done well.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="how-it-works">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">How it works</p>
+          <h2>From first email to a shortlist of five</h2>
+          <p class="section-intro">A simple path to vetted tax people, without a long process in your way.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="badge" aria-hidden="true">1</div>
+            <h3>Tell us what you need</h3>
+            <p>Tell us the roles, timing, and whether you want Direct Hire, Contract, or both. A short note is enough to start.</p>
+          </article>
+          <article class="step">
+            <div class="badge" aria-hidden="true">2</div>
+            <h3>Get a shortlist of five</h3>
+            <p>We send a fast, curated shortlist of five vetted candidates — a Fab Five matched to your search, not a stack of unscreened résumés.</p>
+          </article>
+          <article class="step">
+            <div class="badge" aria-hidden="true">3</div>
+            <h3>Interview and hire</h3>
+            <p>You meet the people who fit. Then you hire Direct Hire or Contract, US-based or international, on the terms that work for your season.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap why-grid">
+        <div>
+          <p class="eyebrow">Why Staff Financial</p>
+          <h2>A recruiting partner who already speaks tax</h2>
+          <p class="section-intro" style="margin-left:0; margin-right:0;">Staff Financial Group is an accounting and finance recruiting firm in Alpharetta, Georgia, powered by NorthPoint. We work with CPA firms that need tax talent they can trust before busy season hits.</p>
+        </div>
+        <ul class="why-list">
+          <li><strong>Every candidate is vetted.</strong> You see people who have already been screened for the work, not a raw database dump.</li>
+          <li><strong>A shortlist of five, not a pile of résumés.</strong> Fast, curated “Fab Five” shortlists so you can spend time interviewing, not sorting.</li>
+          <li><strong>Direct Hire or Contract.</strong> One search can cover a lasting hire, seasonal help, or both.</li>
+          <li><strong>US-based or international, metro Atlanta or remote.</strong> We look where the right tax professional actually is.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="alt" id="testimonials">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">From firms we’ve helped</p>
+          <h2>What tax partners say</h2>
+          <p class="section-intro">Client comments will go here once you choose which ones to use. These boxes are placeholders only — nothing below is a real quote.</p>
+        </div>
+        <div class="quotes">
+          <blockquote class="quote">
+            <p class="label">Placeholder</p>
+            <p class="placeholder">[Client testimonial here]</p>
+          </blockquote>
+          <blockquote class="quote">
+            <p class="label">Placeholder</p>
+            <p class="placeholder">[Client testimonial here]</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="eyebrow">Questions firms ask</p>
+          <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>What is the difference between Direct Hire and Contract?</summary>
+            <p>Direct Hire means we find a tax professional for you to bring onto your firm’s team. Contract means we place someone for a set period — often to cover busy season — without making a lasting hire. You can start with either, or look at both, depending on the roles you need.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you place international candidates?</summary>
+            <p>Yes. We place US-based or international tax talent. Every candidate is vetted, whether they work on-site, remotely from metro Atlanta, or from farther away.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How fast can you send candidates?</summary>
+            <p>We move with the season in mind and send a fast, curated shortlist of five vetted candidates. Timing depends on the role and what you need. Tell us the seats you’re hiring for and we’ll talk through timing for your search.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What roles do you place for busy season?</summary>
+            <p>Tax preparers, tax seniors, and tax managers. If you need a mix of those roles, or a blend of Direct Hire and Contract, tell us in your first email.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="navy final-cta" id="contact">
+      <div class="wrap">
+        <p class="eyebrow">Let’s build your busy season team</p>
+        <h2>Don’t wait until February to start interviewing.</h2>
+        <p>Tell us the tax roles you need. We’ll come back with a shortlist of five vetted candidates — Direct Hire or Contract, US-based or international.</p>
+        <a class="btn btn-light" href="mailto:gus@stafffinancial.com?subject=Busy%20Season%20Tax%20Hiring">Get Your Busy Season Shortlist</a>
+        <p class="email-note">Or email <a href="mailto:gus@stafffinancial.com?subject=Busy%20Season%20Tax%20Hiring">gus@stafffinancial.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <div class="book-bar">
+    <div class="wrap">
+      <p>Busy season is coming. Let’s build your tax team.</p>
+      <a class="btn" href="mailto:gus@stafffinancial.com?subject=Busy%20Season%20Tax%20Hiring">Get Started</a>
+    </div>
+  </div>
+
+  <footer class="site">
+    <div class="wrap foot-grid">
+      <a class="logo" href="#top">
+        <img src="img/busy-season-logo.png" alt="Staff Financial Group, powered by NorthPoint">
+      </a>
+      <p>Staff Financial Group · Alpharetta, Georgia<br>
+        <a href="mailto:gus@stafffinancial.com?subject=Busy%20Season%20Tax%20Hiring">gus@stafffinancial.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
