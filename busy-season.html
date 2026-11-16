@@ -790,7 +790,11 @@
   /* BUSY_OPTIN_v1 (Gus 11-15): opt-in form, "tell us what you need" search over blinded tax résumés,
      Request résumé, and tax pros scrolling across the bottom bar. Feeds from 100xrecruiting.com. */
   (function () {
-    var TAX_API = "https://100xrecruiting.com/api/public/tax-candidates?limit=48";
+    /* all=1 = the whole tax bench (TAX_FEED_ALL_v1 on 100X); an older 100X ignores it and sends its top 48 */
+    var TAX_API = "https://100xrecruiting.com/api/public/tax-candidates?all=1&limit=48";
+    /* Confidential: a card only links to a résumé through the first-click link, which is always
+       blinded with the video off. Any other link is left off the page. */
+    var safeUrl = function (u) { return /\/api\/public\/tax-candidates\/\d+\/resume$/.test(u || "") ? u : ""; };
     var INQUIRY_API = "https://100xrecruiting.com/api/public/inquiry";
     var PAGE = 6;
     var TAX = [], filter = "all", shown = PAGE, picked = [];
@@ -844,7 +848,7 @@
         + (sp.length ? '<p class="res-k">Specialties</p>' + tags(sp) : "")
         + (sw.length ? '<p class="res-k">Software</p><p class="res-v">' + esc(sw.join(" · ")) + "</p>" : "")
         + '<div class="res-foot">'
-        + (c.share_url ? '<a href="' + esc(c.share_url) + '" target="_blank" rel="noopener">View blinded résumé →</a>' : "<span></span>")
+        + (safeUrl(c.share_url) ? '<a href="' + esc(safeUrl(c.share_url)) + '" target="_blank" rel="noopener nofollow">View blinded résumé →</a>' : "<span></span>")
         + '<button type="button" class="res-req' + (on ? " on" : "") + '" data-req="' + Number(c.id) + '">'
         + (on ? "Requested ✓" : "Request résumé") + "</button></div></article>";
     }
@@ -883,7 +887,8 @@
       var items = TAX.slice(0, 24).map(function (c) {
         var bits = badges(c).concat(c.years ? [c.years + " yrs in tax"] : [], software(c).slice(0, 1));
         if (c.location && bits.indexOf(c.location) < 0) bits.push(c.location);
-        return '<a class="tick" href="' + esc(c.share_url || "#search") + '"' + (c.share_url ? ' target="_blank" rel="noopener"' : "")
+        var u = safeUrl(c.share_url);
+        return '<a class="tick" href="' + esc(u || "#search") + '"' + (u ? ' target="_blank" rel="noopener nofollow"' : "")
           + "><b>" + esc(c.title) + "</b><span>" + esc(bits.join(" · ")) + "</span></a>";
       }).join("");
       /* duplicated for a seamless loop; the copy is hidden from screen readers */
