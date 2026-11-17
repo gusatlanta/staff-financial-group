@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
   <link rel="apple-touch-icon" href="img/favicon-180.png">
   <title>Preferred Search | Watch your next hire first | Staff Financial Group</title>
-  <meta name="description" content="Every candidate is invited, screened, and on video before you meet them. Preferred Search from Staff Financial, built on 100X. $1,000 a month, for accounting and finance hiring managers in metro Atlanta and remote.">
+  <meta name="description" content="We invite every candidate to record a video intro. Preferred Search from Staff Financial, built on 100X. $1,000 a month, for accounting and finance hiring managers in metro Atlanta and remote.">
   <link rel="canonical" href="https://www.stafffinancial.com/preferred-search">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -267,6 +267,121 @@
     }
     .card p { margin-top: 0.65rem; font-size: 0.98rem; }
 
+    .stack, .save-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 8px 8px 22px;
+    }
+    .stack-row {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 12px 14px;
+      align-items: center;
+      padding: 16px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .stack-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--blue-soft);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+    }
+    .stack-check svg { width: 16px; height: 16px; display: block; }
+    .stack-name { display: block; color: var(--navy); font-weight: 700; line-height: 1.35; }
+    .stack-note { display: block; color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
+    .stack-value {
+      color: var(--blue);
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .bonuses { padding: 18px 14px 6px; }
+    .bonuses h3 { margin-bottom: 8px; }
+    .bonuses ul { margin: 0 0 8px 1.1rem; color: var(--text); }
+    .bonuses li { margin: 6px 0; }
+    .price-block { text-align: center; padding: 22px 14px 8px; }
+    .price-block .was-label,
+    .price-block .now-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .price-block .was {
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      color: var(--muted);
+      font-weight: 700;
+      text-decoration: line-through;
+      margin: 4px 0 16px;
+    }
+    .price-block .now {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 4px 0;
+    }
+    .price-block .year { color: var(--text); margin-top: 6px; }
+    .stack .btn, .save-card .btn { width: 100%; margin-top: 16px; }
+    .save-card { padding: 22px 18px; }
+    .save-field { margin-bottom: 16px; }
+    .save-field label {
+      display: block;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .salary-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 140px;
+      gap: 12px;
+      align-items: center;
+    }
+    .save-card input[type="range"] { width: 100%; accent-color: var(--blue); }
+    .save-card input[type="number"],
+    .save-card select {
+      width: 100%;
+      font: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.7rem 0.8rem;
+    }
+    .save-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .save-line dt { font-weight: 600; color: var(--navy); min-width: 0; }
+    .save-line dd { margin: 0; font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .save-note { color: var(--muted); font-size: 0.95rem; font-weight: 500; margin: 8px 0 4px; }
+    .salary-now { font-size: 1.45rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .save-big {
+      text-align: center;
+      color: var(--blue);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin: 18px 0 8px;
+    }
+    .save-example, .save-zero { color: var(--text); margin-top: 12px; }
+    .save-zero { font-weight: 700; color: var(--navy); }
+
     .faq {
       max-width: 760px;
       margin: 8px auto 0;
@@ -369,7 +484,8 @@
       .hero p.sub { font-size: 1.02rem; }
       .btn { width: 100%; }
       .header-cta .btn { width: auto; }
-      .offer-card, .card, .start-form { padding: 22px 18px; }
+      .offer-card, .card, .start-form, .save-card { padding: 22px 18px; }
+      .salary-row { grid-template-columns: 1fr; }
       footer.site .btn { width: 100%; }
       .final-cta { padding: 72px 0; }
     }
@@ -397,7 +513,7 @@
         <div class="hero-copy">
           <h1>Preferred Search</h1>
           <p class="subhead">Watch your next hire first.</p>
-          <p class="sub">Every candidate is invited, screened, and on video before you meet them. Preferred Search from Staff Financial, built on 100X. $1,000 a month, for accounting and finance hiring managers in metro Atlanta and remote.</p>
+          <p class="sub">We invite every candidate to record a video intro before you meet them. Preferred Search from Staff Financial, built on 100X. $1,000 a month, for accounting and finance hiring managers in metro Atlanta and remote.</p>
           <a class="btn" href="#get-started">Get Started</a>
         </div>
         <form id="get-started" class="start-form" data-form="preferred-search" action="mailto:gus@stafffinancial.com?subject=Preferred%20Search%20-%20Get%20Started" method="POST" enctype="text/plain">
@@ -453,58 +569,196 @@
         <div class="section-head center">
           <h2>Starting from zero costs you weeks</h2>
           <p class="measure">A seat opens. You post the job, wait, and spend hours in first conversations that go nowhere. By the time you find the people you need, the work has piled up.</p>
-          <p class="measure">Preferred Search flips that. You watch them first, then meet only the ones who already fit.</p>
+          <p class="measure">Preferred Search flips that. We invite every candidate to record a video intro, and you meet only the ones who already fit.</p>
         </div>
       </div>
     </section>
 
-    <section id="included">
+    <!--
+      OWNER-EDITABLE OFFER VALUES
+      Edit data-monthly on a priced row. The page fills in $X/mo and the total from those numbers.
+      Included and Priceless rows are not added to the total.
+      Keep the visible fallback text in sync for visitors with JavaScript off.
+      Search our candidate database ........ 500
+      Scout Starter seat ................... 300
+      Refresh old résumés ................. 250
+      Active search ....................... 1500
+      Video intro + written screening ..... 500
+      Fab Five shortlist .................. 1000
+      Auto-matching ....................... 300
+      Standing bench ...................... 750
+      Total (priced rows only) ............ 5100
+      Your price .......................... 1000 /mo, or 10000 /year up front
+      TODO: confirm count (2M vs 184,734) for "our candidate database"
+    -->
+    <section id="stack">
       <div class="wrap">
         <div class="section-head center">
-          <h2>What's included, every month</h2>
+          <h2>Everything you get with Preferred Search</h2>
         </div>
-        <div class="cards">
-          <article class="card">
-            <h3>Your preferred recruiter.</h3>
-            <p>You call us first on every opening.</p>
-          </article>
-          <article class="card">
-            <h3>We find people who fit and invite them to apply.</h3>
-            <p>Active search on up to 3 open jobs at a time. 300 Invite to Apply a month, each with your custom screening questions and a video intro request.</p>
-          </article>
-          <article class="card">
-            <h3>A video résumé and written screening.</h3>
-            <p>Each invited candidate records a video résumé — an elevator pitch plus intro clips — and answers the job's custom written screening questions.</p>
-          </article>
-          <article class="card">
-            <h3>A ranked shortlist, with the videos attached.</h3>
-            <p>Scout ranks candidates against your job and sends a ranked shortlist through a share link, with the videos attached. You meet only the top 2–3. Or we run a short live call first.</p>
-          </article>
-          <article class="card">
-            <h3>Your pipeline stays warm.</h3>
-            <p>Auto-matching on every job, with your best new applicants invited automatically. 500 old résumés refreshed a month. A standing bench for up to 10 key seats through always-on org chart recruiting, plus a monthly shortlist.</p>
-          </article>
-          <article class="card">
-            <h3>Try before you buy.</h3>
-            <p>Start any finalist on Temp-to-Hire. They work on our payroll at our standard rate, and you make the Direct Hire offer only when you're sure.</p>
-          </article>
-          <article class="card">
-            <h3>We payroll them until you're ready.</h3>
-            <p>Already found your person, or not ready to add headcount? We put them on our payroll for as long as you need. We take the hassle out of hiring.</p>
-          </article>
-          <article class="card">
-            <h3>A Scout Starter seat included.</h3>
-            <p>3 team members plus you — normally $300 a month on its own. Scout is powered by Claude.ai.</p>
-          </article>
+        <div class="stack">
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Search our candidate database with your own Scout seat</span>
+              <span class="stack-note">You search our candidate database yourself.</span>
+            </span>
+            <span class="stack-value" data-monthly="500">$500/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Scout Starter seat for you + 3 teammates</span>
+              <span class="stack-note">Your seat, plus three people on your team.</span>
+            </span>
+            <span class="stack-value" data-monthly="300">$300/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Refresh your own old résumés — 500 a month brought up to date</span>
+              <span class="stack-note">We bring 500 old résumés up to date each month.</span>
+            </span>
+            <span class="stack-value" data-monthly="250">$250/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Active search on 3 open jobs at once, 300 Invite to Apply a month</span>
+              <span class="stack-note">We work three open jobs and send 300 invites a month.</span>
+            </span>
+            <span class="stack-value" data-monthly="1500">$1,500/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Every candidate invited to record a video intro + answer your written screening questions</span>
+              <span class="stack-note">We invite each person to record a video intro and answer your questions.</span>
+            </span>
+            <span class="stack-value" data-monthly="500">$500/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Your Fab Five: a ranked shortlist, with video intros when candidates record them</span>
+              <span class="stack-note">Five people, ranked. The shortlist includes a video intro when they record one.</span>
+            </span>
+            <span class="stack-value" data-monthly="1000">$1,000/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Auto-matching on every job, best new applicants invited for you</span>
+              <span class="stack-note">Strong new people get an invite on every job.</span>
+            </span>
+            <span class="stack-value" data-monthly="300">$300/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Standing bench for 10 key seats + monthly shortlist</span>
+              <span class="stack-note">A bench for 10 seats, and a shortlist each month.</span>
+            </span>
+            <span class="stack-value" data-monthly="750">$750/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Try before you buy: start any finalist on Temp-to-Hire</span>
+              <span class="stack-note">They start as a temp. You hire when you are sure.</span>
+            </span>
+            <span class="stack-value">Priceless</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">We payroll your new hires — whether you find them or we do</span>
+              <span class="stack-note">We run payroll if you find them, or if we do.</span>
+            </span>
+            <span class="stack-value">Included</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Credit and criminal background checks on people hired through us</span>
+              <span class="stack-note">A credit check and a criminal check for people hired through us.</span>
+            </span>
+            <span class="stack-value">Included</span>
+          </div>
+          <div class="bonuses">
+            <h3>Bonuses</h3>
+            <ul>
+              <li>No placement fee on hires you find yourself in Scout.</li>
+              <li>$700 of each month counts toward your Direct Hire fee (up to 25% of the fee).</li>
+              <li>60-day replacement guarantee on every Direct Hire.</li>
+            </ul>
+          </div>
+          <div class="price-block">
+            <p class="was-label">Total value</p>
+            <p class="was"><s data-total>$5,100/mo</s></p>
+            <p class="now-label">Your price</p>
+            <p class="now">$1,000/mo</p>
+            <p class="year">or $10,000/year paid up front (2 months free).</p>
+          </div>
+          <a class="btn" href="#get-started">Get Started</a>
         </div>
       </div>
     </section>
 
-    <section class="alt" id="buys">
+    <section class="alt" id="save">
       <div class="wrap">
         <div class="section-head center">
-          <h2>What $1,000 a month actually buys</h2>
-          <p class="measure">Scout Starter, worth $300 a month, is included. Hire through Scout on your own with no placement fee. $700 of each month paid credits toward our 15% Direct Hire fee when you hire a candidate we introduced, up to 25% of that fee, backed by a 60-day replacement guarantee. Temp, Contract, Temp-to-Hire, and Payrolling are billed at our standard rates. You're paying for a bench and speed, not just a fee.</p>
+          <h2>How much you save</h2>
+        </div>
+        <div class="save-card">
+          <div class="save-field">
+            <label for="salary">Salary</label>
+            <p class="salary-now" id="salary-readout">$100,000</p>
+            <div class="salary-row">
+              <input id="salary-range" type="range" min="50000" max="300000" step="1000" value="100000" aria-label="Salary slider">
+              <input id="salary" type="number" min="50000" max="300000" step="1000" value="100000" inputmode="numeric">
+            </div>
+          </div>
+          <div class="save-field">
+            <label for="months">Months in the program</label>
+            <select id="months">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option selected>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+          </div>
+          <dl>
+            <div class="save-line">
+              <dt>Typical agency fee (<span data-rate="typical">25%</span>)</dt>
+              <dd id="save-typical">$25,000</dd>
+            </div>
+            <div class="save-line">
+              <dt>Preferred Search Direct Hire fee (<span data-rate="direct">15%</span>)</dt>
+              <dd id="save-fee">$15,000</dd>
+            </div>
+            <div class="save-line">
+              <dt>Your monthly credit</dt>
+              <dd id="save-credit">$3,750</dd>
+            </div>
+            <p class="save-note" id="save-credit-note">$700 times 6 months is $4,200. It cannot be more than 25% of the fee, so your credit is $3,750.</p>
+            <div class="save-line">
+              <dt>You pay</dt>
+              <dd id="save-pay">$11,250</dd>
+            </div>
+          </dl>
+          <p class="save-big" id="save-banner">You save $13,750</p>
+          <p class="save-example">Worked example at $100,000 and 6 months. Typical agency fee (25%) is $25,000. Preferred Search Direct Hire fee (15%) is $15,000. Your monthly credit is $700 times 6 months, which is $4,200, capped at 25% of the 15% fee ($3,750), so the credit is $3,750. You pay $11,250. You save $13,750.</p>
+          <p class="save-zero">Hire on your own through Scout? $0 placement fee.</p>
+          <a class="btn" href="#get-started">Get Started</a>
         </div>
       </div>
     </section>
@@ -547,6 +801,10 @@
           <details class="faq-item">
             <summary>Can we use you for Temp or Payrolling too?</summary>
             <p>Yes. Temp, Contract, Temp-to-Hire, and Payrolling are billed at our standard rates, including if you already have the person.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you run background checks?</summary>
+            <p>Yes. We run credit and criminal background checks on people hired through us.</p>
           </details>
         </div>
       </div>
@@ -618,6 +876,86 @@
           if (err) err.hidden = false;
         });
       });
+    })();
+
+    /* OWNER-EDITABLE fee math. "Typical agency fee" is an example rate. */
+    (function () {
+      var SAVE = {
+        typicalAgencyFeeRate: 0.25,
+        directHireFeeRate: 0.15,
+        monthlyCredit: 700,
+        creditCapOfFee: 0.25
+      };
+      var salaryInput = document.getElementById("salary");
+      var salaryRange = document.getElementById("salary-range");
+      var monthsInput = document.getElementById("months");
+      if (!salaryInput || !salaryRange || !monthsInput) return;
+
+      function money(n) {
+        return "$" + Math.round(n).toLocaleString("en-US");
+      }
+      function pct(rate) {
+        var n = Math.round(rate * 1000) / 10;
+        return (n % 1 === 0 ? String(n) : n.toFixed(1)) + "%";
+      }
+      function clampSalary(n) {
+        var min = Number(salaryRange.min);
+        var max = Number(salaryRange.max);
+        if (!isFinite(n)) n = 100000;
+        return Math.min(max, Math.max(min, n));
+      }
+      function paint() {
+        var salary = clampSalary(Number(salaryInput.value));
+        var months = Number(monthsInput.value) || 6;
+        var typical = salary * SAVE.typicalAgencyFeeRate;
+        var fee = salary * SAVE.directHireFeeRate;
+        var raw = SAVE.monthlyCredit * months;
+        var cap = SAVE.creditCapOfFee * fee;
+        var credit = Math.min(raw, cap);
+        var pay = fee - credit;
+        var save = typical - pay;
+        if (document.activeElement !== salaryInput) salaryInput.value = String(salary);
+        salaryRange.value = String(salary);
+        document.getElementById("save-typical").textContent = money(typical);
+        document.getElementById("save-fee").textContent = money(fee);
+        document.getElementById("save-credit").textContent = money(credit);
+        document.getElementById("save-pay").textContent = money(pay);
+        document.getElementById("save-banner").textContent = "You save " + money(save);
+        var readout = document.getElementById("salary-readout");
+        if (readout) readout.textContent = money(salary);
+        document.getElementById("save-credit-note").textContent =
+          money(SAVE.monthlyCredit) + " times " + months + (months === 1 ? " month is " : " months is ") +
+          money(raw) + ". It cannot be more than " + pct(SAVE.creditCapOfFee) +
+          " of the fee, so your credit is " + money(credit) + ".";
+        document.querySelectorAll("[data-rate='typical']").forEach(function (el) {
+          el.textContent = pct(SAVE.typicalAgencyFeeRate);
+        });
+        document.querySelectorAll("[data-rate='direct']").forEach(function (el) {
+          el.textContent = pct(SAVE.directHireFeeRate);
+        });
+      }
+      var total = 0;
+      document.querySelectorAll("[data-monthly]").forEach(function (el) {
+        var n = Number(el.getAttribute("data-monthly")) || 0;
+        total += n;
+        el.textContent = money(n) + "/mo";
+      });
+      var totalEl = document.querySelector("[data-total]");
+      if (totalEl) totalEl.textContent = money(total) + "/mo";
+      salaryRange.addEventListener("input", function () {
+        salaryInput.value = salaryRange.value;
+        paint();
+      });
+      salaryInput.addEventListener("input", function () {
+        var n = Number(salaryInput.value);
+        if (n >= Number(salaryRange.min) && n <= Number(salaryRange.max)) paint();
+      });
+      salaryInput.addEventListener("change", function () {
+        salaryInput.value = String(clampSalary(Number(salaryInput.value)));
+        paint();
+      });
+      monthsInput.addEventListener("change", paint);
+      paint();
     })();
   </script>
 </body>
