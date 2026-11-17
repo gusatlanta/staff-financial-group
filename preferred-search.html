@@ -120,10 +120,16 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
-      gap: 48px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.9fr);
+      grid-template-areas:
+        "copy form"
+        "offer form";
+      gap: 28px 48px;
+      align-items: start;
     }
+    .hero-copy { grid-area: copy; min-width: 0; }
+    .offer-card { grid-area: offer; }
+    .start-form { grid-area: form; }
     .hero p.sub {
       font-size: 1.15rem;
       color: var(--text);
@@ -148,6 +154,76 @@
     }
     .nowrap { white-space: nowrap; }
     .offer-card p { color: var(--text); font-size: 1.05rem; }
+
+    .start-form {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+      scroll-margin-top: calc(var(--header-h) + 16px);
+    }
+    .start-form h2 { font-size: 1.45rem; margin-bottom: 0.35rem; }
+    .start-form .form-lead { margin-bottom: 1.15rem; font-size: 1rem; }
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+    .field .opt { font-weight: 500; color: var(--muted); }
+    .field input,
+    .field textarea {
+      width: 100%;
+      max-width: 100%;
+      font: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.75rem 0.85rem;
+    }
+    .field textarea { min-height: 88px; resize: vertical; }
+    .field input:focus,
+    .field textarea:focus {
+      outline: 2px solid var(--blue);
+      border-color: var(--blue);
+    }
+    .start-form .btn {
+      width: 100%;
+      margin-top: 4px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .start-form .btn:disabled { opacity: 0.7; cursor: default; }
+    .start-form { position: relative; }
+    .form-error {
+      margin-top: 14px;
+      color: #9B2C2C;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .alert-success {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .hp {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .foot-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; min-width: 0; }
 
     section { padding: 88px 0; }
     section.alt { background: var(--bg-soft); }
@@ -255,6 +331,13 @@
     }
     footer.site a { color: #C9E6F5; text-decoration: none; }
     footer.site a:hover { text-decoration: underline; color: var(--white); }
+    footer.site .btn,
+    footer.site .btn:hover {
+      color: var(--white);
+      text-decoration: none;
+      width: auto;
+    }
+    footer.site .btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
     footer.site p { color: rgba(255,255,255,0.7); }
 
     @media (max-width: 900px) {
@@ -262,6 +345,13 @@
       .logo img { height: 42px; }
       .hero { padding: 32px 0 40px; }
       .hero-grid, .cards { grid-template-columns: 1fr; }
+      .hero-grid {
+        grid-template-areas:
+          "copy"
+          "form"
+          "offer";
+      }
+      .foot-cta { align-items: flex-start; width: 100%; }
       section { padding: 64px 0; }
       .header-cta .btn { padding: 0.7rem 1rem; font-size: 0.92rem; }
     }
@@ -271,7 +361,8 @@
       .hero p.sub { font-size: 1.02rem; }
       .btn { width: 100%; }
       .header-cta .btn { width: auto; }
-      .offer-card, .card { padding: 22px 18px; }
+      .offer-card, .card, .start-form { padding: 22px 18px; }
+      footer.site .btn { width: 100%; }
       .final-cta { padding: 72px 0; }
     }
 
@@ -287,7 +378,7 @@
         <img src="img/busy-season-logo.png" alt="Staff Financial Group, powered by NorthPoint">
       </a>
       <div class="header-cta">
-        <a class="btn" href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">Email Gus</a>
+        <a class="btn" href="#get-started">Get Started</a>
       </div>
     </div>
   </header>
@@ -295,12 +386,53 @@
   <main id="top">
     <section class="hero" aria-label="Preferred Search">
       <div class="wrap hero-grid">
-        <div>
+        <div class="hero-copy">
           <p class="eyebrow">Preferred Search</p>
           <h1>Watch your next hire first.</h1>
           <p class="sub">Every candidate is invited, screened, and on video before you meet them. Preferred Search from Staff Financial, built on 100X. $1,000 a month, for accounting and finance hiring managers in metro Atlanta and remote.</p>
-          <a class="btn" href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">Email Gus</a>
+          <a class="btn" href="#get-started">Get Started</a>
         </div>
+        <form id="get-started" class="start-form" data-form="preferred-search" action="mailto:gus@stafffinancial.com?subject=Preferred%20Search%20-%20Get%20Started" method="POST" enctype="text/plain">
+          <div class="form-fields">
+            <h2>Get started</h2>
+            <p class="form-lead">Tell us the role. Our team will be in touch.</p>
+            <div class="field">
+              <label for="ps-name">Name</label>
+              <input id="ps-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="ps-company">Company</label>
+              <input id="ps-company" name="company" type="text" autocomplete="organization" required>
+            </div>
+            <div class="field">
+              <label for="ps-email">Work email</label>
+              <input id="ps-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+            </div>
+            <div class="field">
+              <label for="ps-phone">Phone <span class="opt">(optional)</span></label>
+              <input id="ps-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+            <div class="field">
+              <label for="ps-role">Role you're hiring for</label>
+              <input id="ps-role" name="role_title" type="text" autocomplete="off" required>
+            </div>
+            <div class="field">
+              <label for="ps-location">Location <span class="opt">(optional)</span></label>
+              <input id="ps-location" name="location" type="text" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="ps-notes">Notes <span class="opt">(optional)</span></label>
+              <textarea id="ps-notes" name="notes" rows="3"></textarea>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="ps-website">Website</label>
+              <input id="ps-website" name="hp_website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn">Get Started</button>
+            <p class="form-error" hidden>That didn’t send. Please try again, or email gus@stafffinancial.com.</p>
+          </div>
+          <p class="alert-success" hidden role="status">Thank you. We have your request and will be in touch.</p>
+        </form>
         <aside class="offer-card">
           <p class="price">$1,000 a month on a <span class="nowrap">12-month</span> commitment.</p>
           <p>Pay the year up front and get 2 months free: $10,000 instead of $12,000.</p>
@@ -326,7 +458,7 @@
         <div class="cards">
           <article class="card">
             <h3>Your preferred recruiter.</h3>
-            <p>You call me first on every opening.</p>
+            <p>You call us first on every opening.</p>
           </article>
           <article class="card">
             <h3>We find people who fit and invite them to apply.</h3>
@@ -415,9 +547,9 @@
     <section class="navy final-cta" id="start">
       <div class="wrap">
         <h2>Start with a Preferred Search seat</h2>
-        <p>If a seat is open now, or you want a bench before the next one opens, reply and I'll set up your Scout seat and the first three jobs.</p>
-        <p class="signoff">Gus<br><span>Alpharetta, GA</span></p>
-        <a class="btn btn-light" href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">Email Gus</a>
+        <p>If a seat is open now, or you want a bench before the next one opens, tell us and we will set up your Scout seat and the first three jobs.</p>
+        <p class="signoff">Staff Financial Group<br><span>Alpharetta, GA</span></p>
+        <a class="btn btn-light" href="#get-started">Get Started</a>
       </div>
     </section>
   </main>
@@ -427,9 +559,58 @@
       <a class="logo" href="#top">
         <img src="img/busy-season-logo.png" alt="Staff Financial Group, powered by NorthPoint">
       </a>
-      <p>Staff Financial Group · Alpharetta, GA<br>
-        <a href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">gus@stafffinancial.com</a></p>
+      <div class="foot-cta">
+        <p>Staff Financial Group · Alpharetta, GA</p>
+        <a class="btn" href="#get-started">Get Started</a>
+      </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var form = document.getElementById("get-started");
+      if (!form) return;
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var fields = form.querySelector(".form-fields");
+        var done = form.querySelector(".alert-success");
+        var err = form.querySelector(".form-error");
+        var orig = btn ? btn.textContent : "";
+        var d = Object.fromEntries(new FormData(form));
+        var notes = [
+          d.role_title ? "Role: " + d.role_title : "",
+          d.location ? "Location: " + d.location : "",
+          d.phone ? "Phone: " + d.phone : "",
+          d.notes ? "Notes: " + d.notes : ""
+        ].filter(Boolean).join("\n");
+        if (err) err.hidden = true;
+        if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+        fetch("https://100xrecruiting.com/api/public/inquiry", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: (d.name || "").trim(),
+            employer_name: (d.name || "").trim(),
+            email: (d.email || "").trim(),
+            employer_email: (d.email || "").trim(),
+            employer_company: (d.company || "").trim(),
+            phone: (d.phone || "").trim(),
+            inquiry_type: form.getAttribute("data-form") || "preferred-search",
+            notes: notes,
+            message: notes,
+            hp_website: d.hp_website || ""
+          })
+        }).then(function (r) { return r.json(); }).then(function (json) {
+          if (!json || !json.ok) throw new Error("not ok");
+          form.reset();
+          if (fields) fields.hidden = true;
+          if (done) done.hidden = false;
+        }).catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          if (err) err.hidden = false;
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
