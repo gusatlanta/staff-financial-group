@@ -28,19 +28,73 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": [
+          "Organization",
+          "EmploymentAgency"
+        ],
         "@id": "https://www.stafffinancial.com/#organization",
         "name": "Staff Financial Group",
-        "alternateName": ["Staff Financial", "NorthPoint Search Group"],
+        "alternateName": [
+          "Staff Financial",
+          "NorthPoint Search Group"
+        ],
         "url": "https://www.stafffinancial.com",
-        "logo": { "@type": "ImageObject", "url": "https://www.stafffinancial.com/img/logo-badge.png" },
-        "description": "Specialized finance and accounting recruiting firm serving Atlanta and the Southeast since 2005. We place CFOs, Controllers, Accountants, FP&A Analysts, Tax Managers, and other finance professionals through direct hire, contract staffing, and Employer of Record arrangements.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.stafffinancial.com/img/logo-badge.png"
+        },
+        "description": "Finance and accounting recruiting and staffing firm based in metro Atlanta since 2005. Direct Hire, contract and temp-to-hire placement of CFOs, controllers, accountants, FP&A and tax professionals, with Employer of Record payroll for contract workers.",
         "foundingDate": "2005",
-        "address": { "@type": "PostalAddress", "addressLocality": "Atlanta", "addressRegion": "GA", "addressCountry": "US" },
-        "telephone": ["+1-404-250-0790", "+1-678-777-5627"],
-        "email": "gus@stafffinancial.com",
-        "areaServed": ["Atlanta, GA", "Georgia", "Southeast United States"],
-        "sameAs": []
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Atlanta",
+          "addressRegion": "GA",
+          "addressCountry": "US"
+        },
+        "telephone": [
+          "+1-404-250-0790",
+          "+1-678-777-5627"
+        ],
+        "areaServed": [
+          "Alpharetta, GA",
+          "Norcross, GA",
+          "Cumberland, GA",
+          "Buckhead, Atlanta, GA",
+          "Midtown, Atlanta, GA",
+          "Marietta, GA",
+          "Roswell, GA",
+          "Johns Creek, GA",
+          "Sandy Springs, GA",
+          "Cumming, GA",
+          "Duluth, GA",
+          "Athens, GA",
+          "Georgia",
+          "United States"
+        ],
+        "knowsAbout": [
+          "Accounting recruiting",
+          "Finance recruiting",
+          "Direct Hire placement",
+          "Contract accounting staffing",
+          "Employer of Record"
+        ],
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "NorthPoint Search Group",
+          "url": "https://www.northpointsearchgroup.com"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/staff-financial-group"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.stafffinancial.com/#website",
+        "url": "https://www.stafffinancial.com",
+        "name": "Staff Financial Group",
+        "publisher": {
+          "@id": "https://www.stafffinancial.com/#organization"
+        }
       },
       {
         "@type": "FAQPage",
@@ -48,32 +102,50 @@
           {
             "@type": "Question",
             "name": "What types of finance professionals does Staff Financial Group place?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Staff Financial Group places CFOs, VPs of Finance, Controllers, Accounting Managers, Senior and Staff Accountants, Financial Analysts, FP&A professionals, Tax Managers, Internal Auditors, Cost Accountants, Treasury Analysts, Payroll Managers, and Accounts Payable/Receivable specialists. We specialize in finance and accounting roles across all industries." }
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Staff Financial Group places CFOs, VPs of Finance, Controllers, Accounting Managers, Senior and Staff Accountants, Financial Analysts, FP&A professionals, Tax Managers, Internal Auditors, Cost Accountants, Treasury Analysts, Payroll Managers, and Accounts Payable/Receivable specialists. We specialize in finance and accounting roles across all industries."
+            }
           },
           {
             "@type": "Question",
             "name": "How quickly can Staff Financial Group provide a shortlist of candidates?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Staff Financial Group delivers a shortlist of pre-vetted, blinded candidates within 48 to 72 hours of receiving a hiring request. Our active candidate pool and deep Atlanta network allow us to move faster than generalist staffing firms." }
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Staff Financial Group delivers a shortlist of pre-vetted, blinded candidates within 48 to 72 hours of receiving a hiring request. Our active candidate pool and deep Atlanta network allow us to move faster than generalist staffing firms."
+            }
           },
           {
             "@type": "Question",
             "name": "Does Staff Financial Group offer contract or temporary finance staffing?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Staff Financial Group provides contract, temp-to-hire, and interim staffing for finance and accounting roles. We act as the Employer of Record (EOR), handling payroll, taxes, workers compensation, and compliance. Clients receive one simple bill rate invoice." }
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Staff Financial Group provides contract, temp-to-hire, and interim staffing for finance and accounting roles. We act as the Employer of Record (EOR), handling payroll, taxes, workers compensation, and compliance. Clients receive one simple bill rate invoice."
+            }
           },
           {
             "@type": "Question",
             "name": "What is the Employer of Record (EOR) service?",
-            "acceptedAnswer": { "@type": "Answer", "text": "With our Employer of Record service, Staff Financial Group legally employs the contractor or temp worker on your behalf. We handle all payroll processing, tax withholdings, benefits, workers compensation insurance, and W-2 reporting. You get the finance talent without co-employment risk or administrative burden." }
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With our Employer of Record service, Staff Financial Group legally employs the contractor or temp worker on your behalf. We handle all payroll processing, tax withholdings, benefits, workers compensation insurance, and W-2 reporting. You get the finance talent without co-employment risk or administrative burden."
+            }
           },
           {
             "@type": "Question",
             "name": "Where does Staff Financial Group place candidates?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Staff Financial Group is headquartered in Atlanta, GA, and primarily serves companies throughout Atlanta and the Southeast United States, including markets such as Charlotte, Nashville, Tampa, and beyond." }
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Staff Financial Group is headquartered in Atlanta, GA, and primarily serves companies throughout Atlanta and the Southeast United States, including markets such as Charlotte, Nashville, Tampa, and beyond."
+            }
           },
           {
             "@type": "Question",
             "name": "How long has Staff Financial Group been in business?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Staff Financial Group was founded in 2005 and has over 20 years of experience in finance and accounting recruiting. We maintain deep relationships with hiring managers and finance professionals throughout the Southeast." }
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Staff Financial Group was founded in 2005 and has over 20 years of experience in finance and accounting recruiting. We maintain deep relationships with hiring managers and finance professionals throughout the Southeast."
+            }
           }
         ]
       }
@@ -227,11 +299,13 @@
             <a href="about.html">Professional Services</a>
             <a href="about.html">Distribution &amp; Logistics</a>
             <a href="about.html">All Industries</a>
+            <a href="accounting-recruiters/">Locations We Serve</a>
           </div>
         </li>
         <li><a href="tax-talent.html">Tax Talent</a></li>
         <li><a href="temps.html">Find Talent</a></li>
         <li><a href="about.html">About</a></li>
+        <li class="nav-locations-mobile"><a href="accounting-recruiters/">Locations</a></li>
         <li><a href="partners.html">Partner Program</a></li>
       </ul>
       <div class="nav-ctas">
@@ -487,7 +561,7 @@ function sfgTalentSearch(f){
         <div class="svc-card-overlay"></div>
         <div class="svc-card-body">
           <h3>RPO &amp; Project Staffing</h3>
-          <p>We become your recruiting department — custom screening, video introductions, and end-to-end hiring solutions built around your needs.</p>
+          <p>We become your recruiting department — custom screening, optional video intros, and end-to-end hiring solutions built around your needs.</p>
           <span class="svc-card-link">Learn More →</span>
         </div>
       </a>
@@ -515,7 +589,7 @@ function sfgTalentSearch(f){
       <ol class="num-steps">
         <li><strong>We build your list</strong> — the exact people you want to hire.</li>
         <li><strong>Our AI recruiting agent writes the letter with you</strong> — then reaches out and invites them to apply for your job.</li>
-        <li><strong>Candidates apply and film a video introduction.</strong></li>
+        <li><strong>Candidates apply and are invited to record an optional video intro.</strong></li>
         <li><strong>Our AI matches and scores every candidate for you.</strong></li>
         <li><strong>You reach out directly</strong> — or we do it all for you.</li>
       </ol>
@@ -782,18 +856,19 @@ function sfgTalentSearch(f){
           <li><a href="candidates.html">Browse Candidates</a></li>
           <li><a href="tax-talent.html">Tax Talent</a></li>
           <li><a href="salary-guide.html">Salary Guide 2026</a></li>
+          <li><a href="accounting-recruiters/">Locations We Serve</a></li>
           <li><a href="partners.html">Partner Program</a></li>
           <li><a href="https://host.pcrecruiter.net/pcrbin/jobboard.aspx?uid=Staff%20Financial.npsg" target="_blank" rel="noopener">Job Board ↗</a></li>
+          <li><a href="https://www.northpointsearchgroup.com/">Part of NorthPoint Search Group</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:gus@stafffinancial.com">gus@stafffinancial.com</a></li>
           <li><a href="tel:+14042500790">404-250-0790</a></li>
           <li><a href="tel:+16787775627">678-777-5627</a></li>
           <li><a href="contact.html">Send a Message</a></li>
-          <li><a href="opt-in.html">Request Talent</a></li>
+          <li><a href="opt-in.html">Get Started</a></li>
           <li><span>Atlanta, GA · Since 2005</span></li>
         </ul>
       </div>

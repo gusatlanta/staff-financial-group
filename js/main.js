@@ -90,7 +90,7 @@ window.switchMegaTab = function (tab, btn) {
         }
       } catch (err) {
         if (btn) { btn.disabled = false; btn.textContent = orig; }
-        alert('Something went wrong — please email gus@stafffinancial.com directly.');
+        alert('Something went wrong — please call 404-250-0790.');
       }
     });
   });

@@ -25,3 +25,14 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# llms.txt: https://www.stafffinancial.com/llms.txt
