@@ -140,6 +140,8 @@ img { max-width: 100%; display: block; }
 .nav-menu { display: flex; align-items: center; flex: 1; gap: 14px; }
 .nav-links { display: flex; align-items: stretch; list-style: none; gap: 2px; margin-left: auto; }
 .nav-links > li { position: relative; display: flex; align-items: center; }
+/* Locations stays in the Industries menu on desktop so the header CTAs are not clipped. */
+.nav-links > li.nav-locations-mobile { display: none; }
 .nav-links > li > a {
   display: flex; align-items: center; gap: 4px;
   padding: 8px 10px; border-radius: 8px;
@@ -212,6 +214,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 1200px) {
   .nav-toggle { display: flex; }
+  .nav-links > li.nav-locations-mobile { display: flex; }
   .nav-menu {
     display: none; position: absolute; top: var(--nav-h); left: 0; right: 0;
     flex-direction: column; align-items: stretch; gap: 0;
@@ -544,6 +547,22 @@ img { max-width: 100%; display: block; }
 .faq summary::after { content: '+'; font-size: 1.4rem; font-weight: 400; color: var(--teal); transition: transform .2s; }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq .faq-a { padding: 0 0 20px; color: var(--text-muted); line-height: 1.75; }
+
+/* Location pages reset global margins, so give the generated copy real spacing. */
+.page-hero .btn { margin-top: 22px; }
+main.locations .section p { color: var(--text-muted); line-height: 1.75; margin: 0 0 16px; }
+main.locations .section h2.section-title { margin: 36px 0 14px; }
+main.locations .section h2.section-title:first-of-type { margin-top: 0; }
+main.locations .section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 8px 0 20px; }
+main.locations .section ul li { padding: 14px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; line-height: 1.55; }
+main.locations a { color: var(--blue); }
+main.locations a:hover { text-decoration: underline; }
+details.faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 0 22px; margin: 0 0 12px; }
+details.faq-item[open] { box-shadow: var(--shadow-sm); }
+details.faq-item summary { cursor: pointer; list-style: none; padding: 18px 0; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary h3 { font-weight: 600; }
+details.faq-item p { padding-bottom: 16px; }
 
 /* ── Forms ────────────────────────────────────── */
 .form-group { margin-bottom: 18px; }

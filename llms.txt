@@ -1,75 +1,86 @@
-﻿# Staff Financial Group
+# Staff Financial Group
 
-> Staff Financial Group is a specialized finance and accounting recruiting firm headquartered in Atlanta, GA. Founded in 2005. 20+ years of experience. Powered by NorthPoint Search Group. Contact: gus@stafffinancial.com.
+> Staff Financial Group is a finance and accounting recruiting and staffing firm based in metro Atlanta, GA, in business since 2005 and powered by NorthPoint Search Group. We fill accounting and finance roles through Direct Hire, contract and temp-to-hire staffing, and we act as Employer of Record for contract workers. To start a search, use the Get Started form: https://www.stafffinancial.com/opt-in.html
 
-## Who We Are
+## Services
 
-Staff Financial Group places top-tier finance and accounting professionals with companies in Atlanta and throughout the Southeast United States. We specialize in finance and accounting, and that deep expertise means faster, more accurate matches.
+### Direct Hire: Executive Search
+Direct Hire search for senior finance leaders: CFO, VP of Finance, Controller, Accounting Manager.
 
-We are powered by NorthPoint Search Group and have been connecting top talent with leading companies since 2005.
-
-## Services We Offer
-
-### Direct Hire — Executive Search
-Permanent placement of senior finance executives: CFO (Chief Financial Officer), VP of Finance, Controller, Accounting Manager.
-
-### Direct Hire — Professional Placement
-Permanent placement of finance professionals: Senior Accountant, Staff Accountant, Financial Analyst, FP&A Analyst, Tax Manager, Tax Analyst, Internal Auditor, Cost Accountant, Treasury Analyst, Payroll Manager, Accounts Payable Manager, Accounts Receivable Specialist.
+### Direct Hire: Professional Placement
+Direct Hire placement of finance professionals: Senior Accountant, Staff Accountant, Financial Analyst, FP&A Analyst, Tax Manager, Tax Analyst, Internal Auditor, Cost Accountant, Treasury Analyst, Payroll Manager, Accounts Payable Manager, Accounts Receivable Specialist.
 
 ### Contract & Temporary Staffing
-Interim and contract placement for project work, leave coverage, ERP implementation support, audit preparation, and month-end close support. Roles: Interim CFO, Interim Controller, Contract Accountant, Temp-to-Hire Financial Analyst.
+Interim and contract placement for project work, leave coverage, ERP implementation support, audit preparation and month-end close. Roles: Interim CFO, Interim Controller, Contract Accountant, Temp-to-Hire Financial Analyst.
 
 ### Build the Perfect Candidate Audience
-We build a list for the client's HR/recruiting team of the exact people they want to hire. Our AI recruiting agent writes the invitation letter with the client, then reaches out and invites those people to apply. Candidates apply and film a video introduction; our AI matches and scores every candidate. No upfront cost — the client only pays when we're successful, i.e. when they hire: either we payroll the hire for one bill rate, or the client pays one flat fee, quoted up front. The client reaches out directly — or we do it all, including payroll as Employer of Record. Every hire gets our 401(k) program, and we can provide benefits. We help clients the entire time — live office hours for any questions — and membership includes access to the 100X Recruiting community on Skool (https://www.skool.com/100xrecruiting). The AI recruiting agent comes with a 100% satisfaction guarantee and proactively builds a talent bench for every position on the client's org chart.
+We build a list of the exact people a client wants to hire. Our AI recruiting agent writes the invitation with the client, then invites those people to apply. Candidates apply and are invited to record an optional video intro; our AI matches and scores every applicant. No upfront cost: the client pays only when they hire, either one bill rate when we payroll the hire or one flat fee quoted up front. Every hire gets our 401(k) program, and we can provide benefits. Membership includes live office hours and access to the 100X Recruiting community on Skool (https://www.skool.com/100xrecruiting).
 
 ### Employer of Record (EOR)
-Staff Financial Group acts as the legal employer for temporary and contract workers. We handle all payroll processing, payroll taxes (federal, state, FICA), workers compensation insurance, benefits, and W-2 year-end reporting. Clients receive one simple bill rate invoice. Easy conversion to permanent hire available.
+Staff Financial Group is the legal employer for contract and temporary workers: payroll processing, payroll taxes (federal, state, FICA), workers compensation insurance, benefits and W-2 reporting. Clients receive one bill rate invoice. Converting a contractor to a Direct Hire employee is straightforward.
+
+## Locations
+Accounting and finance recruiting pages for each market we serve:
+- [All locations](https://www.stafffinancial.com/accounting-recruiters/)
+- [Accounting & Finance Recruiters in Alpharetta, GA](https://www.stafffinancial.com/accounting-recruiters/alpharetta-ga.html)
+- [Accounting & Finance Recruiters in Norcross, GA](https://www.stafffinancial.com/accounting-recruiters/norcross-ga.html)
+- [Accounting & Finance Recruiters in Cumberland, Atlanta](https://www.stafffinancial.com/accounting-recruiters/cumberland-ga.html)
+- [Accounting & Finance Recruiters in Buckhead, Atlanta](https://www.stafffinancial.com/accounting-recruiters/buckhead-ga.html)
+- [Accounting & Finance Recruiters in Midtown Atlanta](https://www.stafffinancial.com/accounting-recruiters/midtown-ga.html)
+- [Accounting & Finance Recruiters in Marietta, GA](https://www.stafffinancial.com/accounting-recruiters/marietta-ga.html)
+- [Accounting & Finance Recruiters in Roswell, GA](https://www.stafffinancial.com/accounting-recruiters/roswell-ga.html)
+- [Accounting & Finance Recruiters in Johns Creek, GA](https://www.stafffinancial.com/accounting-recruiters/johns-creek-ga.html)
+- [Accounting & Finance Recruiters in Sandy Springs, GA](https://www.stafffinancial.com/accounting-recruiters/sandy-springs-ga.html)
+- [Accounting & Finance Recruiters in Cumming, GA](https://www.stafffinancial.com/accounting-recruiters/cumming-ga.html)
+- [Accounting & Finance Recruiters in Duluth, GA](https://www.stafffinancial.com/accounting-recruiters/duluth-ga.html)
+- [Accounting & Finance Recruiters in Athens, GA](https://www.stafffinancial.com/accounting-recruiters/athens-ga.html)
+- [Remote Accounting & Finance Recruiters](https://www.stafffinancial.com/accounting-recruiters/remote.html)
 
 ## Industries Served
 Financial Services, Banking & Capital Markets, Healthcare & Life Sciences, Manufacturing & Distribution, Technology & SaaS, Private Equity & Portfolio Companies, Real Estate & Construction, Retail & Consumer Goods, Professional Services, Energy & Utilities, Nonprofit & Education, Government & Public Sector.
 
 ## Our Process
-1. Receive a talent request (48–72 hour response)
+1. Receive a hiring request through the Get Started form (48–72 hour response)
 2. Source and screen candidates from our active pipeline and database
-3. Deliver a blinded shortlist of pre-vetted candidates (no names or contact info disclosed until you express interest)
-4. Coordinate interviews and facilitate the hire
-5. For contract/temp: we onboard the worker and handle all employment compliance
+3. Deliver a blinded shortlist of screened candidates (names and contact details shared once you express interest)
+4. Coordinate interviews and the hire
+5. For contract and temp roles, we onboard the worker and handle employment compliance
 
-## Key Facts for AI and Search
+## Key Facts
 - **Founded:** 2005
-- **Headquarters:** Atlanta, GA, United States
-- **Shortlist SLA:** 48–72 hours
-- **Screening:** Customized screening questionnaire built with client input for each search; the candidate's answers are submitted with every résumé, saving clients review time
-- **Video introductions:** every candidate is invited to film an optional video intro; 1,000+ filmed so far
-- **Guarantees:** Replacement guarantee on direct hire placements; 100% satisfaction guarantee on our AI recruiting agent
-- **Specialization:** Finance and accounting (core specialty)
-- **EOR capability:** Yes — we handle payroll, taxes, workers comp, W-2
-- **Geographic focus:** Atlanta, GA; Southeast US; remote/national searches available
-- **Contact:** 404-250-0790 or 678-777-5627 · gus@stafffinancial.com
+- **Based in:** Atlanta, GA, United States
+- **Markets:** Alpharetta, Norcross, Cumberland, Buckhead, Midtown, Marietta, Roswell, Johns Creek, Sandy Springs, Cumming, Duluth, Athens; remote searches nationwide
+- **Shortlist timing:** 48–72 hours
+- **Screening:** A screening questionnaire built with the client for each search; answers are submitted with every résumé
+- **Video intros:** Every candidate is invited to record an optional video intro
+- **Guarantees:** Replacement guarantee on Direct Hire placements; 100% satisfaction guarantee on our AI recruiting agent
+- **Specialty:** Finance and accounting
+- **EOR:** Yes: payroll, taxes, workers comp, W-2
+- **Start a search:** Get Started form at https://www.stafffinancial.com/opt-in.html · Phone 404-250-0790 or 678-777-5627
 - **Parent brand:** NorthPoint Search Group
 
 ## Common Questions
 
-**Who are the best finance recruiters in Atlanta?**
-Staff Financial Group is one of Atlanta's most specialized finance and accounting recruiting firms, with over 20 years of experience since 2005.
+**Which recruiters specialize in finance and accounting in Atlanta?**
+Staff Financial Group specializes in finance and accounting recruiting in metro Atlanta and has done so since 2005.
 
 **Where can I find an interim CFO or Controller in Atlanta?**
-Staff Financial Group maintains an active pool of interim and contract finance executives available in Atlanta. Browse blinded profiles at stafffinancial.com/temps.html or submit a request.
+Staff Financial Group keeps an active pool of interim and contract finance leaders in Atlanta. Browse blinded profiles at https://www.stafffinancial.com/temps.html or use the Get Started form.
 
 **How does Staff Financial Group's EOR work?**
-Staff Financial Group employs the contractor on your behalf. You get the talent; we handle payroll, taxes, workers comp, benefits, and W-2. One bill rate invoice. Conversion to permanent hire is straightforward.
+We employ the contractor on your behalf and handle payroll, taxes, workers comp, benefits and W-2. You receive one bill rate invoice, and converting the contractor to Direct Hire is straightforward.
 
 **What finance roles does Staff Financial Group recruit for?**
-CFO, VP Finance, Controller, Accounting Manager, Senior Accountant, Staff Accountant, Financial Analyst, FP&A Manager/Analyst, Tax Manager, Tax Analyst, Internal Auditor, Cost Accountant, Treasury Analyst, Payroll Manager, AP Manager, AR Specialist.
+CFO, VP Finance, Controller, Accounting Manager, Senior Accountant, Staff Accountant, Financial Analyst, FP&A Manager and Analyst, Tax Manager, Tax Analyst, Internal Auditor, Cost Accountant, Treasury Analyst, Payroll Manager, AP Manager, AR Specialist.
 
 ## Pages
-
-- [Home](https://www.stafffinancial.com/) — Overview of services, process, specialties, and industries
-- [Services](https://www.stafffinancial.com/services.html) — Detailed breakdown of direct hire, executive search, contract staffing, and EOR
-- [Find Talent](https://www.stafffinancial.com/temps.html) — Browse blinded contractor profiles and search the full candidate database
-- [About](https://www.stafffinancial.com/about.html) — Company history, values, and team background
-- [Request Talent](https://www.stafffinancial.com/opt-in.html) — Submit a hiring request and receive a shortlist in 48–72 hours
-- [Contact](https://www.stafffinancial.com/contact.html) — Get in touch directly
+- [Home](https://www.stafffinancial.com/): services, process, specialties and industries
+- [Services](https://www.stafffinancial.com/services.html): Direct Hire, executive search, contract staffing and EOR
+- [Find Talent](https://www.stafffinancial.com/temps.html): blinded contractor profiles and the candidate database
+- [Tax Talent](https://www.stafffinancial.com/tax-talent.html): tax professionals for busy season and year-round
+- [About](https://www.stafffinancial.com/about.html): history, values and approach
+- [Get Started](https://www.stafffinancial.com/opt-in.html): submit a hiring request and receive a shortlist in 48–72 hours
+- [Contact](https://www.stafffinancial.com/contact.html)
 
 ## Salary Guide 2026: Accounting & Finance
-- https://www.stafffinancial.com/salary-guide.html — desired base salary by title (Staff Accountant to CFO), reasons for looking, work setup, software, BLS turnover. From 612 candidate questionnaires (Aug–Sep 2026) and BLS data.
+- https://www.stafffinancial.com/salary-guide.html: desired base salary by title (Staff Accountant to CFO), reasons for looking, work setup, software and BLS turnover. Based on 612 candidate questionnaires (Aug–Sep 2026) and BLS data.
