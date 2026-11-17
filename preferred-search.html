@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/favicon-180.png">
+  <title>Watch your next hire first | Staff Financial Group</title>
+  <meta name="description" content="Every candidate is invited, screened, and on video before you meet them. Preferred Search from Staff Financial, built on 100X. $1,000 a month, for accounting and finance hiring managers in metro Atlanta and remote.">
+  <link rel="canonical" href="https://www.stafffinancial.com/preferred-search">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #1F86B9;
+      --blue-dark: #176A94;
+      --blue-soft: #E8F4FA;
+      --navy: #0B2A4A;
+      --navy-deep: #081F38;
+      --text: #1C2B3A;
+      --muted: #5B6B7A;
+      --line: #D7E3EC;
+      --bg: #FFFFFF;
+      --bg-soft: #F4F8FB;
+      --white: #FFFFFF;
+      --radius: 12px;
+      --shadow: 0 16px 40px rgba(11, 42, 74, 0.12);
+      --header-h: 80px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--blue); }
+    a:hover { color: var(--blue-dark); }
+    a:focus-visible, summary:focus-visible, .btn:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+
+    h1, h2, h3 { color: var(--navy); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+    h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+    h2 { font-size: clamp(1.7rem, 3vw, 2.35rem); }
+    h3 { font-size: 1.15rem; }
+
+    p { color: var(--muted); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0.95rem 1.4rem;
+      border-radius: 8px;
+      border: 2px solid var(--blue);
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); color: var(--white); }
+    .btn:active { transform: translateY(1px); }
+    .btn-light {
+      background: var(--white);
+      color: var(--navy);
+      border-color: var(--white);
+    }
+    .btn-light:hover { background: var(--blue-soft); color: var(--navy); border-color: var(--blue-soft); }
+
+    header.site {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      height: var(--header-h);
+    }
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo img { height: 52px; width: auto; }
+    .header-cta { flex-shrink: 0; }
+
+    .hero {
+      background: linear-gradient(180deg, #F7FBFD 0%, #FFFFFF 100%);
+      padding: 56px 0 72px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 48px;
+      align-items: center;
+    }
+    .hero p.sub {
+      font-size: 1.15rem;
+      color: var(--text);
+      margin: 1rem 0 1.5rem;
+      max-width: 38rem;
+    }
+    .offer-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+    }
+    .offer-card .price {
+      font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 0.85rem;
+      text-wrap: balance;
+    }
+    .nowrap { white-space: nowrap; }
+    .offer-card p { color: var(--text); font-size: 1.05rem; }
+
+    section { padding: 88px 0; }
+    section.alt { background: var(--bg-soft); }
+    section.navy {
+      background: var(--navy);
+      color: var(--white);
+    }
+    section.navy h2 { color: var(--white); }
+    section.navy p { color: rgba(255,255,255,0.82); }
+    section.navy .eyebrow { color: #8EC8E6; }
+
+    .center { text-align: center; }
+    .center .measure { text-align: left; }
+    .measure {
+      max-width: 720px;
+      margin: 1.1rem auto 0;
+      font-size: 1.08rem;
+    }
+    .measure + .measure { margin-top: 1rem; }
+    .section-head { margin-bottom: 40px; }
+    .section-head .measure { margin-bottom: 0; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .card p { margin-top: 0.65rem; font-size: 0.98rem; }
+
+    .faq {
+      max-width: 760px;
+      margin: 8px auto 0;
+      display: grid;
+      gap: 12px;
+    }
+    details.faq-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0 22px;
+    }
+    details.faq-item summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--navy);
+      padding: 18px 0;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    details.faq-item summary::-webkit-details-marker { display: none; }
+    details.faq-item summary::after {
+      content: "+";
+      font-size: 1.4rem;
+      color: var(--blue);
+      font-weight: 500;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    details.faq-item[open] summary::after { content: "–"; }
+    details.faq-item p { padding: 0 0 18px; }
+
+    .final-cta { text-align: center; padding: 96px 0; }
+    .final-cta p { max-width: 560px; margin: 1rem auto 0; font-size: 1.15rem; }
+    .final-cta .signoff {
+      margin-top: 1.5rem;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+    .final-cta .signoff span {
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+    }
+    .final-cta .btn { margin-top: 1.5rem; }
+
+    footer.site {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.7);
+      padding: 48px 0 36px;
+      font-size: 0.92rem;
+    }
+    footer.site .foot-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    footer.site .logo img {
+      height: 44px;
+      width: auto;
+      background: var(--white);
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+    footer.site a { color: #C9E6F5; text-decoration: none; }
+    footer.site a:hover { text-decoration: underline; color: var(--white); }
+    footer.site p { color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 900px) {
+      :root { --header-h: 68px; }
+      .logo img { height: 42px; }
+      .hero { padding: 32px 0 40px; }
+      .hero-grid, .cards { grid-template-columns: 1fr; }
+      section { padding: 64px 0; }
+      .header-cta .btn { padding: 0.7rem 1rem; font-size: 0.92rem; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: calc(100% - 28px); }
+      .hero p.sub { font-size: 1.02rem; }
+      .btn { width: 100%; }
+      .header-cta .btn { width: auto; }
+      .offer-card, .card { padding: 22px 18px; }
+      .final-cta { padding: 72px 0; }
+    }
+
+    @media (max-width: 380px) {
+      .logo img { height: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="Staff Financial Group">
+        <img src="img/busy-season-logo.png" alt="Staff Financial Group, powered by NorthPoint">
+      </a>
+      <div class="header-cta">
+        <a class="btn" href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">Email Gus</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Preferred Search">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Preferred Search</p>
+          <h1>Watch your next hire first.</h1>
+          <p class="sub">Every candidate is invited, screened, and on video before you meet them. Preferred Search from Staff Financial, built on 100X. $1,000 a month, for accounting and finance hiring managers in metro Atlanta and remote.</p>
+          <a class="btn" href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">Email Gus</a>
+        </div>
+        <aside class="offer-card">
+          <p class="price">$1,000 a month on a <span class="nowrap">12-month</span> commitment.</p>
+          <p>Pay the year up front and get 2 months free: $10,000 instead of $12,000.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="alt" id="starting">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>Starting from zero costs you weeks</h2>
+          <p class="measure">A seat opens. You post the job, wait, and spend hours in first conversations that go nowhere. By the time you find the people you need, the work has piled up.</p>
+          <p class="measure">Preferred Search flips that. You watch them first, then meet only the ones who already fit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="included">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>What's included, every month</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Your preferred recruiter.</h3>
+            <p>You call me first on every opening.</p>
+          </article>
+          <article class="card">
+            <h3>We find people who fit and invite them to apply.</h3>
+            <p>Active search on up to 3 open jobs at a time. 300 Invite to Apply a month, each with your custom screening questions and a video intro request.</p>
+          </article>
+          <article class="card">
+            <h3>A video résumé and written screening.</h3>
+            <p>Each invited candidate records a video résumé — an elevator pitch plus intro clips — and answers the job's custom written screening questions.</p>
+          </article>
+          <article class="card">
+            <h3>A ranked shortlist, with the videos attached.</h3>
+            <p>Scout ranks candidates against your job and sends a ranked shortlist through a share link, with the videos attached. You meet only the top 2–3. Or we run a short live call first.</p>
+          </article>
+          <article class="card">
+            <h3>Your pipeline stays warm.</h3>
+            <p>Auto-matching on every job, with your best new applicants invited automatically. 500 old résumés refreshed a month. A standing bench for up to 10 key seats through always-on org chart recruiting, plus a monthly shortlist.</p>
+          </article>
+          <article class="card">
+            <h3>Try before you buy.</h3>
+            <p>Start any finalist on Temp-to-Hire. They work on our payroll at our standard rate, and you make the Direct Hire offer only when you're sure.</p>
+          </article>
+          <article class="card">
+            <h3>We payroll them until you're ready.</h3>
+            <p>Already found your person, or not ready to add headcount? We put them on our payroll for as long as you need. We take the hassle out of hiring.</p>
+          </article>
+          <article class="card">
+            <h3>A Scout Starter seat included.</h3>
+            <p>3 team members plus you — normally $300 a month on its own. Scout is powered by Claude.ai.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="buys">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>What $1,000 a month actually buys</h2>
+          <p class="measure">Scout Starter, worth $300 a month, is included. Hire through Scout on your own with no placement fee. $700 of each month paid credits toward our 15% Direct Hire fee when you hire a candidate we introduced, up to 25% of that fee, backed by a 60-day replacement guarantee. Temp, Contract, Temp-to-Hire, and Payrolling are billed at our standard rates. You're paying for a bench and speed, not just a fee.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="terms">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>Terms</h2>
+          <p class="measure">$1,000 a month on a 12-month commitment. Pay the year up front and get 2 months free: $10,000 instead of $12,000. No placement fee on hires you make on your own through Scout. A fee applies only to candidates we introduce, invite, or interview for you. A candidate is ours for 12 months from our first introduction or invite, even if they later apply on their own. Candidates already in your records before our introduction carry no fee. Direct Hire fee is 15%, and $700 of each month paid credits toward it, up to 25% of the fee. Every Direct Hire carries a 60-day replacement guarantee.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="faq">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq">
+          <details class="faq-item" open>
+            <summary>What if we find the candidate ourselves in Scout?</summary>
+            <p>No placement fee. Candidates you find and hire through Scout are yours.</p>
+          </details>
+          <details class="faq-item">
+            <summary>When does a placement fee apply?</summary>
+            <p>Only when we introduce the candidate, invite them to apply, or run the interviews. The fee is 15%, $700 of each month paid credits toward it (up to 25% of the fee), and every Direct Hire has a 60-day replacement guarantee.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What if a candidate we introduced applies to you directly later?</summary>
+            <p>The fee still applies if you hire them within 12 months of our first introduction or invite. Scout timestamps every introduction, so there's no question who came first.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How many jobs can be open at once?</summary>
+            <p>Active search on up to 3 open jobs at a time, plus a standing bench for up to 10 key seats.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do we have to take the live first-round call?</summary>
+            <p>No. Meet only the top 2–3 from the ranked shortlist, or we run a short live call first.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can we use you for Temp or Payrolling too?</summary>
+            <p>Yes. Temp, Contract, Temp-to-Hire, and Payrolling are billed at our standard rates, including if you already have the person.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="navy final-cta" id="start">
+      <div class="wrap">
+        <h2>Start with a Preferred Search seat</h2>
+        <p>If a seat is open now, or you want a bench before the next one opens, reply and I'll set up your Scout seat and the first three jobs.</p>
+        <p class="signoff">Gus<br><span>Alpharetta, GA</span></p>
+        <a class="btn btn-light" href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">Email Gus</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap foot-grid">
+      <a class="logo" href="#top">
+        <img src="img/busy-season-logo.png" alt="Staff Financial Group, powered by NorthPoint">
+      </a>
+      <p>Staff Financial Group · Alpharetta, GA<br>
+        <a href="mailto:gus@stafffinancial.com?subject=Preferred%20Search">gus@stafffinancial.com</a></p>
+    </div>
+  </footer>
+</body>
+</html>
