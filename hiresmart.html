@@ -86,6 +86,41 @@
     .rung ul { margin: 0 0 0 1rem; }
     .rung li { margin: 0.28rem 0; color: var(--text); font-size: 0.92rem; }
     .rung.flagship { border: 2px solid var(--blue); background: var(--blue-soft); box-shadow: var(--shadow); }
+    .compare { margin-top: 28px; padding-top: 8px; }
+    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
+    .plan {
+      position: relative; background: #fff; border: 1px solid var(--line); border-radius: 16px;
+      padding: 28px 18px 18px; box-shadow: var(--shadow);
+    }
+    .plan-best { border: 2px solid var(--blue); background: linear-gradient(180deg, #F3FAFD 0%, #fff 42%); }
+    .badge {
+      position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+      background: var(--navy); color: #fff; font-weight: 700; font-size: 0.75rem;
+      letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; border-radius: 999px;
+      white-space: nowrap;
+    }
+    .plan h3 { font-size: 1.35rem; }
+    .plan-price { color: var(--blue); font-weight: 700; font-size: 2rem; letter-spacing: -0.03em; margin: 0.15rem 0; }
+    .plan-price span { font-size: 1rem; font-weight: 600; letter-spacing: 0; }
+    .plan ul { list-style: none; margin: 14px 0 0; }
+    .plan li { display: flex; gap: 10px; align-items: flex-start; margin: 0.55rem 0; color: var(--text); }
+    .mark {
+      flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px;
+    }
+    .mark.yes { background: var(--blue); color: #fff; }
+    .mark.no { background: #F4E8E8; color: #9B2C2C; }
+    .calc {
+      margin-top: 28px; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 22px 18px;
+    }
+    .calc h3 { margin-bottom: 4px; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; margin-top: 14px; }
+    .results { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
+    .result { background: var(--bg-soft); border-radius: 12px; padding: 12px; }
+    .result span { display: block; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
+    .result b { display: block; margin-top: 4px; color: var(--navy); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+    .break-even { margin-top: 14px; font-weight: 700; color: var(--navy); }
+    .reward-table { min-width: 0; }
+    .reward-table .amt, .reward-table td.amt { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .mock { margin: 0; }
     .mock figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; font-weight: 700; }
     .app, .browser {
@@ -146,9 +181,9 @@
     .num { color: var(--blue); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
     .fine { font-size: 0.92rem; margin-top: 0.55rem; }
     .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-    #savings table { min-width: 0; }
-    #savings th, #savings td { font-size: 0.92rem; }
-    #savings th.num, #savings td.num { white-space: normal; }
+    #savings .fee-table { min-width: 0; }
+    #savings .fee-table th, #savings .fee-table td { font-size: 0.92rem; }
+    #savings .fee-table th.num, #savings .fee-table td.num { white-space: normal; }
     table { width: 100%; border-collapse: collapse; min-width: 640px; }
     caption { caption-side: bottom; text-align: left; color: var(--muted); padding: 10px 2px 0; font-size: 0.92rem; }
     th, td { text-align: left; padding: 12px 14px; border-top: 1px solid var(--line); vertical-align: top; }
@@ -179,7 +214,7 @@
     .start-form .btn:disabled { opacity: 0.7; }
     .form-error { margin-top: 12px; color: #9B2C2C; font-weight: 600; }
     .alert-success { color: var(--navy); font-weight: 600; }
-    .hp { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .hp, .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .faq { max-width: 760px; margin: 0 auto; display: grid; gap: 10px; }
     details.faq-item { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 0 16px; }
     details.faq-item summary {
@@ -202,20 +237,30 @@
     @media (max-width: 900px) {
       :root { --header-h: 68px; }
       .logo img { height: 42px; }
-      .grid-3, .form-grid { grid-template-columns: 1fr; }
+      .grid-3, .form-grid, .plans { grid-template-columns: 1fr; }
+      .plan-best { margin-top: 22px; }
+      .results { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .wrap { width: calc(100% - 28px); }
-      .grid-2, .features, .features.ways, .rungs { grid-template-columns: 1fr; }
-      #savings table { display: flex; flex-direction: column; width: 100%; min-width: 0; }
-      #savings thead, #savings tbody, #savings tr, #savings th, #savings td { display: block; width: auto; min-width: 0; }
-      #savings tbody { order: 1; }
-      #savings caption { order: 2; display: block; width: 100%; max-width: 100%; box-sizing: border-box; padding: 12px 14px 4px; }
-      #savings thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-      #savings tr { padding: 12px 14px; border-top: 1px solid var(--line); }
-      #savings th[scope="row"] { border: 0; padding: 0 0 6px; font-size: 1rem; }
-      #savings td { border: 0; padding: 6px 0 0; text-align: left; font-size: 0.95rem; white-space: normal; }
-      #savings td::before { content: attr(data-label); display: block; color: var(--navy); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
+      .grid-2, .features, .features.ways, .rungs, .plans, .calc-grid { grid-template-columns: 1fr; }
+      .results { grid-template-columns: 1fr 1fr; }
+      #savings .fee-table { display: flex; flex-direction: column; width: 100%; min-width: 0; }
+      #savings .fee-table thead, #savings .fee-table tbody, #savings .fee-table tr, #savings .fee-table th, #savings .fee-table td { display: block; width: auto; min-width: 0; }
+      #savings .fee-table tbody { order: 1; }
+      #savings .fee-table caption { order: 2; display: block; width: 100%; max-width: 100%; box-sizing: border-box; padding: 12px 14px 4px; }
+      #savings .fee-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      #savings .fee-table tr { padding: 12px 14px; border-top: 1px solid var(--line); }
+      #savings .fee-table th[scope="row"] { border: 0; padding: 0 0 6px; font-size: 1rem; }
+      #savings .fee-table td { border: 0; padding: 6px 0 0; text-align: left; font-size: 0.95rem; white-space: normal; }
+      #savings .fee-table td::before { content: attr(data-label); display: block; color: var(--navy); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
+      .reward-table, .reward-table thead, .reward-table tbody, .reward-table tr, .reward-table th, .reward-table td { display: block; width: 100%; min-width: 0; }
+      .reward-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      .reward-table tr { padding: 12px 14px; border-top: 1px solid var(--line); }
+      .reward-table th[scope="row"] { border: 0; padding: 0 0 6px; font-size: 1rem; }
+      .reward-table td { border: 0; padding: 6px 0 0; text-align: left !important; white-space: normal; }
+      .reward-table td::before { content: attr(data-label); display: block; color: var(--navy); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
+      .reward-table caption { display: block; width: 100%; padding: 12px 14px 4px; }
       .btn { width: 100%; }
       header.site .btn { width: auto; }
       .hero-actions { flex-direction: column; align-items: stretch; }
@@ -824,12 +869,133 @@
               </ul>
             </article>
           </div>
+
+        <div class="compare" id="compare">
+          <div class="section-head center">
+            <h2>Free or HireSmart™</h2>
+            <p class="measure">Start free. Move to HireSmart™ at $995 a month on a 12-month commitment when the Direct Hire savings cover the membership.</p>
+          </div>
+          <div class="plans">
+            <article class="plan">
+              <h3>Free</h3>
+              <p class="plan-price">$0</p>
+              <p class="fine">Start for Free.</p>
+              <ul>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Unlimited job posts</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Payrolling for workers you find</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Direct Hire at the 22% standard fee</li>
+                <li><span class="mark no" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span><span class="sr">Not included. </span>Direct Hire at 15%</li>
+                <li><span class="mark no" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span><span class="sr">Not included. </span>60-day replacement guarantee</li>
+                <li><span class="mark no" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span><span class="sr">Not included. </span>100X Recruiting platform with Scout™ AI</li>
+                <li><span class="mark no" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span><span class="sr">Not included. </span>Chrome extension</li>
+                <li><span class="mark no" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span><span class="sr">Not included. </span>Expanded talent sourcing</li>
+                <li><span class="mark no" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span><span class="sr">Not included. </span>A Fab Five shortlist delivered fast</li>
+              </ul>
+            </article>
+            <article class="plan plan-best">
+              <p class="badge">Best Value</p>
+              <h3>HireSmart™</h3>
+              <p class="plan-price">$995<span>/mo</span></p>
+              <p class="fine">12-month commitment. $11,940 for the year. Everything in Free, plus:</p>
+              <ul>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Unlimited job posts</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Payrolling for workers you find</li>
+                <li><span class="mark no" aria-hidden="true"><svg viewBox="0 0 24 24" width="12" height="12"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></span><span class="sr">Not included. </span>Direct Hire at the 22% standard fee</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Direct Hire at 15%</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>60-day replacement guarantee</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>100X Recruiting platform with Scout™ AI</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Chrome extension</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>Expanded talent sourcing</li>
+                <li><span class="mark yes" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5 10 17.5 19 7.5"/></svg></span><span class="sr">Included. </span>A Fab Five shortlist delivered fast</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="calc">
+            <h3>Savings on Direct Hire</h3>
+            <p>Enter the Direct Hires you expect this year. The fee difference is 7% of salary: 22% minus 15%.</p>
+            <div class="calc-grid">
+              <div class="field">
+                <label for="calc-hires">Direct Hires per year</label>
+                <input id="calc-hires" type="number" inputmode="numeric" min="0" step="1" value="1">
+              </div>
+              <div class="field">
+                <label for="calc-salary">Average salary</label>
+                <input id="calc-salary" type="number" inputmode="decimal" min="0" step="1000" value="80000">
+              </div>
+            </div>
+            <div class="results" aria-live="polite">
+              <p class="result"><span>Fee at 22%</span><b id="calc-fee22">$17,600</b></p>
+              <p class="result"><span>Fee at 15%</span><b id="calc-fee15">$12,000</b></p>
+              <p class="result"><span>Savings</span><b id="calc-save">$5,600</b></p>
+              <p class="result"><span>HireSmart™ for the year</span><b id="calc-cost">$11,940</b></p>
+              <p class="result"><span>Net savings</span><b id="calc-net">−$6,340</b></p>
+            </div>
+            <p class="break-even">About $170,571 in Direct Hire salary a year pays for your membership</p>
+          </div>
+
+          <div class="table-wrap" style="margin-top:22px;">
+            <table class="reward-table">
+              <caption>Estimates for illustration; actual savings depend on your hires.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Example</th>
+                  <th scope="col" class="amt">Total salary</th>
+                  <th scope="col" class="amt">Fee at 22%</th>
+                  <th scope="col" class="amt">Fee at 15%</th>
+                  <th scope="col" class="amt">Savings</th>
+                  <th scope="col" class="amt">Membership</th>
+                  <th scope="col" class="amt">Net savings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1 hire at $80,000</th>
+                  <td class="amt" data-label="Total salary">$80,000</td>
+                  <td class="amt" data-label="Fee at 22%">$17,600</td>
+                  <td class="amt" data-label="Fee at 15%">$12,000</td>
+                  <td class="amt" data-label="Savings">$5,600</td>
+                  <td class="amt" data-label="Membership">$11,940</td>
+                  <td class="amt" data-label="Net savings">−$6,340</td>
+                </tr>
+                <tr>
+                  <th scope="row">2 hires at $80,000</th>
+                  <td class="amt" data-label="Total salary">$160,000</td>
+                  <td class="amt" data-label="Fee at 22%">$35,200</td>
+                  <td class="amt" data-label="Fee at 15%">$24,000</td>
+                  <td class="amt" data-label="Savings">$11,200</td>
+                  <td class="amt" data-label="Membership">$11,940</td>
+                  <td class="amt" data-label="Net savings">−$740</td>
+                </tr>
+                <tr>
+                  <th scope="row">3 hires at $90,000</th>
+                  <td class="amt" data-label="Total salary">$270,000</td>
+                  <td class="amt" data-label="Fee at 22%">$59,400</td>
+                  <td class="amt" data-label="Fee at 15%">$40,500</td>
+                  <td class="amt" data-label="Savings">$18,900</td>
+                  <td class="amt" data-label="Membership">$11,940</td>
+                  <td class="amt" data-label="Net savings">$6,960</td>
+                </tr>
+                <tr>
+                  <th scope="row">5 hires at $100,000</th>
+                  <td class="amt" data-label="Total salary">$500,000</td>
+                  <td class="amt" data-label="Fee at 22%">$110,000</td>
+                  <td class="amt" data-label="Fee at 15%">$75,000</td>
+                  <td class="amt" data-label="Savings">$35,000</td>
+                  <td class="amt" data-label="Membership">$11,940</td>
+                  <td class="amt" data-label="Net savings">$23,060</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div class="section-head center" style="margin-top:32px;">
           <h2>Member Direct Hire</h2>
           <p class="measure">15% for members, 22% standard. On a $100,000 hire that is $15,000 versus $22,000, which is $7,000 less. A 60-day replacement guarantee applies on every member Direct Hire.</p>
         </div>
         <div class="table-wrap">
-          <table>
+          <table class="fee-table">
             <caption>Illustrative comparison on one $100,000 hire. Not a quote and not a guarantee. Savings illustrations exclude other recruiting costs. Qualifying self-hire requirements apply, including to eligible LinkedIn Chrome extension-sourced applicants.</caption>
             <thead>
               <tr>
@@ -1293,6 +1459,42 @@
         });
       });
     });
+    (function () {
+      var hiresInput = document.getElementById("calc-hires");
+      var salaryInput = document.getElementById("calc-salary");
+      if (!hiresInput || !salaryInput) return;
+      var membershipCents = 11940 * 100;
+      function money(cents) {
+        var negative = cents < 0;
+        var abs = Math.abs(cents);
+        var digits = abs % 100 === 0 ? 0 : 2;
+        var formatted = (abs / 100).toLocaleString("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: digits,
+          maximumFractionDigits: digits
+        });
+        return negative ? "−" + formatted : formatted;
+      }
+      function update() {
+        var hires = Math.max(0, Math.floor(Number(hiresInput.value)));
+        var salary = Math.max(0, Number(salaryInput.value));
+        if (!isFinite(hires)) hires = 0;
+        if (!isFinite(salary)) salary = 0;
+        var totalCents = Math.round(hires * salary * 100);
+        var fee22 = Math.round(totalCents * 22 / 100);
+        var fee15 = Math.round(totalCents * 15 / 100);
+        var savings = fee22 - fee15;
+        document.getElementById("calc-fee22").textContent = money(fee22);
+        document.getElementById("calc-fee15").textContent = money(fee15);
+        document.getElementById("calc-save").textContent = money(savings);
+        document.getElementById("calc-cost").textContent = money(membershipCents);
+        document.getElementById("calc-net").textContent = money(savings - membershipCents);
+      }
+      hiresInput.addEventListener("input", update);
+      salaryInput.addEventListener("input", update);
+      update();
+    })();
   </script>
 </body>
 </html>
