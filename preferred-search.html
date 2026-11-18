@@ -475,6 +475,384 @@
     footer.site .btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
     footer.site p { color: rgba(255,255,255,0.7); }
 
+
+    #how-it-works { scroll-margin-top: calc(var(--header-h) + 16px); }
+    #how-it-works .step h2 { font-size: clamp(1.35rem, 2.4vw, 1.75rem); }
+    .timeline {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      max-width: 920px;
+      margin: 8px auto 0;
+      counter-reset: step;
+    }
+    .step.wide { grid-template-columns: minmax(0, 1fr); }
+    .step {
+      display: grid;
+      grid-template-columns: 148px minmax(0, 1fr);
+      gap: 8px 22px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 22px 24px;
+      box-shadow: 0 8px 24px rgba(11, 42, 74, 0.04);
+      min-width: 0;
+    }
+    .step .body { min-width: 0; }
+    .when {
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding-top: 0.2rem;
+    }
+    .step .body p + p { margin-top: 0.75rem; }
+    .step .body p { font-size: 1.02rem; }
+    .step h2 { margin-bottom: 0.55rem; }
+
+    .scorecard, .questions {
+      margin: 0.9rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .scorecard li, .questions li {
+      background: var(--bg-soft);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--text);
+    }
+    .list-label {
+      margin-top: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .table-wrap {
+      margin-top: 1rem;
+      overflow-x: auto;
+      max-width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      font-size: 0.95rem;
+    }
+    caption {
+      caption-side: bottom;
+      text-align: left;
+      color: var(--muted);
+      padding: 10px 2px 0;
+      font-size: 0.92rem;
+    }
+    th {
+      text-align: left;
+      background: var(--blue-soft);
+      color: var(--navy);
+      font-weight: 700;
+      padding: 12px 12px;
+    }
+    td {
+      padding: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--text);
+      vertical-align: top;
+    }
+    td:first-child, td:nth-child(3) { white-space: nowrap; }
+    tr.meet td:first-child { box-shadow: inset 3px 0 0 var(--blue); }
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .scroll-hint { margin-top: 0.7rem; font-size: 0.92rem; }
+
+    .row-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      max-width: 9.6rem;
+    }
+    .li-icon, .li-text {
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+    }
+    .li-icon:hover, .li-text:hover { background: var(--blue-dark); color: var(--white); }
+    .li-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: inline-grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .li-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      border-radius: 8px;
+      border: 2px solid var(--blue);
+      padding: 0.65rem 0.95rem;
+    }
+    .li-text:hover { border-color: var(--blue-dark); }
+    .vid-badge, .invite-btn, .play-btn, .btn-outline {
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .vid-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--blue-soft);
+      color: var(--blue-dark);
+      border: 1px solid #C5DFF0;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 8px;
+      line-height: 1;
+    }
+    .no-video {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .invite-btn {
+      background: var(--blue);
+      color: var(--white);
+      border: 1px solid var(--blue);
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 8px;
+      line-height: 1.1;
+    }
+    .invite-btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+    .li-icon:focus-visible, .li-text:focus-visible, .vid-badge:focus-visible,
+    .invite-btn:focus-visible, .play-btn:focus-visible, .btn-outline:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 3px;
+    }
+
+    .profile {
+      margin-top: 1.35rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--bg-soft);
+      padding: 18px;
+    }
+    .profile-kicker {
+      display: inline-block;
+      background: var(--blue-soft);
+      color: var(--navy);
+      border: 1px solid #C5DFF0;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 12px;
+    }
+    .profile-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+      gap: 18px;
+      align-items: start;
+    }
+    .profile-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .profile-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .rank-badge, .score-badge {
+      display: inline-block;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 8px;
+    }
+    .rank-badge { background: var(--navy); color: var(--white); }
+    .score-badge { background: var(--blue-soft); color: var(--blue-dark); }
+    .profile h3 { font-size: 1.45rem; margin-bottom: 4px; }
+    .profile-meta { color: var(--text); font-weight: 600; margin-bottom: 12px; }
+    .player {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--navy);
+      min-height: 168px;
+    }
+    .player-art { display: block; width: 100%; height: auto; }
+    .play-btn {
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--white);
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 24px rgba(11, 42, 74, 0.28);
+    }
+    .player-time {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      margin: 0;
+      background: rgba(8, 31, 56, 0.78);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+    .profile h4 {
+      font-size: 1rem;
+      margin: 16px 0 8px;
+    }
+    .qa { display: grid; gap: 10px; }
+    .qa div {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .qa dt { color: var(--navy); font-weight: 700; }
+    .qa dd { margin: 4px 0 0; color: var(--text); }
+    .why {
+      margin: 0;
+      padding-left: 1.15rem;
+      color: var(--text);
+    }
+    .why li { margin: 6px 0; }
+    .resume {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .resume > li {
+      position: relative;
+      padding: 0 0 16px 20px;
+      border-left: 2px solid #C5DFF0;
+    }
+    .resume > li:last-child { border-left-color: transparent; padding-bottom: 0; }
+    .resume > li::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 3px var(--blue-soft);
+    }
+    .resume-when {
+      margin: 0;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .resume h5 {
+      margin: 2px 0;
+      color: var(--navy);
+      font-size: 1.02rem;
+      line-height: 1.3;
+    }
+    .resume-where {
+      margin: 0;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .resume-points {
+      margin: 6px 0 0;
+      padding-left: 1.1rem;
+      color: var(--text);
+    }
+    .resume-points li { margin: 3px 0; }
+    .still {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: var(--text);
+    }
+    .profile-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--white);
+      color: var(--navy);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.95rem 1.4rem;
+      line-height: 1;
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue-dark); }
+    .example-controls {
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
+    .paths {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 1rem;
+    }
+    .path {
+      background: var(--bg-soft);
+      border-radius: 12px;
+      padding: 14px 14px 16px;
+    }
+    .path h3 { margin-bottom: 0.4rem; }
+    .path p { font-size: 0.95rem; color: var(--text); }
+    .path.picked { background: var(--blue-soft); outline: 1px solid #C5DFF0; }
+    .picked-tag {
+      display: inline-block;
+      margin-bottom: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+    }
+
+
+    @media (max-width: 900px) {
+      #how-it-works .profile-top,
+      #how-it-works .paths { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      #how-it-works .step { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 18px 16px 20px; }
+      #how-it-works .profile-actions { flex-direction: column; }
+      #how-it-works .btn-outline,
+      #how-it-works .li-text { width: 100%; }
+    }
+
     @media (max-width: 900px) {
       :root { --header-h: 68px; }
       .logo img { height: 42px; }
@@ -616,7 +994,7 @@
       <div class="wrap">
         <div class="section-head center">
           <h2>Everything you get with Preferred Search</h2>
-          <p class="sample-link"><a href="/preferred-search/sample-search.html">See a sample search</a></p>
+          <p class="sample-link"><a href="#how-it-works">See a sample search</a></p>
         </div>
         <div class="stack">
           <div class="stack-group">
@@ -804,6 +1182,303 @@
       </div>
     </section>
 
+    <section id="how-it-works" aria-labelledby="how-heading">
+      <div class="wrap">
+        <div class="section-head center">
+          <h2 id="how-heading">How it works</h2>
+          <p class="measure">One example Senior Accountant search in metro Atlanta, from the first call to day one. The hiring manager, the company, and every candidate are illustrative. No real people or clients. Every candidate is invited to record a video intro. A video intro is included when they record one.</p>
+        </div>
+        <ol class="timeline">
+          <li class="step">
+            <p class="when">Day 1</p>
+            <div class="body">
+              <h2>You leave with a scorecard</h2>
+              <p>The intake call is about the seat, not a generic job post. You and the recruiter write what “good” means before anyone is invited: the close this person must own, the accounting they must already know, and what would take someone off the list.</p>
+              <p class="list-label">In this example, the scorecard says:</p>
+              <ul class="scorecard">
+                <li>Owns a full month-end close, not one corner of it.</li>
+                <li>Has closed the books in industry, on GAAP.</li>
+                <li>Will be on site in metro Atlanta on the hybrid days you set.</li>
+              </ul>
+              <p class="list-label">And the screening questions you wrote on the call:</p>
+              <ul class="questions">
+                <li>How many closes have you owned in the last year, and for how many entities?</li>
+                <li>Which accounting system did you close in?</li>
+                <li>Which weekdays can you be in a metro Atlanta office?</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="step">
+            <p class="when">Day 1</p>
+            <div class="body">
+              <h2>Your job meets a warm pipeline</h2>
+              <p>The same day, the role is posted and matched against people already in conversation with us about accounting work in metro Atlanta. You are not waiting on a cold post to fill itself. Anyone who already fits the scorecard is in the first pass.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <p class="when">All month</p>
+            <div class="body">
+              <h2>The right people get your questions</h2>
+              <p>Up to 300 candidates are invited to apply each month. Each invitation carries the screening questions from your scorecard, so an application comes back with answers, not a bare résumé.</p>
+              <p>Every candidate is invited to record a video intro. When someone records one, you can watch it before you decide who to meet. A video intro is an invitation. Some people on the list will not have one, and the search does not wait on it.</p>
+              <p>Invitations keep going after the first shortlist. That is how the bench for the next seat stays warm.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <p class="when">Days 2–5</p>
+            <div class="body">
+              <h2>You see answers before any meeting</h2>
+              <p>Screening answers are reviewed against the scorecard. A recruiter runs a phone screen with the people who fit. You are not on those first calls. By the time a name reaches you, the written answers and the phone screen are already done.</p>
+            </div>
+          </li>
+
+          <li class="step wide">
+            <p class="when">Day 6</p>
+            <div class="body">
+              <h2>Five ranked people, ready for you</h2>
+              <p>In this example the Fab Five is in your hands on day 6. Five people, ranked by fit to the scorecard you wrote on day 1. You spend your time on the top of the list. A video intro is included for a person who recorded one.</p>
+              <div class="table-wrap">
+                <table>
+                  <caption>Illustrative shortlist. First name and last initial only. Not real people. The blue mark is the three you meet in this example. Match scores are illustrative. A video intro shows only when that person recorded one. LinkedIn links and Invite to Apply are examples.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Location</th>
+                      <th scope="col" class="num">Years</th>
+                      <th scope="col" class="num">Match score</th>
+                      <th scope="col">What still needs screening</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="meet">
+                      <td>Maya R.</td>
+                      <td>Senior Accountant</td>
+                      <td>Atlanta, GA</td>
+                      <td class="num">7</td>
+                      <td class="num">94</td>
+                      <td>A reference from the person she closed the books with</td>
+                      <td>
+                        <div class="row-actions">
+                          <a class="li-icon" href="#" title="LinkedIn profile (example)" aria-label="LinkedIn profile (example)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.48 3.04 5.48 7V24h-4.56v-7.76c0-1.85-.03-4.23-2.58-4.23-2.58 0-2.98 2.01-2.98 4.09V24H8.34V8.5z"/></svg></a>
+                          <button type="button" class="vid-badge" title="Every candidate is invited to record a video intro"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5v14l11-7z"/></svg> Video intro</button>
+                          <button type="button" class="invite-btn" title="Example only">Invite to Apply</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="meet">
+                      <td>Jordan P.</td>
+                      <td>Senior Accountant</td>
+                      <td>Sandy Springs, GA</td>
+                      <td class="num">6</td>
+                      <td class="num">91</td>
+                      <td>Depth in your accounting system versus the scorecard</td>
+                      <td>
+                        <div class="row-actions">
+                          <a class="li-icon" href="#" title="LinkedIn profile (example)" aria-label="LinkedIn profile (example)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.48 3.04 5.48 7V24h-4.56v-7.76c0-1.85-.03-4.23-2.58-4.23-2.58 0-2.98 2.01-2.98 4.09V24H8.34V8.5z"/></svg></a>
+                          <button type="button" class="vid-badge" title="Every candidate is invited to record a video intro"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5v14l11-7z"/></svg> Video intro</button>
+                          <button type="button" class="invite-btn" title="Example only">Invite to Apply</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="meet">
+                      <td>Priya S.</td>
+                      <td>Senior Accountant</td>
+                      <td>Decatur, GA</td>
+                      <td class="num">8</td>
+                      <td class="num">88</td>
+                      <td>Whether her hybrid days match your in-office days</td>
+                      <td>
+                        <div class="row-actions">
+                          <a class="li-icon" href="#" title="LinkedIn profile (example)" aria-label="LinkedIn profile (example)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.48 3.04 5.48 7V24h-4.56v-7.76c0-1.85-.03-4.23-2.58-4.23-2.58 0-2.98 2.01-2.98 4.09V24H8.34V8.5z"/></svg></a>
+                          <button type="button" class="vid-badge" title="Every candidate is invited to record a video intro"><svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5v14l11-7z"/></svg> Video intro</button>
+                          <button type="button" class="invite-btn" title="Example only">Invite to Apply</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Chris L.</td>
+                      <td>Senior Accountant</td>
+                      <td>Marietta, GA</td>
+                      <td class="num">5</td>
+                      <td class="num">84</td>
+                      <td>Whether the close they have owned is the size of this seat</td>
+                      <td>
+                        <div class="row-actions">
+                          <a class="li-icon" href="#" title="LinkedIn profile (example)" aria-label="LinkedIn profile (example)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.48 3.04 5.48 7V24h-4.56v-7.76c0-1.85-.03-4.23-2.58-4.23-2.58 0-2.98 2.01-2.98 4.09V24H8.34V8.5z"/></svg></a>
+                          <span class="no-video">Not recorded</span>
+                          <button type="button" class="invite-btn" title="Example only">Invite to Apply</button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Elena K.</td>
+                      <td>Senior Accountant</td>
+                      <td>Alpharetta, GA</td>
+                      <td class="num">9</td>
+                      <td class="num">81</td>
+                      <td>Whether this scope is big enough for her</td>
+                      <td>
+                        <div class="row-actions">
+                          <a class="li-icon" href="#" title="LinkedIn profile (example)" aria-label="LinkedIn profile (example)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.48 3.04 5.48 7V24h-4.56v-7.76c0-1.85-.03-4.23-2.58-4.23-2.58 0-2.98 2.01-2.98 4.09V24H8.34V8.5z"/></svg></a>
+                          <span class="no-video">Not recorded</span>
+                          <button type="button" class="invite-btn" title="Example only">Invite to Apply</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="scroll-hint">On a phone, swipe the table sideways to see every column.</p>
+              <article class="profile" aria-labelledby="maya-profile">
+                <p class="profile-kicker">Example profile</p>
+                <div class="profile-top">
+                  <div class="profile-card">
+                    <div class="profile-badges">
+                      <span class="rank-badge">#1 of 5</span>
+                      <span class="score-badge">Match score 94</span>
+                    </div>
+                    <h3 id="maya-profile">Maya R.</h3>
+                    <p class="profile-meta">Senior Accountant · Atlanta, GA · 7 years</p>
+                    <a class="li-text" href="#" title="LinkedIn profile (example)"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.48 3.04 5.48 7V24h-4.56v-7.76c0-1.85-.03-4.23-2.58-4.23-2.58 0-2.98 2.01-2.98 4.09V24H8.34V8.5z"/></svg> LinkedIn</a>
+                    <p class="example-controls">Illustrative candidate. Not a real person. This link does not open a profile.</p>
+                  </div>
+                  <div class="player" role="img" aria-label="Example thumbnail for a 30 second video intro. No recording plays from this sample.">
+                    <svg class="player-art" viewBox="0 0 320 180" aria-hidden="true" focusable="false">
+                      <defs>
+                        <linearGradient id="maya-grad" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0" stop-color="#0B2A4A"/>
+                          <stop offset="1" stop-color="#1F86B9"/>
+                        </linearGradient>
+                      </defs>
+                      <rect width="320" height="180" fill="url(#maya-grad)"/>
+                      <circle cx="46" cy="36" r="54" fill="#ffffff" opacity="0.08"/>
+                      <circle cx="286" cy="150" r="72" fill="#ffffff" opacity="0.1"/>
+                      <circle cx="160" cy="74" r="36" fill="#E8F4FA"/>
+                      <text x="160" y="82" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="22" font-weight="700" fill="#0B2A4A">MR</text>
+                    </svg>
+                    <button type="button" class="play-btn" title="Every candidate is invited to record a video intro" aria-label="Example play button. This sample does not play a video intro."><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></button>
+                    <p class="player-time">0:30 video intro</p>
+                  </div>
+                </div>
+                <h4>Screening answers</h4>
+                <dl class="qa">
+                  <div>
+                    <dt>How many closes have you owned in the last year, and for how many entities?</dt>
+                    <dd>Twelve monthly closes, for one company and two smaller entities.</dd>
+                  </div>
+                  <div>
+                    <dt>Which accounting system did you close in?</dt>
+                    <dd>NetSuite. She owned the close from start to finish.</dd>
+                  </div>
+                  <div>
+                    <dt>Which weekdays can you be in a metro Atlanta office?</dt>
+                    <dd>Tuesday, Wednesday, and Thursday.</dd>
+                  </div>
+                </dl>
+                <h4>Why she ranks #1</h4>
+                <ul class="why">
+                  <li>She owns the full month-end close your scorecard asks for.</li>
+                  <li>Seven years as a Senior Accountant, already in Atlanta on a hybrid week.</li>
+                  <li>Her screening answers match, and she recorded a video intro you can watch before you meet.</li>
+                </ul>
+                <h4>Digital resume timeline</h4>
+                <ol class="resume">
+                  <li>
+                    <p class="resume-when">2022–present</p>
+                    <h5>Senior Accountant</h5>
+                    <p class="resume-where">Example Manufacturing Co., an illustrative mid-size Atlanta company</p>
+                    <ul class="resume-points">
+                      <li>Owns month-end close and finishes it in 5 days.</li>
+                      <li>Led the ASC 842 lease implementation.</li>
+                      <li>Closes one operating company and two smaller entities.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p class="resume-when">2019–2022</p>
+                    <h5>Staff Accountant</h5>
+                    <p class="resume-where">Example Regional CPA Firm, an illustrative metro Atlanta firm</p>
+                  </li>
+                  <li>
+                    <p class="resume-when">2019</p>
+                    <h5>B.S. Accounting</h5>
+                    <p class="resume-where">Georgia State University</p>
+                  </li>
+                  <li>
+                    <p class="resume-when">In progress</p>
+                    <h5>CPA eligible</h5>
+                    <p class="resume-where">Exam in progress</p>
+                  </li>
+                </ol>
+                <h4>What still needs screening</h4>
+                <p class="still">A reference from the person she closed the books with.</p>
+                <div class="profile-actions">
+                  <button type="button" class="btn" title="Example only">Invite to Apply</button>
+                  <button type="button" class="btn-outline" title="Example only">Request interview</button>
+                </div>
+                <p class="example-controls">Example controls. Nothing is sent.</p>
+              </article>
+            </div>
+          </li>
+
+          <li class="step">
+            <p class="when">Days 8–9</p>
+            <div class="body">
+              <h2>You meet only the top few</h2>
+              <p>You meet Maya R., Jordan P., and Priya S. Chris L. and Elena K. are not on your calendar. They stay visible, on the bench, in case a finalist drops out or the next seat opens.</p>
+              <p>Your meetings are about the work: a close they have owned, the system they used, and how they would spend the hybrid days. The first-round sorting already happened.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <p class="when">Day 11</p>
+            <div class="body">
+              <h2>You make the offer</h2>
+              <p>In this example you offer the seat to Maya R. We help you put the offer together. Jordan P. and Priya S. stay warm until she accepts, so a no does not send you back to the start.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <p class="when">Day 25</p>
+            <div class="body">
+              <h2>They start the way the seat needs</h2>
+              <p>You choose how day one works. In this example Maya starts Temp-to-Hire, so you can see a close before she converts to Direct Hire. Direct Hire and Payrolling are the other ways to start.</p>
+              <div class="paths">
+                <article class="path picked">
+                  <p class="picked-tag">This example</p>
+                  <h3>Temp-to-Hire</h3>
+                  <p>She starts on our payroll. You see the work. When you are sure, she converts to Direct Hire.</p>
+                </article>
+                <article class="path">
+                  <h3>Direct Hire</h3>
+                  <p>She joins your team from day one. Use this when you already know the seat and the person.</p>
+                </article>
+                <article class="path">
+                  <h3>Payrolling</h3>
+                  <p>We run payroll for the person, whether you found them or we did.</p>
+                </article>
+              </div>
+              <p>Before day one, Staff Financial runs a credit check and a criminal background check. Those checks are for people hired through Staff Financial.</p>
+            </div>
+          </li>
+
+          <li class="step">
+            <p class="when">After the start</p>
+            <div class="body">
+              <h2>The next seat is already warm</h2>
+              <p>Chris L., Elena K., and the people who were close but not on this Fab Five stay in touch. When the next accounting seat opens, you are not introducing yourself from zero. The scorecard, the answers, and the conversations are already there.</p>
+              <p>A second role does not have to wait. Preferred Search covers up to 3 active searches.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
     <section class="alt" id="faq">
       <div class="wrap">
         <div class="section-head center">
@@ -977,6 +1652,12 @@
         paint();
       });
       paint();
+    })();
+
+    (function () {
+      document.querySelectorAll('#how-it-works a[href="#"]').forEach(function (a) {
+        a.addEventListener("click", function (e) { e.preventDefault(); });
+      });
     })();
   </script>
 </body>
