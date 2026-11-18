@@ -56,6 +56,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.stafffinancial.com/preferred-search/sample-search.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.stafffinancial.com/partners.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
