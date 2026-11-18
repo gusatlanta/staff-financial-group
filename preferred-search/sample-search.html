@@ -481,6 +481,53 @@
       color: var(--text);
     }
     .why li { margin: 6px 0; }
+    .resume {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .resume > li {
+      position: relative;
+      padding: 0 0 16px 20px;
+      border-left: 2px solid #C5DFF0;
+    }
+    .resume > li:last-child { border-left-color: transparent; padding-bottom: 0; }
+    .resume > li::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 3px var(--blue-soft);
+    }
+    .resume-when {
+      margin: 0;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .resume h5 {
+      margin: 2px 0;
+      color: var(--navy);
+      font-size: 1.02rem;
+      line-height: 1.3;
+    }
+    .resume-where {
+      margin: 0;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .resume-points {
+      margin: 6px 0 0;
+      padding-left: 1.1rem;
+      color: var(--text);
+    }
+    .resume-points li { margin: 3px 0; }
     .still {
       background: var(--white);
       border: 1px solid var(--line);
@@ -993,6 +1040,34 @@
                   <li>Seven years as a Senior Accountant, already in Atlanta on a hybrid week.</li>
                   <li>Her screening answers match, and she recorded a video intro you can watch before you meet.</li>
                 </ul>
+                <h4>Digital resume timeline</h4>
+                <ol class="resume">
+                  <li>
+                    <p class="resume-when">2022–present</p>
+                    <h5>Senior Accountant</h5>
+                    <p class="resume-where">Example Manufacturing Co., an illustrative mid-size Atlanta company</p>
+                    <ul class="resume-points">
+                      <li>Owns month-end close and finishes it in 5 days.</li>
+                      <li>Led the ASC 842 lease implementation.</li>
+                      <li>Closes one operating company and two smaller entities.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <p class="resume-when">2019–2022</p>
+                    <h5>Staff Accountant</h5>
+                    <p class="resume-where">Example Regional CPA Firm, an illustrative metro Atlanta firm</p>
+                  </li>
+                  <li>
+                    <p class="resume-when">2019</p>
+                    <h5>B.S. Accounting</h5>
+                    <p class="resume-where">Georgia State University</p>
+                  </li>
+                  <li>
+                    <p class="resume-when">In progress</p>
+                    <h5>CPA eligible</h5>
+                    <p class="resume-where">Exam in progress</p>
+                  </li>
+                </ol>
                 <h4>What still needs screening</h4>
                 <p class="still">A reference from the person she closed the books with.</p>
                 <div class="profile-actions">

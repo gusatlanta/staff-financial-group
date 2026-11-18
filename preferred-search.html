@@ -606,6 +606,8 @@
       We handle the back office ........... 400
       Payrolling .......................... Included
       Try before you hire ................. Priceless
+      Duplicate unpriced rows removed: Try before you buy, payroll, background checks.
+      Those are covered in We save you time. They were not in the dollar total.
       Total (priced rows only) ............ 7000
       Your price .......................... 1000 /mo, or 10000 /year up front
       TODO: confirm count (2M vs 184,734) for "our candidate database"
@@ -741,35 +743,11 @@
             </span>
             <span class="stack-value" data-monthly="750">$750/mo</span>
           </div>
-          <div class="stack-row">
-            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <span>
-              <span class="stack-name">Try before you buy: start any finalist on Temp-to-Hire</span>
-              <span class="stack-note">They start as a temp. You hire when you are sure.</span>
-            </span>
-            <span class="stack-value">Priceless</span>
-          </div>
-          <div class="stack-row">
-            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <span>
-              <span class="stack-name">We payroll your new hires — whether you find them or we do</span>
-              <span class="stack-note">We run payroll if you find them, or if we do.</span>
-            </span>
-            <span class="stack-value">Included</span>
-          </div>
-          <div class="stack-row">
-            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <span>
-              <span class="stack-name">Credit and criminal background checks on people hired through us</span>
-              <span class="stack-note">A credit check and a criminal check for people hired through us.</span>
-            </span>
-            <span class="stack-value">Included</span>
-          </div>
           <div class="bonuses">
             <h3>Bonuses</h3>
             <ul>
               <li>No placement fee on hires you find yourself in Scout.</li>
-              <li>$700 of each month counts toward your Direct Hire fee (up to 25% of the fee).</li>
+              <li>Every Direct Hire is a 15% fee.</li>
               <li>60-day replacement guarantee on every Direct Hire.</li>
             </ul>
           </div>
@@ -788,7 +766,7 @@
     <section class="alt" id="save">
       <div class="wrap">
         <div class="section-head center">
-          <h2>How much you save</h2>
+          <h2>Typical fee vs our fee</h2>
         </div>
         <div class="save-card">
           <div class="save-field">
@@ -799,23 +777,6 @@
               <input id="salary" type="number" min="50000" max="300000" step="1000" value="100000" inputmode="numeric">
             </div>
           </div>
-          <div class="save-field">
-            <label for="months">Months in the program</label>
-            <select id="months">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option selected>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
-          </div>
           <dl>
             <div class="save-line">
               <dt>Typical agency fee (<span data-rate="typical">25%</span>)</dt>
@@ -825,18 +786,9 @@
               <dt>Preferred Search Direct Hire fee (<span data-rate="direct">15%</span>)</dt>
               <dd id="save-fee">$15,000</dd>
             </div>
-            <div class="save-line">
-              <dt>Your monthly credit</dt>
-              <dd id="save-credit">$3,750</dd>
-            </div>
-            <p class="save-note" id="save-credit-note">$700 times 6 months is $4,200. It cannot be more than 25% of the fee, so your credit is $3,750.</p>
-            <div class="save-line">
-              <dt>You pay</dt>
-              <dd id="save-pay">$11,250</dd>
-            </div>
           </dl>
-          <p class="save-big" id="save-banner">You save $13,750</p>
-          <p class="save-example">Worked example at $100,000 and 6 months. Typical agency fee (25%) is $25,000. Preferred Search Direct Hire fee (15%) is $15,000. Your monthly credit is $700 times 6 months, which is $4,200, capped at 25% of the 15% fee ($3,750), so the credit is $3,750. You pay $11,250. You save $13,750.</p>
+          <p class="save-big" id="save-banner">$25,000 vs $15,000</p>
+          <p class="save-example" id="save-example">On $100,000, a typical agency fee (25%) is $25,000. Our Direct Hire fee (15%) is $15,000.</p>
           <p class="save-zero">Hire on your own through Scout? $0 placement fee.</p>
           <a class="btn" href="#get-started">Get Started</a>
         </div>
@@ -847,7 +799,7 @@
       <div class="wrap">
         <div class="section-head center">
           <h2>Terms</h2>
-          <p class="measure">$1,000 a month on a 12-month commitment. Pay the year up front and get 2 months free: $10,000 instead of $12,000. No placement fee on hires you make on your own through Scout. A fee applies only to candidates we introduce, invite, or interview for you. A candidate is ours for 12 months from our first introduction or invite, even if they later apply on their own. Candidates already in your records before our introduction carry no fee. Direct Hire fee is 15%, and $700 of each month paid credits toward it, up to 25% of the fee. Every Direct Hire carries a 60-day replacement guarantee.</p>
+          <p class="measure">$1,000 a month on a 12-month commitment. Pay the year up front and get 2 months free: $10,000 instead of $12,000. No placement fee on hires you make on your own through Scout. A fee applies only to candidates we introduce, invite, or interview for you. A candidate is ours for 12 months from our first introduction or invite, even if they later apply on their own. Candidates already in your records before our introduction carry no fee. Every Direct Hire is a 15% fee, with a 60-day replacement guarantee.</p>
         </div>
       </div>
     </section>
@@ -864,7 +816,7 @@
           </details>
           <details class="faq-item">
             <summary>When does a placement fee apply?</summary>
-            <p>Only when we introduce the candidate, invite them to apply, or run the interviews. The fee is 15%, $700 of each month paid credits toward it (up to 25% of the fee), and every Direct Hire has a 60-day replacement guarantee.</p>
+            <p>Only when we introduce the candidate, invite them to apply, or run the interviews. Every Direct Hire is a 15% fee, with a 60-day replacement guarantee.</p>
           </details>
           <details class="faq-item">
             <summary>What if a candidate we introduced applies to you directly later?</summary>
@@ -963,14 +915,11 @@
     (function () {
       var SAVE = {
         typicalAgencyFeeRate: 0.25,
-        directHireFeeRate: 0.15,
-        monthlyCredit: 700,
-        creditCapOfFee: 0.25
+        directHireFeeRate: 0.15
       };
       var salaryInput = document.getElementById("salary");
       var salaryRange = document.getElementById("salary-range");
-      var monthsInput = document.getElementById("months");
-      if (!salaryInput || !salaryRange || !monthsInput) return;
+      if (!salaryInput || !salaryRange) return;
 
       function money(n) {
         return "$" + Math.round(n).toLocaleString("en-US");
@@ -987,27 +936,19 @@
       }
       function paint() {
         var salary = clampSalary(Number(salaryInput.value));
-        var months = Number(monthsInput.value) || 6;
         var typical = salary * SAVE.typicalAgencyFeeRate;
         var fee = salary * SAVE.directHireFeeRate;
-        var raw = SAVE.monthlyCredit * months;
-        var cap = SAVE.creditCapOfFee * fee;
-        var credit = Math.min(raw, cap);
-        var pay = fee - credit;
-        var save = typical - pay;
         if (document.activeElement !== salaryInput) salaryInput.value = String(salary);
         salaryRange.value = String(salary);
         document.getElementById("save-typical").textContent = money(typical);
         document.getElementById("save-fee").textContent = money(fee);
-        document.getElementById("save-credit").textContent = money(credit);
-        document.getElementById("save-pay").textContent = money(pay);
-        document.getElementById("save-banner").textContent = "You save " + money(save);
+        document.getElementById("save-banner").textContent = money(typical) + " vs " + money(fee);
         var readout = document.getElementById("salary-readout");
         if (readout) readout.textContent = money(salary);
-        document.getElementById("save-credit-note").textContent =
-          money(SAVE.monthlyCredit) + " times " + months + (months === 1 ? " month is " : " months is ") +
-          money(raw) + ". It cannot be more than " + pct(SAVE.creditCapOfFee) +
-          " of the fee, so your credit is " + money(credit) + ".";
+        var example = document.getElementById("save-example");
+        if (example) {
+          example.textContent = "On " + money(salary) + ", a typical agency fee (" + pct(SAVE.typicalAgencyFeeRate) + ") is " + money(typical) + ". Our Direct Hire fee (" + pct(SAVE.directHireFeeRate) + ") is " + money(fee) + ".";
+        }
         document.querySelectorAll("[data-rate='typical']").forEach(function (el) {
           el.textContent = pct(SAVE.typicalAgencyFeeRate);
         });
@@ -1035,7 +976,6 @@
         salaryInput.value = String(clampSalary(Number(salaryInput.value)));
         paint();
       });
-      monthsInput.addEventListener("change", paint);
       paint();
     })();
   </script>
