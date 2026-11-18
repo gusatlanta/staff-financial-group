@@ -302,6 +302,12 @@
     .stack-check svg { width: 16px; height: 16px; display: block; }
     .stack-name { display: block; color: var(--navy); font-weight: 700; line-height: 1.35; }
     .stack-note { display: block; color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
+    .stack-group {
+      padding: 16px 14px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+    .stack-group h3 { font-size: 1.35rem; margin-bottom: 4px; }
+    .stack-group p { color: var(--text); font-size: 1.02rem; }
     .stack-value {
       color: var(--blue);
       font-weight: 700;
@@ -593,7 +599,14 @@
       Fab Five shortlist .................. 1000
       Auto-matching ....................... 300
       Standing bench ...................... 750
-      Total (priced rows only) ............ 5100
+      Free job postings + auto-scoring .... 400
+      AI matching ......................... 400
+      Branded LinkedIn sharing cards ...... 200
+      Auto Invite to Apply ................ 500
+      We handle the back office ........... 400
+      Payrolling .......................... Included
+      Try before you hire ................. Priceless
+      Total (priced rows only) ............ 7000
       Your price .......................... 1000 /mo, or 10000 /year up front
       TODO: confirm count (2M vs 184,734) for "our candidate database"
     -->
@@ -604,6 +617,66 @@
           <p class="sample-link"><a href="/preferred-search/sample-search.html">See a sample search</a></p>
         </div>
         <div class="stack">
+          <div class="stack-group">
+            <h3>We save you time</h3>
+            <p>We take the busywork off your recruiting team.</p>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Free job postings with auto-scoring</span>
+              <span class="stack-note">Every applicant is scored against your scorecard automatically.</span>
+            </span>
+            <span class="stack-value" data-monthly="400">$400/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">AI matching</span>
+              <span class="stack-note">We match your open roles against our warm pipeline.</span>
+            </span>
+            <span class="stack-value" data-monthly="400">$400/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Branded LinkedIn sharing cards</span>
+              <span class="stack-note">Share every job on LinkedIn with your own branded card.</span>
+            </span>
+            <span class="stack-value" data-monthly="200">$200/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Auto Invite to Apply</span>
+              <span class="stack-note">Matched candidates are invited to apply automatically, and every candidate is invited to record a video intro.</span>
+            </span>
+            <span class="stack-value" data-monthly="500">$500/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">We handle the back office</span>
+              <span class="stack-note">Onboarding paperwork, billing, and credit and criminal background checks on people hired through Staff Financial.</span>
+            </span>
+            <span class="stack-value" data-monthly="400">$400/mo</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Payrolling</span>
+              <span class="stack-note">Found someone yourself? We'll put them on our payroll, handling onboarding, payroll taxes, and billing, whether we found them or you did.</span>
+            </span>
+            <span class="stack-value">Included</span>
+          </div>
+          <div class="stack-row">
+            <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span>
+              <span class="stack-name">Try before you hire</span>
+              <span class="stack-note">Start with Temp-to-Hire, see the person do the work on your team, then hire them when you're sure.</span>
+            </span>
+            <span class="stack-value">Priceless</span>
+          </div>
           <div class="stack-row">
             <span class="stack-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
             <span>
@@ -702,7 +775,7 @@
           </div>
           <div class="price-block">
             <p class="was-label">Total value</p>
-            <p class="was"><s data-total>$5,100/mo</s></p>
+            <p class="was"><s data-total>$7,000/mo</s></p>
             <p class="now-label">Your price</p>
             <p class="now">$1,000/mo</p>
             <p class="year">or $10,000/year paid up front (2 months free).</p>
