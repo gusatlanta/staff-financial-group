@@ -49,6 +49,7 @@ window.switchMegaTab = function (tab, btn) {
   document.querySelectorAll('form[data-form]').forEach(function (form) {
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+      if (window.HumanCheck && HumanCheck.blocked(form)) return;
       var btn = form.querySelector('button[type="submit"]');
       var successEl = form.querySelector('.alert-success');
       var orig = btn ? btn.textContent : '';
@@ -78,9 +79,15 @@ window.switchMegaTab = function (tab, btn) {
             employer_company: d.company || '',
             inquiry_type:     form.dataset.form,
             notes:            notes,
+            hp_website:       d.hp_website || '',
+            cf_turnstile_response: window.HumanCheck ? HumanCheck.token(form) : '',
           }),
         });
         var json = await res.json().catch(function () { return {}; });
+        if (window.HumanCheck && HumanCheck.refused(form, json)) {
+          if (btn) { btn.disabled = false; btn.textContent = orig; }
+          return;
+        }
         if (json.ok) {
           form.reset();
           if (successEl) successEl.style.display = 'block';

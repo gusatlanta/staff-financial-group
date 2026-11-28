@@ -735,7 +735,7 @@
         <p class="eyebrow">Let’s build your busy season team</p>
         <h2>Don’t wait until February to start interviewing.</h2>
         <p>Tell us the tax roles you need. We’ll come back with a shortlist of five vetted candidates — Direct Hire or Contract, US-based or international.</p>
-        <form class="optin" id="optinForm" novalidate>
+        <form class="optin" id="optinForm" data-human-check novalidate>
           <div id="optinFields">
             <div class="optin-picked" id="optinPicked">
               <p class="res-k">Résumés you’re requesting</p>
@@ -796,6 +796,7 @@
     </div>
   </footer>
 
+  <script src="js/human-check.js"></script>
   <script>
   /* BUSY_OPTIN_v1 (Gus 11-15): opt-in form, "tell us what you need" search over blinded tax résumés,
      Request résumé, and tax pros scrolling across the bottom bar. Feeds from 100xrecruiting.com. */
@@ -944,6 +945,7 @@
       if (!v("o_name") || !v("o_company") || !v("o_email")) return fail("Please add your name, firm, and work email.");
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v("o_email"))) return fail("Please enter a valid email address.");
       err.style.display = "none";
+      if (window.HumanCheck && HumanCheck.blocked($("optinForm"))) return;
       var notes = [
         "Busy season tax hiring",
         v("o_role") ? "Role: " + v("o_role") : "",
@@ -965,9 +967,14 @@
           phone: v("o_phone"),
           notes: notes, message: notes,
           inquiry_type: picked.length ? "busy_season_resume_request" : "busy_season_tax",
-          hp_website: v("o_web")
+          hp_website: v("o_web"),
+          cf_turnstile_response: window.HumanCheck ? HumanCheck.token($("optinForm")) : ""
         })
       }).then(function (r) { return r.json(); }).then(function (j) {
+        if (window.HumanCheck && HumanCheck.refused($("optinForm"), j)) {
+          btn.disabled = false; btn.textContent = orig;
+          return;
+        }
         if (!j || !j.ok) throw new Error("not ok");
         $("optinFields").style.display = "none";
         $("optinDone").style.display = "block";

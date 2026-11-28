@@ -291,7 +291,7 @@ document.getElementById('navToggle').addEventListener('click',function(){documen
         <h3 style="margin-bottom:4px;">Request Finance Talent</h3>
         <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:24px;">No commitment required — let's see if we can help.</p>
 
-        <form data-form="talent-request" action="mailto:gus@stafffinancial.com" method="POST" enctype="text/plain" novalidate>
+        <form data-human-check data-form="talent-request" action="mailto:gus@stafffinancial.com" method="POST" enctype="text/plain" novalidate>
 
           <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px;">About You</div>
           <div class="form-row">
@@ -441,6 +441,7 @@ document.getElementById('navToggle').addEventListener('click',function(){documen
   </div>
 </footer>
 
+<script src="js/human-check.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

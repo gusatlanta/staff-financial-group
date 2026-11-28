@@ -694,7 +694,7 @@
           <p>Auto-scoring, a salary benchmark, and the free community are included. When you find someone yourself, we can payroll them through our back office.</p>
           <p class="fine">Tell us the role. Our team will be in touch.</p>
         </div>
-        <form class="start-form" data-form="hiresmart" action="#get-started" method="post">
+        <form class="start-form" data-human-check data-form="hiresmart" action="#get-started" method="post">
           <div class="form-fields">
             <h2>Start for Free</h2>
             <p>Tell us the role. Our team will be in touch.</p>
@@ -1381,7 +1381,7 @@
             <p class="fine"><a class="text-link" href="#how-it-works" style="color:#C9E6F5;">See a sample search</a></p>
             <p class="disclaimer">12-month membership at $995 per month. Qualifying self-hire requirements apply, including to eligible LinkedIn Chrome extension-sourced applicants. The 15% member fee is subject to placement agreements. Temp, payroll, and employer-of-record services are separately priced. Candidate responses, hiring outcomes, and start dates are not guaranteed. Savings illustrations exclude other recruiting costs.</p>
           </div>
-          <form class="start-form" data-form="hiresmart" action="#close" method="post">
+          <form class="start-form" data-human-check data-form="hiresmart" action="#close" method="post">
             <div class="form-fields">
               <h2>Start for Free</h2>
               <p>Tell us the role. Our team will be in touch.</p>
@@ -1413,10 +1413,12 @@
       <a class="btn" href="#get-started">Start for Free</a>
     </div>
   </footer>
+  <script src="js/human-check.js"></script>
   <script>
     document.querySelectorAll('form[data-form="hiresmart"]').forEach(function (node) {
       node.addEventListener("submit", function (e) {
         e.preventDefault();
+        if (window.HumanCheck && HumanCheck.blocked(node)) return;
         var btn = node.querySelector('button[type="submit"]');
         var fields = node.querySelector(".form-fields");
         var done = node.querySelector(".alert-success");
@@ -1445,9 +1447,14 @@
             inquiry_type: "hiresmart",
             notes: notes,
             message: notes,
-            hp_website: d.hp_website || ""
+            hp_website: d.hp_website || "",
+            cf_turnstile_response: window.HumanCheck ? HumanCheck.token(node) : ""
           })
         }).then(function (r) { return r.json(); }).then(function (json) {
+          if (window.HumanCheck && HumanCheck.refused(node, json)) {
+            if (btn) { btn.disabled = false; btn.textContent = orig; }
+            return;
+          }
           if (!json || !json.ok) throw new Error("not ok");
           node.reset();
           if (fields) fields.hidden = true;

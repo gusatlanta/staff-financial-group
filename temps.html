@@ -577,6 +577,7 @@ document.getElementById('navToggle').addEventListener('click',function(){documen
   </div>
 </footer>
 
+<script src="js/human-check.js"></script>
 <script src="js/main.js"></script>
 <script>
 /* ── Talent page logic ──────────────────────── */
@@ -727,6 +728,7 @@ function openModal(cand, reqType) {
   document.getElementById('req-type').value = reqType;
   document.getElementById('request-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
+  if (window.HumanCheck) HumanCheck.attach(document.getElementById('request-form'));
 }
 
 function closeModal() {
@@ -745,6 +747,7 @@ document.addEventListener('keydown', function(e) {
 /* ─── Form submit ────────────── */
 document.getElementById('request-form').addEventListener('submit', async function(e) {
   e.preventDefault();
+  if (window.HumanCheck && HumanCheck.blocked(this)) return;
   const btn = document.getElementById('req-submit-btn');
   const successEl = document.getElementById('req-success');
   const errorEl   = document.getElementById('req-error');
@@ -759,6 +762,8 @@ document.getElementById('request-form').addEventListener('submit', async functio
     employer_email:  document.getElementById('req-email').value.trim(),
     employer_company:document.getElementById('req-company').value.trim(),
     notes:           document.getElementById('req-notes').value.trim(),
+    hp_website:      (this.querySelector('input[name="hp_website"]') || {}).value || '',
+    cf_turnstile_response: window.HumanCheck ? HumanCheck.token(this) : '',
   };
 
   if (!data.employer_email) {
@@ -775,6 +780,10 @@ document.getElementById('request-form').addEventListener('submit', async functio
       body: JSON.stringify(data),
     });
     const json = await res.json();
+    if (window.HumanCheck && HumanCheck.refused(this, json)) {
+      btn.disabled = false; btn.textContent = 'Submit Request';
+      return;
+    }
     if (json.ok) {
       successEl.style.display = 'block';
       this.reset();

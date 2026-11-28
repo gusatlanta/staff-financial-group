@@ -978,6 +978,7 @@
   </div>
 </footer>
 
+<script src="js/human-check.js"></script>
 <script>
 const API = "https://100xrecruiting.com/api/public/candidates/search";
 const INQUIRY_API = "https://100xrecruiting.com/api/public/inquiry";
@@ -1302,6 +1303,7 @@ function openModal(candId, candTitle) {
   document.getElementById("modalSuccess").style.display = "none";
   document.getElementById("modalSubmit").disabled = false;
   document.getElementById("modalBackdrop").classList.add("open");
+  if (window.HumanCheck) HumanCheck.attach(document.getElementById("modalForm"), { before: document.getElementById("modalSubmit") });
 }
 function closeModal() {
   document.getElementById("modalBackdrop").classList.remove("open");
@@ -1356,6 +1358,8 @@ function submitInquiry() {
     errEl.style.display = "block"; return;
   }
   errEl.style.display = "none";
+  const form = document.getElementById("modalForm");
+  if (window.HumanCheck && HumanCheck.blocked(form)) return;
   const btn = document.getElementById("modalSubmit");
   btn.disabled = true;
   btn.textContent = "Sending…";
@@ -1374,10 +1378,16 @@ function submitInquiry() {
       notes:  msg || `Interested in candidate: ${_activeCandTitle}`,
       message: msg || `Interested in candidate: ${_activeCandTitle}`,
       inquiry_type: "candidate_inquiry",
+      hp_website: (form.querySelector('input[name="hp_website"]') || {}).value || "",
+      cf_turnstile_response: window.HumanCheck ? HumanCheck.token(form) : "",
     }),
   })
   .then(r => r.json())
   .then(data => {
+    if (window.HumanCheck && HumanCheck.refused(form, data)) {
+      btn.disabled = false; btn.textContent = "Send Request →";
+      return;
+    }
     if (data.ok) {
       document.getElementById("modalForm").style.display = "none";
       document.getElementById("modalSuccess").style.display = "block";
